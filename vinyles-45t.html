@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <title>45 Tours (Singles & Maxis) - Careful With That Floyd</title>
+
+    <style>
+        /* Style pour l'en-tête avec image de fond */
+        .category-header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Label singles.jpg'); /* Remplace par ton image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 60px 20px;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .category-header h1,
+        .category-header p {
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .portfolio-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .portfolio-grid .project-card {
+            width: 100%;
+            max-width: 360px;
+            box-sizing: border-box;
+        }
+
+        .section-separator {
+            width: 100%;
+            text-align: center;
+            margin: 30px 0 20px 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .section-separator h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            display: inline-block;
+            padding: 0 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+
+        .section-separator::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 5%;
+            right: 5%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo-link">
+            <img src="Careful With That Floyd.png" alt="Careful With That Floyd" class="logo-img">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html" class="nav-btn">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="category-header">
+        <h1>45 Tours (Singles & Maxis)</h1>
+        <p>Cliquez sur un pressage pour afficher la galerie photos et les détails techniques</p>
+    </header>
+
+    <main class="portfolio-section">
+
+        <!-- ================= SECTION SINGLES 7" ================= -->
+        <div class="section-separator">
+            <h2>Singles 7"</h2>
+        </div>
+
+        <div class="portfolio-grid">
+            
+            <!-- Carte 1 : Money -->
+            <div class="project-card item-card" onclick="openModal('money-fr-og')">
+                <div class="project-image" style="background-image: url('Piper 2016 Front.jpg');"></div>
+                <div class="project-info">
+                    <span class="project-tag">FRANCE • 1973</span>
+                    <h3>Money / Any Colour You Like</h3>
+                    <p>Harvest – 2C 006-05368 (Original, Flipback)</p>
+                    <span class="category-link">Voir la fiche & photos →</span>
+                </div>
+            </div>
+
+            <!-- Carte 2 : Another Brick in the Wall (Part II) -->
+            <div class="project-card item-card" onclick="openModal('brick-2-fr-og')">
+                <div class="project-image" style="background-image: url('ASOS UK 1970 Front.jpg');"></div>
+                <div class="project-info">
+                    <span class="project-tag">FRANCE • 1979</span>
+                    <h3>Another Brick in the Wall (Part II) / One of My Turns </h3>
+                    <p>Harvest – 2C 008-63494</p>
+                    <span class="category-link">Voir la fiche & photos →</span>
+                </div>
+            </div>
+			
+			<!-- Carte 3 : Run Like Hell -->
+            <div class="project-card item-card" onclick="openModal('run-fr-og')">
+                <div class="project-image" style="background-image: url('ASOS UK 1970 Front.jpg');"></div>
+                <div class="project-info">
+                    <span class="project-tag">FRANCE • 1980</span>
+                    <h3>Run Like Hell / Don't Leave Me Now </h3>
+                    <p>Harvest – 2C 008-63833</p>
+                    <span class="category-link">Voir la fiche & photos →</span>
+                </div>
+            </div>
+			
+			<!-- Carte 4 : Hey Hey Rise Up -->
+            <div class="project-card item-card" onclick="openModal('hey-eu-og')">
+                <div class="project-image" style="background-image: url('ASOS UK 1970 Front.jpg');"></div>
+                <div class="project-info">
+                    <span class="project-tag">EUROPE • 2022</span>
+                    <h3>Hey Hey Rise Up / A Great Day for Freedom 2022 </h3>
+                    <p>Pink Floyd Records – PFRS40/7 / 5054197152047</p>
+                    <span class="category-link">Voir la fiche & photos →</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ================= SECTION MAXI 12" ================= -->
+        <div class="section-separator">
+            <h2>Maxi Singles 12"</h2>
+        </div>
+
+                <!-- ================= SECTION ALBUMS SOLO ================= -->
+        <div class="section-separator">
+            <h2>Singles Solo</h2>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="collection-format-vinyles.html" class="btn-back">← Retour aux vinyles</a>
+        </div>
+    </main>
+
+    <!-- ==================== FENÊTRE MODALE DÉTAILS & GALERIE ==================== -->
+    <div id="itemModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            
+            <div class="modal-body">
+                <!-- Colonne Gauche : Galerie Photos -->
+                <div class="modal-gallery">
+                    <div class="main-photo-container">
+                        <img id="modalMainImg" src="" alt="Photo principale">
+                        <button class="nav-arrow prev-btn" onclick="changePhoto(-1)">&#10094;</button>
+                        <button class="nav-arrow next-btn" onclick="changePhoto(1)">&#10095;</button>
+                    </div>
+                    <div class="thumbnails-grid" id="modalThumbnails">
+                        <!-- Les vignettes s'affichent ici -->
+                    </div>
+                </div>
+
+                <!-- Colonne Droite : Fiche Technique & Détails -->
+                <div class="modal-details">
+                    <span id="modalTag" class="project-tag"></span>
+                    <h2 id="modalTitle"></h2>
+                    <h3 id="modalSub"></h3>
+
+                    <table class="details-table">
+                        <tr><th>Artiste :</th><td id="modalArtist"></td></tr>
+                        <tr><th>Album / Titre :</th><td id="modalAlbum"></td></tr>
+                        <tr><th>Pays :</th><td id="modalCountry"></td></tr>
+                        <tr><th>Année :</th><td id="modalYear"></td></tr>
+                        <tr><th>Label :</th><td id="modalLabel"></td></tr>
+                        <tr><th>N° Catalogue :</th><td id="modalRef"></td></tr>
+                        <tr><th>Matrice (Matrix) :</th><td id="modalMatrix"></td></tr>
+                        <tr><th>État Vinyle / Pochette :</th><td id="modalGrading"></td></tr>
+                    </table>
+
+                    <div class="modal-description">
+                        <h4>Notes & Particularités :</h4>
+                        <p id="modalNotes"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== BASE DE DONNÉES ET SCRIPTS ==================== -->
+    <script>
+        const collectionData = {
+            'money-fr-og': {
+                title: "Money / Any Colour You Like",
+                tag: "FRANCE • 1973",
+                artist: "Pink Floyd",
+                album: "Money / Any Colour You Like",
+                country: "France",
+                year: "1973",
+                label: "Harvest",
+                ref: "2C 006-05368",
+                matrix: "7XCA 27877-1 / 7XCA 27878-1",
+                grading: "VG+ / VG+",
+                notes: "Pressage originale. Pochette à rabats.",
+                photos: [
+                    "Piper 2016 Front.jpg",
+                    "Piper 2016 Back.jpg"
+                ]
+            },
+            'brick-2-fr-og': {
+                title: "Another Brick in the Wall (Part II) / One of My Turns",
+                tag: "FRANCE • 1979",
+                artist: "Pink Floyd",
+                album: "Another Brick in the Wall (Part II) / One of My Turns",
+                country: "France",
+                year: "1979",
+                label: "Harvest",
+                ref: "2C 008-63494",
+                matrix: "63494 A 3 - M3 330606 I / 63467 B 3 I B 63494 B1 - M3 330469 I",
+                grading: "VG+ / VG+",
+                notes: "Pressage original. Label argenté.",
+                photos: [
+                    "ASOS UK 1970 Front.jpg",
+                    "ASOS UK 1970 Back.jpg"
+                ]
+            },
+            'run-fr-og': {
+                title: "Run Like Hell / Don't Leave Me Now",
+                tag: "FRANCE • 1980",
+                artist: "Pink Floyd",
+                album: "Run Like Hell / Don't Leave Me Now",
+                country: "France",
+                year: "1980",
+                label: "Harvest",
+                ref: "2C 008-63833",
+                matrix: "M3 332 825 1 TML-S 63833 A 2 / 63 833 A 2 M3 332 825 1 TML-S",
+                grading: "VG+ / BG+",
+                notes: "Pressage original. Label argenté.",
+                photos: [
+                    "Piper 2016 Front.jpg"
+                ]
+            },
+            'hey-eu-og': {
+                title: "Hey Hey Rise Up / A Great Day for Freedom 2022",
+                tag: "EUROPE • 2015",
+                artist: "Pink Floyd featuring Andriy Khlyvnyuk",
+                album: "Hey Hey Rise Up / A Great Day for Freedom 2022",
+                country: "Europe",
+                year: "2022",
+                label: "Pink Floyd Records",
+                ref: "PFRS40/7 / 5054197152047",
+                matrix: "BF01234-01 A1 / BF01234-01 B1",
+                grading: "M / M",
+                notes: "Pressage original. Fourni avec une sous-pochette en die-cut aux couleurs de l'Ukraine.",
+                photos: [
+                    "ASOS EU 2022 Front.jpg"
+                ]
+            }
+        };
+
+        let currentPhotos = [];
+        let currentPhotoIndex = 0;
+
+        function openModal(itemId) {
+            const data = collectionData[itemId];
+            if (!data) return;
+
+            document.getElementById('modalTitle').innerText = data.title;
+            document.getElementById('modalTag').innerText = data.tag;
+            document.getElementById('modalArtist').innerText = data.artist || "Pink Floyd";
+            document.getElementById('modalAlbum').innerText = data.album;
+            document.getElementById('modalCountry').innerText = data.country;
+            document.getElementById('modalYear').innerText = data.year;
+            document.getElementById('modalLabel').innerText = data.label;
+            document.getElementById('modalRef').innerText = data.ref;
+            document.getElementById('modalMatrix').innerText = data.matrix;
+            document.getElementById('modalGrading').innerText = data.grading;
+            document.getElementById('modalNotes').innerText = data.notes;
+
+            currentPhotos = data.photos;
+            currentPhotoIndex = 0;
+            updatePhotoDisplay();
+
+            const thumbContainer = document.getElementById('modalThumbnails');
+            thumbContainer.innerHTML = '';
+            currentPhotos.forEach((src, idx) => {
+                const img = document.createElement('img');
+                img.src = src;
+                img.className = 'thumb-img' + (idx === 0 ? ' active' : '');
+                img.onclick = () => setPhoto(idx);
+                thumbContainer.appendChild(img);
+            });
+
+            document.getElementById('itemModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('itemModal').style.display = 'none';
+        }
+
+        function updatePhotoDisplay() {
+            document.getElementById('modalMainImg').src = currentPhotos[currentPhotoIndex];
+            const thumbs = document.querySelectorAll('.thumb-img');
+            thumbs.forEach((t, i) => {
+                t.classList.toggle('active', i === currentPhotoIndex);
+            });
+        }
+
+        function setPhoto(index) {
+            currentPhotoIndex = index;
+            updatePhotoDisplay();
+        }
+
+        function changePhoto(direction) {
+            currentPhotoIndex += direction;
+            if (currentPhotoIndex < 0) currentPhotoIndex = currentPhotos.length - 1;
+            if (currentPhotoIndex >= currentPhotos.length) currentPhotoIndex = 0;
+            updatePhotoDisplay();
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('itemModal');
+            if (event.target == modal) closeModal();
+        }
+    </script>
+</body>
+</html>

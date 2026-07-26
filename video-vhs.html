@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+	
+    <title>VHS & Betamax - Careful With That Floyd</title>
+
+    <style>
+	/* Style pour l'en-tête de catégorie */
+        .category-header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Video VHS.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 60px 20px;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .category-header h1,
+        .category-header p {
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+        }
+		
+        .portfolio-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .portfolio-grid .project-card {
+            width: 100%;
+            max-width: 360px;
+            box-sizing: border-box;
+        }
+
+        /* Style pour les séparateurs de section */
+        .section-separator {
+            width: 100%;
+            text-align: center;
+            margin: 30px 0 20px 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .section-separator h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            display: inline-block;
+            padding: 0 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+
+        .section-separator::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 5%;
+            right: 5%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo-link">
+            <img src="Careful With That Floyd.png" alt="Careful With That Floyd" class="logo-img">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html" class="nav-btn">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="category-header">
+        <h1>VHS & Betamax</h1>
+        <p>Cliquez sur une cassette vidéo pour afficher la galerie photos et les détails techniques</p>
+    </header>
+
+    <main class="portfolio-section">
+
+        <!-- SECTION CONCERTS & FILMS -->
+        <div class="section-separator">
+            <h2>Concerts & Films</h2>
+        </div>
+
+        <div class="portfolio-grid">
+            
+            <!-- Carte 1 : Live at Pompeii VHS FR 1989 -->
+            <div class="project-card item-card" onclick="openModal('pompeii-vhs-fr-1989')">
+                <div class="project-image" style="background-image: url('Pompeii VHS Front.jpg');"></div>
+                <div class="project-info">
+                    <span class="project-tag">FRANCE • 1989</span>
+                    <h3>Live at Pompeii</h3>
+                    <p>PolyGram Music Vidéo – SECAM - 041 641-2 (Deuxième édition)</p>
+                    <span class="category-link">Voir la fiche & photos →</span>
+                </div>
+            </div>
+
+            <!-- Carte 2 : P.U.L.S.E. VHS EU 1995 -->
+            <div class="project-card item-card" onclick="openModal('pulse-vhs-eu-1995')">
+                <div class="project-image" style="background-image: url('Wall Film VHS Front.jpg');"></div>
+                <div class="project-info">
+                    <span class="project-tag">EUROPE • 1995</span>
+                    <h3>P.U.L.S.E</h3>
+                    <p>Picture Music International – PAL, Stereo - MVD 4914363 / 7243 4 91436 3 0 (Originale)</p>
+                    <span class="category-link">Voir la fiche & photos →</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SECTION DOCUMENTAIRES & COMPILATIONS -->
+        <div class="section-separator">
+            <h2>Documentaires & Clips</h2>
+        </div>
+
+        <!-- SECTION SOLO -->
+        <div class="section-separator">
+            <h2>Projets Solo</h2>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="collection-format-video.html" class="btn-back">← Retour aux supports vidéo</a>
+        </div>
+    </main>
+
+    <!-- FENÊTRE MODALE DÉTAILS & GALERIE -->
+    <div id="itemModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            
+            <div class="modal-body">
+                <!-- Galerie Photos -->
+                <div class="modal-gallery">
+                    <div class="main-photo-container">
+                        <img id="modalMainImg" src="" alt="Photo principale">
+                        <button class="nav-arrow prev-btn" onclick="changePhoto(-1)">&#10094;</button>
+                        <button class="nav-arrow next-btn" onclick="changePhoto(1)">&#10095;</button>
+                    </div>
+                    <div class="thumbnails-grid" id="modalThumbnails"></div>
+                </div>
+
+                <!-- Fiche Technique -->
+                <div class="modal-details">
+                    <span id="modalTag" class="project-tag"></span>
+                    <h2 id="modalTitle"></h2>
+                    <h3 id="modalSub"></h3>
+
+                    <table class="details-table">
+                        <tr><th>Artiste :</th><td id="modalArtist"></td></tr>
+                        <tr><th>Titre :</th><td id="modalAlbum"></td></tr>
+                        <tr><th>Pays :</th><td id="modalCountry"></td></tr>
+                        <tr><th>Année :</th><td id="modalYear"></td></tr>
+                        <tr><th>Éditeur / Label :</th><td id="modalLabel"></td></tr>
+                        <tr><th>N° Catalogue :</th><td id="modalRef"></td></tr>
+                        <tr><th>Format Vidéo / Audio :</th><td id="modalFormat"></td></tr>
+                        <tr><th>État Cassette / Boîtier :</th><td id="modalGrading"></td></tr>
+                    </table>
+
+                    <div class="modal-description">
+                        <h4>Notes & Particularités :</h4>
+                        <p id="modalNotes"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BASE DE DONNÉES ET SCRIPTS -->
+    <script>
+        const collectionData = {
+            'pompeii-vhs-fr-1989': {
+                title: "Live at Pompeii",
+                tag: "FRANCE • 1989",
+                artist: "Pink Floyd",
+                album: "Live at Pompeii",
+                country: "France",
+                year: "1989",
+                label: "PolyGram Music Video",
+                ref: "041 641-2",
+                format: "VHS SECAM / Audio Stéréo",
+                grading: "NM / NM",
+                notes: "Deuxième édition française. Livrée dans un grand boîtier plastique rigide.",
+                photos: [
+                    "Pompeii VHS Front.jpg",
+                    "Pompeii VHS Tape.jpg"
+                ]
+            },
+            'pulse-vhs-eu-1995': {
+                title: "P.U.L.S.E",
+                tag: "EUROPE • 1995",
+                artist: "Pink Floyd",
+                album: "P.U.L.S.E",
+                country: "Europe",
+                year: "1995",
+                label: "Picture Music International",
+                ref: " MVD 4914363 / 7243 4 91436 3 0",
+                format: "VHS PAL / Hi-Fi Stereo",
+                grading: "NM / NM",
+                notes: "Edition originale européenne. Livrée dans un grand boîtier plastique rigide.",
+                photos: [
+                    "Pulse VHS Front.jpg"
+                ]
+			}
+        };
+
+        let currentPhotos = [];
+        let currentPhotoIndex = 0;
+
+        function openModal(itemId) {
+            const data = collectionData[itemId];
+            if (!data) return;
+
+            document.getElementById('modalTitle').innerText = data.title;
+            document.getElementById('modalTag').innerText = data.tag;
+            document.getElementById('modalArtist').innerText = data.artist || 'Pink Floyd';
+            document.getElementById('modalAlbum').innerText = data.album;
+            document.getElementById('modalCountry').innerText = data.country;
+            document.getElementById('modalYear').innerText = data.year;
+            document.getElementById('modalLabel').innerText = data.label;
+            document.getElementById('modalRef').innerText = data.ref;
+            document.getElementById('modalFormat').innerText = data.format;
+            document.getElementById('modalGrading').innerText = data.grading;
+            document.getElementById('modalNotes').innerText = data.notes;
+
+            currentPhotos = data.photos;
+            currentPhotoIndex = 0;
+            updatePhotoDisplay();
+
+            const thumbContainer = document.getElementById('modalThumbnails');
+            thumbContainer.innerHTML = '';
+            currentPhotos.forEach((src, idx) => {
+                const img = document.createElement('img');
+                img.src = src;
+                img.className = 'thumb-img' + (idx === 0 ? ' active' : '');
+                img.onclick = () => setPhoto(idx);
+                thumbContainer.appendChild(img);
+            });
+
+            document.getElementById('itemModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('itemModal').style.display = 'none';
+        }
+
+        function updatePhotoDisplay() {
+            document.getElementById('modalMainImg').src = currentPhotos[currentPhotoIndex];
+            const thumbs = document.querySelectorAll('.thumb-img');
+            thumbs.forEach((t, i) => {
+                t.classList.toggle('active', i === currentPhotoIndex);
+            });
+        }
+
+        function setPhoto(index) {
+            currentPhotoIndex = index;
+            updatePhotoDisplay();
+        }
+
+        function changePhoto(direction) {
+            currentPhotoIndex += direction;
+            if (currentPhotoIndex < 0) currentPhotoIndex = currentPhotos.length - 1;
+            if (currentPhotoIndex >= currentPhotos.length) currentPhotoIndex = 0;
+            updatePhotoDisplay();
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('itemModal');
+            if (event.target == modal) closeModal();
+        }
+    </script>
+</body>
+</html>

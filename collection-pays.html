@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Collection par Pays - Careful With That Floyd</title>
+
+    <style>
+        /* Style pour l'en-tête de catégorie */
+        .category-header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('Pays en-tete.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 60px 20px;
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 50px;
+        }
+
+        .category-header h1,
+        .category-header p {
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Styles spécifiques aux drapeaux dans les vignettes */
+        .country-flag-bg {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barre de navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="logo-link">
+            <img src="Careful With That Floyd.png" alt="Careful With That Floyd" class="logo-img">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html" class="nav-btn">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- En-tête -->
+    <header class="category-header">
+        <h1>Collection par Pays</h1>
+        <p>Sélectionnez un pays pour découvrir tous les pressages et objets issus de cette région</p>
+    </header>
+
+    <!-- Grille des pays -->
+    <main class="portfolio-section">
+        <div class="portfolio-grid">
+            
+            <!-- Carte 1 : Australie -->
+            <a href="pays-australie.html" class="project-card-link">
+                <div class="project-card">
+                    <div class="project-image country-flag-bg" style="background-image: url('Flag_of_Australia-4096x2048.png');"></div>
+                    <div class="project-info">
+                        <span class="project-tag">Océanie</span>
+                        <h3>Australie</h3>
+                        <p>Éditions originales & pressages australiens</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Carte 2 : Brésil -->
+            <a href="pays-bresil.html" class="project-card-link">
+                <div class="project-card">
+                    <div class="project-image country-flag-bg" style="background-image: url('Flag_of_Brazil-2048x1432.png');"></div>
+                    <div class="project-info">
+                        <span class="project-tag">Amérique du Sud</span>
+                        <h3>Brésil</h3>
+                        <p>Éditions originales & pressages brésiliens</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Carte 3 : Danemark -->
+            <a href="pays-france.html" class="project-card-link">
+                <div class="project-card">
+                    <div class="project-image country-flag-bg" style="background-image: url('drapeau-france.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag">Pressages</span>
+                        <h3>France</h3>
+                        <p>Pochettes uniques & Pressages Pathé Marconi</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Carte 4 : États-Unis -->
+            <a href="pays-etats-unis.html" class="project-card-link">
+                <div class="project-card">
+                    <div class="project-image country-flag-bg" style="background-image: url('drapeau-usa.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag">Pressages</span>
+                        <h3>États-Unis</h3>
+                        <p>Éditions Capitol, Columbia & Promos US</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Carte 5 : Allemagne -->
+            <a href="pays-allemagne.html" class="project-card-link">
+                <div class="project-card">
+                    <div class="project-image country-flag-bg" style="background-image: url('drapeau-allemagne.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag">Pressages</span>
+                        <h3>Allemagne</h3>
+                        <p>Pressages 1C, Electrola & Exclusivités</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Carte 6 : Italie -->
+            <a href="pays-italie.html" class="project-card-link">
+                <div class="project-card">
+                    <div class="project-image country-flag-bg" style="background-image: url('drapeau-italie.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag">Pressages</span>
+                        <h3>Italie</h3>
+                        <p>Pressages originaux & Éditions rares</p>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; margin-bottom: 50px;">
+            <a href="index.html" class="btn-back">← Retour à l'accueil</a>
+        </div>
+    </main>
+
+</body>
+</html>
