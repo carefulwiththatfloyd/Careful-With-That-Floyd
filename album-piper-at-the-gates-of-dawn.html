@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Piper at the Gates of Dawn - Collection - Careful With That Floyd</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=2">
+    
+    <style>
+        /* Palette personnalisée pour The Piper at the Gates of Dawn */
+        :root {
+            --album-cover: url('pochettes/piper.webp');
+            --album-color-top: rgba(215, 45, 20, 0.55);
+            --album-color-mid: rgba(230, 105, 15, 0.40);
+            --album-tag-bg: rgba(225, 60, 25, 0.4);
+            --album-tag-border: rgba(250, 110, 40, 0.5);
+            --album-badge: #f05a24;
+            --album-badge-text: #ffffff;
+        }
+
+        /* Styles fond & en-tête */
+        body.album-page {
+            margin: 0;
+            padding: 0;
+            color: #ffffff;
+            background-color: #121212;
+            background-image: linear-gradient(
+                180deg, 
+                var(--album-color-top) 0%,   
+                var(--album-color-mid) 25%,  
+                rgba(18, 18, 18, 0.90) 60%, 
+                rgba(18, 18, 18, 0.98) 100%
+            ), var(--album-cover);
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .album-header {
+            padding: 100px 20px 40px 20px;
+            text-align: center;
+        }
+
+        .album-header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .album-tag {
+            display: inline-block;
+            background: var(--album-tag-bg);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            border: 1px solid var(--album-tag-border);
+        }
+
+        .album-header h1 {
+            font-size: 3rem;
+            color: #ffffff;
+            margin: 0 0 10px 0;
+            font-weight: 700;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
+        }
+
+        .album-header p {
+            color: #dddddd;
+            font-size: 1.1rem;
+            margin: 0;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+        }
+
+        /* Sections & Cartes */
+        .format-section {
+            max-width: 1200px;
+            margin: 0 auto 50px auto;
+            padding: 0 20px;
+        }
+
+        .format-title {
+            font-size: 1.6rem;
+            color: #ffffff;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 12px;
+            margin-bottom: 24px;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--album-badge);
+        }
+
+        .project-info h3 {
+            color: #ffffff;
+            margin: 8px 0 4px 0;
+            font-size: 1.1rem;
+        }
+
+        .project-info p {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Styles des badges par format */
+        .project-tag {
+            display: inline-block;
+            background-color: var(--album-badge);
+            color: var(--album-badge-text);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .project-tag.tag-45t {
+            background-color: transparent;
+            border: 1px solid var(--album-badge);
+            color: #ffffff;
+        }
+
+        .project-tag.tag-ep {
+            background-color: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+        }
+
+        .project-tag.tag-k7 {
+            background-color: #333333;
+            color: #ffffff;
+            border: 1px solid #555555;
+        }
+
+        .project-tag.tag-8track {
+            background-color: #8b4513;
+            color: #ffffff;
+        }
+
+        .project-tag.tag-cd {
+            background-color: #0077b6;
+            color: #ffffff;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: #1a1a1a;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 30px;
+            position: relative;
+            color: #ffffff;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #aaaaaa;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .close-modal:hover {
+            color: #ffffff;
+        }
+
+        .modal-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .modal-body {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .main-image-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1/1;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            font-size: 1.2rem;
+            padding: 10px 14px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background 0.2s;
+        }
+
+        .nav-btn:hover {
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .prev-btn { left: 10px; }
+        .next-btn { right: 10px; }
+
+        .thumbnails-grid {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px;
+            overflow-x: auto;
+            padding-bottom: 5px;
+        }
+
+        .thumb-img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 6px;
+            cursor: pointer;
+            opacity: 0.6;
+            border: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .thumb-img.active, .thumb-img:hover {
+            opacity: 1;
+            border-color: var(--album-badge);
+        }
+
+        .modal-details h2 {
+            margin: 10px 0 4px 0;
+            font-size: 1.5rem;
+        }
+
+        .modal-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0 0 20px 0;
+            font-size: 0.95rem;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .spec-item strong {
+            color: rgba(255, 255, 255, 0.6);
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .modal-notes h3 {
+            font-size: 1rem;
+            margin: 0 0 8px 0;
+            color: var(--album-badge);
+        }
+
+        .modal-notes p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.85);
+            margin: 0;
+        }
+    </style>
+</head>
+<body class="album-page">
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="logo-link">
+            <img src="Careful With That Floyd.png" alt="Careful With That Floyd" class="logo-img">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html" class="nav-btn">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header class="album-header">
+        <div class="album-header-content">
+            <span class="album-tag">Album Studio • 1967</span>
+            <h1>The Piper at the Gates of Dawn</h1>
+            <p>Pressages et éditions présents dans la collection</p>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="album-collection-container">
+
+        <!-- Section 33 Tours -->
+        <section class="format-section">
+            <h2 class="format-title">33 Tours (LPs)</h2>
+            <div class="portfolio-grid">
+                
+                <div class="project-card" data-id="piper-33t-uk-1st">
+                    <div class="project-image" style="background-image: url('pochettes/piper-uk-mono-front.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag">LP • UK</span>
+                        <h3>Original UK Mono (1st Pressing)</h3>
+                        <p>Columbia • SX 6157 • 1967</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-id="piper-33t-fame">
+                    <div class="project-image" style="background-image: url('pochettes/piper-stereo-reissue.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag">LP • UK</span>
+                        <h3>Fame Reissue Stereo</h3>
+                        <p>Fame • FA 3012 • 1979</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 45 Tours -->
+        <section class="format-section">
+            <h2 class="format-title">45 Tours (Singles)</h2>
+            <div class="portfolio-grid">
+                
+                <div class="project-card" data-id="arnold-layne-fr">
+                    <div class="project-image" style="background-image: url('pochettes/arnold-layne-single.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag tag-45t">45T • FR</span>
+                        <h3>Arnold Layne / Candy and a Currant Bun</h3>
+                        <p>Columbia • ESRF 1857 • 1967</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section EPs -->
+        <section class="format-section">
+            <h2 class="format-title">EPs</h2>
+            <div class="portfolio-grid">
+                
+                <div class="project-card" data-id="piper-ep-fr">
+                    <div class="project-image" style="background-image: url('pochettes/piper-ep-front.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag tag-ep">EP • FR</span>
+                        <h3>Arnold Layne EP (4 Titres)</h3>
+                        <p>Columbia • ESRF 1857 • 1967</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section Cassettes -->
+        <section class="format-section">
+            <h2 class="format-title">Cassettes (MC)</h2>
+            <div class="portfolio-grid">
+                
+                <div class="project-card" data-id="piper-k7-uk">
+                    <div class="project-image" style="background-image: url('pochettes/piper-k7-front.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag tag-k7">K7 • UK</span>
+                        <h3>UK Original Cassette</h3>
+                        <p>EMI / Columbia • TC-SX 6157 • 1968</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section Cartouches 8-Pistes -->
+        <section class="format-section">
+            <h2 class="format-title">Cartouches 8-Pistes</h2>
+            <div class="portfolio-grid">
+                
+                <div class="project-card" data-id="piper-8track-us">
+                    <div class="project-image" style="background-image: url('pochettes/piper-8track-front.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag tag-8track">8-TRACK • US</span>
+                        <h3>US 8-Track Tape</h3>
+                        <p>Tower • 8XT-5093 • 1967</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section CDs -->
+        <section class="format-section">
+            <h2 class="format-title">CDs</h2>
+            <div class="portfolio-grid">
+                
+                <div class="project-card" data-id="piper-cd-jp">
+                    <div class="project-image" style="background-image: url('pochettes/piper-cd-jp-front.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag tag-cd">CD • JP</span>
+                        <h3>Japan 1st Pressing (Black Triangle)</h3>
+                        <p>EMI / Toshiba • CP32-5269 • 1987</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Back Button -->
+        <div style="text-align: center; margin: 50px 0;">
+            <a href="collection-albums.html" class="btn-back">← Retour aux albums</a>
+        </div>
+
+    </main>
+
+    <!-- Modal dynamique -->
+    <div id="itemModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            
+            <div class="modal-body">
+                <div class="modal-gallery">
+                    <div class="main-image-container">
+                        <button class="nav-btn prev-btn">&#10094;</button>
+                        <img id="modalMainImg" src="" alt="Pochette">
+                        <button class="nav-btn next-btn">&#10095;</button>
+                    </div>
+                    <div id="modalThumbnails" class="thumbnails-grid"></div>
+                </div>
+
+                <div class="modal-details">
+                    <span id="modalFormatBadge" class="project-tag"></span>
+                    <h2 id="modalTitle"></h2>
+                    <p id="modalSubtitle" class="modal-subtitle"></p>
+
+                    <div class="specs-grid">
+                        <div class="spec-item"><strong>Pays</strong> <span id="modalCountry"></span></div>
+                        <div class="spec-item"><strong>Année</strong> <span id="modalYear"></span></div>
+                        <div class="spec-item"><strong>Label</strong> <span id="modalLabel"></span></div>
+                        <div class="spec-item"><strong>Référence</strong> <span id="modalRef"></span></div>
+                        <div class="spec-item"><strong>Matrice</strong> <span id="modalMatrix"></span></div>
+                        <div class="spec-item"><strong>État</strong> <span id="modalCondition"></span></div>
+                    </div>
+
+                    <div class="modal-notes">
+                        <h3>Notes & Particularités</h3>
+                        <p id="modalNotes"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script de gestion de la collection -->
+    <script>
+        const collectionData = {
+            "piper-33t-uk-1st": {
+                format: "LP • UK",
+                title: "Original UK Mono (1st Pressing)",
+                subtitle: "Columbia / SX 6157",
+                country: "Royaume-Uni",
+                year: "1967",
+                label: "Columbia",
+                ref: "SX 6157",
+                matrix: "XAX 3419-1 / XAX 3420-1",
+                condition: "Pochette : VG+ | Vinyle : EX",
+                notes: "Première édition mono originale avec pochette Flipback rabattable imprimée par Ernest J. Day & Co. Inclus le titre 'Interstellar Overdrive'.",
+                images: [
+                    'pochettes/piper-uk-mono-front.jpg',
+                    'pochettes/piper-uk-mono-back.jpg',
+                    'pochettes/piper-uk-mono-label.jpg'
+                ]
+            },
+            "piper-33t-fame": {
+                format: "LP • UK",
+                title: "Fame Reissue Stereo",
+                subtitle: "Fame / FA 3012",
+                country: "Royaume-Uni",
+                year: "1979",
+                label: "Fame / EMI",
+                ref: "FA 3012",
+                matrix: "YAX 3419-3 / YAX 3420-3",
+                condition: "Pochette : EX | Vinyle : NM",
+                notes: "Réédition économique de la série Fame à la fin des années 70 sous mixage stéréo.",
+                images: [
+                    'pochettes/piper-stereo-reissue.jpg'
+                ]
+            },
+            "arnold-layne-fr": {
+                format: "45T • FR",
+                title: "Arnold Layne / Candy and a Currant Bun",
+                subtitle: "Columbia / ESRF 1857",
+                country: "France",
+                year: "1967",
+                label: "Columbia",
+                ref: "ESRF 1857",
+                matrix: "7XEA 20121 / 7XEA 20122",
+                condition: "Pochette : EX | Vinyle : EX",
+                notes: "Pressage français original avec pochette languette unique.",
+                images: [
+                    'pochettes/arnold-layne-single.jpg'
+                ]
+            },
+            "piper-ep-fr": {
+                format: "EP • FR",
+                title: "Arnold Layne EP (4 Titres)",
+                subtitle: "Columbia / ESRF 1857",
+                country: "France",
+                year: "1967",
+                label: "Columbia",
+                ref: "ESRF 1857",
+                matrix: "7XEA 20121-1",
+                condition: "Pochette : VG+ | Vinyle : VG+",
+                notes: "EP 4 titres comprenant Arnold Layne, Candy And A Currant Bun, The Scarecrow et Interstellar Overdrive.",
+                images: [
+                    'pochettes/piper-ep-front.jpg'
+                ]
+            },
+            "piper-k7-uk": {
+                format: "K7 • UK",
+                title: "UK Original Cassette",
+                subtitle: "EMI / TC-SX 6157",
+                country: "Royaume-Uni",
+                year: "1968",
+                label: "EMI / Columbia",
+                ref: "TC-SX 6157",
+                matrix: "N/A",
+                condition: "Boîtier : VG+ | Bande : EX",
+                notes: "Première édition cassette audio sous boîtier rigide d'époque.",
+                images: [
+                    'pochettes/piper-k7-front.jpg'
+                ]
+            },
+            "piper-8track-us": {
+                format: "8-TRACK • US",
+                title: "US 8-Track Tape",
+                subtitle: "Tower / 8XT-5093",
+                country: "États-Unis",
+                year: "1967",
+                label: "Tower Records",
+                ref: "8XT-5093",
+                matrix: "N/A",
+                condition: "Cartouche : VG+",
+                notes: "Cartouche 8-pistes américaine originale distribuée par Tower Records.",
+                images: [
+                    'pochettes/piper-8track-front.jpg'
+                ]
+            },
+            "piper-cd-jp": {
+                format: "CD • JP",
+                title: "Japan 1st Pressing (Black Triangle)",
+                subtitle: "EMI / Toshiba / CP32-5269",
+                country: "Japon",
+                year: "1987",
+                label: "EMI / Toshiba",
+                ref: "CP32-5269",
+                matrix: "CP32-5269 1A1 TO",
+                condition: "Livret : NM | Disque : NM (Avec OBI)",
+                notes: "Premier pressage CD japonais mythique avec la sérigraphie 'Black Triangle' sur le disque compact. OBI original conservé.",
+                images: [
+                    'pochettes/piper-cd-jp-front.jpg'
+                ]
+            }
+        };
+
+        let currentImages = [];
+        let currentImgIndex = 0;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('itemModal');
+            const closeBtn = document.querySelector('.close-modal');
+            const mainImg = document.getElementById('modalMainImg');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const id = card.getAttribute('data-id');
+                    const data = collectionData[id];
+
+                    if (!data) return;
+
+                    document.getElementById('modalFormatBadge').textContent = data.format;
+                    document.getElementById('modalTitle').textContent = data.title;
+                    document.getElementById('modalSubtitle').textContent = data.subtitle;
+                    document.getElementById('modalCountry').textContent = data.country;
+                    document.getElementById('modalYear').textContent = data.year;
+                    document.getElementById('modalLabel').textContent = data.label;
+                    document.getElementById('modalRef').textContent = data.ref;
+                    document.getElementById('modalMatrix').textContent = data.matrix;
+                    document.getElementById('modalCondition').textContent = data.condition;
+                    document.getElementById('modalNotes').textContent = data.notes;
+
+                    currentImages = data.images || [];
+                    currentImgIndex = 0;
+                    updateGallery();
+
+                    modal.style.display = 'block';
+                });
+            });
+
+            closeBtn.onclick = () => modal.style.display = 'none';
+            window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
+
+            prevBtn.onclick = () => {
+                currentImgIndex = (currentImgIndex - 1 + currentImages.length) % currentImages.length;
+                updateMainImage();
+            };
+
+            nextBtn.onclick = () => {
+                currentImgIndex = (currentImgIndex + 1) % currentImages.length;
+                updateMainImage();
+            };
+
+            function updateGallery() {
+                updateMainImage();
+                const thumbsContainer = document.getElementById('modalThumbnails');
+                thumbsContainer.innerHTML = '';
+
+                currentImages.forEach((imgSrc, index) => {
+                    const thumb = document.createElement('img');
+                    thumb.src = imgSrc;
+                    thumb.classList.add('thumb-img');
+                    if (index === currentImgIndex) thumb.classList.add('active');
+                    
+                    thumb.onclick = () => {
+                        currentImgIndex = index;
+                        updateMainImage();
+                    };
+                    thumbsContainer.appendChild(thumb);
+                });
+            }
+
+            function updateMainImage() {
+                if (currentImages.length > 0) {
+                    mainImg.src = currentImages[currentImgIndex];
+                }
+                document.querySelectorAll('.thumb-img').forEach((thumb, idx) => {
+                    thumb.classList.toggle('active', idx === currentImgIndex);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
