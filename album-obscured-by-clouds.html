@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obscured by Clouds - Collection - Careful With That Floyd</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=2">
+    
+    <style>
+        /* Palette personnalisée pour Obscured by Clouds (Mix Ambre & Vert Forêt) */
+        :root {
+            --album-cover: url('pochettes/obscured.webp');
+            --album-color-top: rgba(185, 115, 30, 0.70);    /* Ambre / Soleil à travers les arbres */
+            --album-color-mid: rgba(35, 55, 30, 0.75);      /* Vert sous-bois / canopée */
+            --album-tag-bg: rgba(70, 50, 20, 0.5);
+            --album-tag-border: rgba(220, 150, 40, 0.55);   /* Accent or ambré */
+            --album-badge: #c47f17;                        /* Ambre chaud */
+            --album-badge-text: #ffffff;
+        }
+
+        /* Styles fond & en-tête */
+        body.album-page {
+            margin: 0;
+            padding: 0;
+            color: #ffffff;
+            background-color: #121212;
+            background-image: linear-gradient(
+                180deg, 
+                var(--album-color-top) 0%,   
+                var(--album-color-mid) 35%,  
+                rgba(18, 18, 18, 0.90) 65%, 
+                rgba(18, 18, 18, 0.98) 100%
+            ), var(--album-cover);
+            background-size: cover;
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .album-header {
+            padding: 100px 20px 40px 20px;
+            text-align: center;
+        }
+
+        .album-header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .album-tag {
+            display: inline-block;
+            background: var(--album-tag-bg);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            border: 1px solid var(--album-tag-border);
+        }
+
+        .album-header h1 {
+            font-size: 3rem;
+            color: #ffffff;
+            margin: 0 0 10px 0;
+            font-weight: 700;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
+        }
+
+        .album-header p {
+            color: #dddddd;
+            font-size: 1.1rem;
+            margin: 0;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+        }
+
+        /* Sections & Cartes */
+        .format-section {
+            max-width: 1200px;
+            margin: 0 auto 50px auto;
+            padding: 0 20px;
+        }
+
+        .format-title {
+            font-size: 1.6rem;
+            color: #ffffff;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 12px;
+            margin-bottom: 24px;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: #e6a135;
+        }
+
+        .project-info h3 {
+            color: #ffffff;
+            margin: 8px 0 4px 0;
+            font-size: 1.1rem;
+        }
+
+        .project-info p {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Styles des badges par format */
+        .project-tag {
+            display: inline-block;
+            background-color: var(--album-badge);
+            color: var(--album-badge-text);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .project-tag.tag-45t {
+            background-color: transparent;
+            border: 1px solid #e6a135;
+            color: #ffffff;
+        }
+
+        .project-tag.tag-ep {
+            background-color: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+        }
+
+        .project-tag.tag-k7 {
+            background-color: #333333;
+            color: #ffffff;
+            border: 1px solid #555555;
+        }
+
+        .project-tag.tag-8track {
+            background-color: #5c3a21;
+            color: #ffffff;
+        }
+
+        .project-tag.tag-cd {
+            background-color: #1f6f8b;
+            color: #ffffff;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: #1a1a1a;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 30px;
+            position: relative;
+            color: #ffffff;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #aaaaaa;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .close-modal:hover {
+            color: #ffffff;
+        }
+
+        .modal-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .modal-body {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .main-image-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1/1;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            font-size: 1.2rem;
+            padding: 10px 14px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background 0.2s;
+        }
+
+        .nav-btn:hover {
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .prev-btn { left: 10px; }
+        .next-btn { right: 10px; }
+
+        .thumbnails-grid {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px;
+            overflow-x: auto;
+            padding-bottom: 5px;
+        }
+
+        .thumb-img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 6px;
+            cursor: pointer;
+            opacity: 0.6;
+            border: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .thumb-img.active, .thumb-img:hover {
+            opacity: 1;
+            border-color: #e6a135;
+        }
+
+        .modal-details h2 {
+            margin: 10px 0 4px 0;
+            font-size: 1.5rem;
+        }
+
+        .modal-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0 0 20px 0;
+            font-size: 0.95rem;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .spec-item strong {
+            color: rgba(255, 255, 255, 0.6);
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .modal-notes h3 {
+            font-size: 1rem;
+            margin: 0 0 8px 0;
+            color: #e6a135;
+        }
+
+        .modal-notes p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.85);
+            margin: 0;
+        }
+    </style>
+</head>
+<body class="album-page">
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="logo-link">
+            <img src="Careful With That Floyd.png" alt="Careful With That Floyd" class="logo-img">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html" class="nav-btn">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header class="album-header">
+        <div class="album-header-content">
+            <span class="album-tag">Bande Originale • 2 Juin 1972</span>
+            <h1>Obscured by Clouds</h1>
+            <p>Pressages et éditions présents dans la collection</p>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="album-collection-container">
+
+        <!-- Section 33 Tours -->
+        <section class="format-section">
+            <h2 class="format-title">33 Tours (LPs)</h2>
+            <div class="portfolio-grid">
+                
+                <div class="project-card" data-id="obc-33t-fr-og">
+                    <div class="project-image" style="background-image: url('pochettes/obc-uk-1st-front.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag">LP • FRANCE</span>
+                        <h3>Pressage original (Coins arrondis)</h3>
+                        <p>Harvest • 2C 064-05054 • 1972</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-id="obc-33t-sg-og">
+                    <div class="project-image" style="background-image: url('pochettes/obc-fr-front.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag">LP • SINGAPOUR</span>
+                        <h3>Pressage original (Coins carrés, 'Garrod and Lofthouse' supprimé)</h3>
+                        <p>Harvest • SHSP 4020 • 1972</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 45 Tours -->
+        <section class="format-section">
+            <h2 class="format-title">45 Tours (Singles)</h2>
+            <div class="portfolio-grid">
+            
+            </div>
+        </section>
+
+        <!-- Section EPs -->
+        <section class="format-section">
+            <h2 class="format-title">EPs</h2>
+            <div class="portfolio-grid">
+            
+            </div>
+        </section>
+
+        <!-- Section Cassettes -->
+        <section class="format-section">
+            <h2 class="format-title">Cassettes (MC)</h2>
+            <div class="portfolio-grid">
+                
+                <div class="project-card" data-id="obc-k7-fr-og">
+                    <div class="project-image" style="background-image: url('pochettes/obc-k7-front.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag tag-k7">CASSETTE • FRANCE</span>
+                        <h3>Pressage original (Pochette jaune, cassette bleue, écritures noires)</h3>
+                        <p>Harvest • 2C 244-05054 • 1972</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section Cartouches 8-Pistes -->
+        <section class="format-section">
+            <h2 class="format-title">Cartouches 8-Pistes</h2>
+            <div class="portfolio-grid">
+            
+            </div>
+        </section>
+
+        <!-- Section CDs -->
+        <section class="format-section">
+            <h2 class="format-title">CDs</h2>
+            <div class="portfolio-grid">
+            
+            </div>
+        </section>
+
+        <!-- Back Button -->
+        <div style="text-align: center; margin: 50px 0;">
+            <a href="collection-albums.html" class="btn-back">← Retour aux albums</a>
+        </div>
+
+    </main>
+
+    <!-- Modal dynamique -->
+    <div id="itemModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            
+            <div class="modal-body">
+                <div class="modal-gallery">
+                    <div class="main-image-container">
+                        <button class="nav-btn prev-btn">&#10094;</button>
+                        <img id="modalMainImg" src="" alt="Pochette">
+                        <button class="nav-btn next-btn">&#10095;</button>
+                    </div>
+                    <div id="modalThumbnails" class="thumbnails-grid"></div>
+                </div>
+
+                <div class="modal-details">
+                    <span id="modalFormatBadge" class="project-tag"></span>
+                    <h2 id="modalTitle"></h2>
+                    <p id="modalSubtitle" class="modal-subtitle"></p>
+
+                    <div class="specs-grid">
+                        <div class="spec-item"><strong>Pays</strong> <span id="modalCountry"></span></div>
+                        <div class="spec-item"><strong>Année</strong> <span id="modalYear"></span></div>
+                        <div class="spec-item"><strong>Label</strong> <span id="modalLabel"></span></div>
+                        <div class="spec-item"><strong>Référence</strong> <span id="modalRef"></span></div>
+                        <div class="spec-item"><strong>Matrice</strong> <span id="modalMatrix"></span></div>
+                        <div class="spec-item"><strong>État</strong> <span id="modalCondition"></span></div>
+                    </div>
+
+                    <div class="modal-notes">
+                        <h3>Notes & Particularités</h3>
+                        <p id="modalNotes"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script de gestion de la collection -->
+    <script>
+        const collectionData = {
+            "obc-33t-fr-og": {
+                format: "LP • FRANCE",
+                title: "Pressage original (Coins arrondis)",
+                subtitle: "Harvest / 2C 064-05054",
+                country: "France",
+                year: "1972",
+                label: "Harvest",
+                ref: "2C 064-05054",
+                matrix: "SHSP 4020 A-1 / SHSP 4020 B-1",
+                condition: "Pochette : NM | Vinyle : NM",
+                notes: "Pressage original. Coins arrondis. Contient la sous-pochette d'origine.",
+                images: [
+                    'pochettes/obc-uk-1st-front.jpg',
+                    'pochettes/obc-uk-1st-back.jpg',
+                    'pochettes/obc-uk-1st-label.jpg'
+                ]
+            },
+            "obc-33t-sg-og": {
+                format: "LP • SINGAPOUR",
+                title: "Pressage original (Coins carrés, 'Garrod and Lofthouse' supprimé)",
+                subtitle: "Harvest / SHSP 4020",
+                country: "Singapour",
+                year: "1972",
+                label: "Harvest",
+                ref: "SHSP 4020",
+                matrix: "SHSP 4020 A / SHSP 4020 B",
+                condition: "Pochette : NM | Vinyle : NM",
+                notes: "Pressage original. 'Garrod and Lofthouse' est supprimé mais toujours un peu visible. Contient la sous-pochette originale.",
+                images: [
+                    'pochettes/obc-fr-front.jpg'
+                ]
+            },
+            "obc-k7-fr-og": {
+                format: "K7 • FRANCE",
+                title: "Pressage original (Pochette jaune, cassette bleue, écritures noires)",
+                subtitle: "Harvest / 2C 244-05054",
+                country: "France",
+                year: "1972",
+                label: "Harvest",
+                ref: "2C 244-05054",
+                matrix: "N/A",
+                condition: "Boîtier : NM | Bande : NM",
+                notes: "Édition originale française. Pochette jaune avec la photo d'origine au milieu. Livrée dans son boîtier d'origine en plastique bleu.",
+                images: [
+                    'pochettes/obc-k7-front.jpg'
+                ]
+            }
+        };
+
+        let currentImages = [];
+        let currentImgIndex = 0;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('itemModal');
+            const closeBtn = document.querySelector('.close-modal');
+            const mainImg = document.getElementById('modalMainImg');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const id = card.getAttribute('data-id');
+                    const data = collectionData[id];
+
+                    if (!data) return;
+
+                    document.getElementById('modalFormatBadge').textContent = data.format;
+                    document.getElementById('modalTitle').textContent = data.title;
+                    document.getElementById('modalSubtitle').textContent = data.subtitle;
+                    document.getElementById('modalCountry').textContent = data.country;
+                    document.getElementById('modalYear').textContent = data.year;
+                    document.getElementById('modalLabel').textContent = data.label;
+                    document.getElementById('modalRef').textContent = data.ref;
+                    document.getElementById('modalMatrix').textContent = data.matrix;
+                    document.getElementById('modalCondition').textContent = data.condition;
+                    document.getElementById('modalNotes').textContent = data.notes;
+
+                    currentImages = data.images || [];
+                    currentImgIndex = 0;
+                    updateGallery();
+
+                    modal.style.display = 'block';
+                });
+            });
+
+            closeBtn.onclick = () => modal.style.display = 'none';
+            window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
+
+            prevBtn.onclick = () => {
+                currentImgIndex = (currentImgIndex - 1 + currentImages.length) % currentImages.length;
+                updateMainImage();
+            };
+
+            nextBtn.onclick = () => {
+                currentImgIndex = (currentImgIndex + 1) % currentImages.length;
+                updateMainImage();
+            };
+
+            function updateGallery() {
+                updateMainImage();
+                const thumbsContainer = document.getElementById('modalThumbnails');
+                thumbsContainer.innerHTML = '';
+
+                currentImages.forEach((imgSrc, index) => {
+                    const thumb = document.createElement('img');
+                    thumb.src = imgSrc;
+                    thumb.classList.add('thumb-img');
+                    if (index === currentImgIndex) thumb.classList.add('active');
+                    
+                    thumb.onclick = () => {
+                        currentImgIndex = index;
+                        updateMainImage();
+                    };
+                    thumbsContainer.appendChild(thumb);
+                });
+            }
+
+            function updateMainImage() {
+                if (currentImages.length > 0) {
+                    mainImg.src = currentImages[currentImgIndex];
+                }
+                document.querySelectorAll('.thumb-img').forEach((thumb, idx) => {
+                    thumb.classList.toggle('active', idx === currentImgIndex);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wish You Were Here - Collection - Careful With That Floyd</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=2">
+    
+    <style>
+        /* Palette claire avec opacité mesurée pour laisser apparaître la pochette centrée */
+        :root {
+            --album-cover: url('pochettes/wywh.webp');
+            --album-color-top: rgba(255, 255, 255, 0.35); 
+            --album-color-mid: rgba(248, 249, 250, 0.70); 
+            --album-tag-bg: #ffffff;
+            --album-tag-border: rgba(230, 90, 20, 0.4);
+            --album-badge: #e65a14;
+            --album-badge-text: #ffffff;
+        }
+
+        /* Background recentré pour aligner parfaitement l'image de fond */
+        body.album-page {
+            margin: 0;
+            padding: 0;
+            color: #1a1d20;
+            background-color: #f8f9fa;
+            background-image: linear-gradient(
+                180deg, 
+                var(--album-color-top) 0%,   
+                var(--album-color-mid) 40%,  
+                #f8f9fa 80%, 
+                #f8f9fa 100%
+            ), var(--album-cover);
+            background-size: cover;
+            background-position: center center; /* Pochette bien recentrée */
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .album-header {
+            padding: 100px 20px 40px 20px;
+            text-align: center;
+        }
+
+        .album-header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .album-tag {
+            display: inline-block;
+            background: var(--album-tag-bg);
+            color: var(--album-badge);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            border: 1px solid var(--album-tag-border);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .album-header h1 {
+            font-size: 3rem;
+            color: #1a1d20;
+            margin: 0 0 10px 0;
+            font-weight: 800;
+            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.9);
+        }
+
+        .album-header p {
+            color: #444444;
+            font-size: 1.1rem;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        /* Sections & Cartes Blanches */
+        .format-section {
+            max-width: 1200px;
+            margin: 0 auto 50px auto;
+            padding: 0 20px;
+        }
+
+        .format-title {
+            font-size: 1.6rem;
+            color: #1a1d20;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 12px;
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            color: #1a1d20;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--album-badge);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .project-info h3 {
+            color: #1a1d20;
+            margin: 8px 0 4px 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .project-info p {
+            color: #6c757d;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Styles des badges par format */
+        .project-tag {
+            display: inline-block;
+            background-color: var(--album-badge);
+            color: var(--album-badge-text);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .project-tag.tag-45t {
+            background-color: transparent;
+            border: 1px solid var(--album-badge);
+            color: var(--album-badge);
+        }
+
+        .project-tag.tag-ep {
+            background-color: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            color: #334155;
+        }
+
+        .project-tag.tag-k7 {
+            background-color: #333333;
+            color: #ffffff;
+            border: 1px solid #555555;
+        }
+
+        .project-tag.tag-cd {
+            background-color: #0077b6;
+            color: #ffffff;
+        }
+
+        /* Modal Styles Clair */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(6px);
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 30px;
+            position: relative;
+            color: #1a1d20;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #888888;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .close-modal:hover {
+            color: #1a1d20;
+        }
+
+        .modal-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .modal-body {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .main-image-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1/1;
+            background: #f1f5f9;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #e2e8f0;
+        }
+
+        .main-image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            color: #1a1d20;
+            border: 1px solid #e2e8f0;
+            font-size: 1.2rem;
+            padding: 10px 14px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background 0.2s;
+        }
+
+        .nav-btn:hover {
+            background: #ffffff;
+        }
+
+        .prev-btn { left: 10px; }
+        .next-btn { right: 10px; }
+
+        .thumbnails-grid {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px;
+            overflow-x: auto;
+            padding-bottom: 5px;
+        }
+
+        .thumb-img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 6px;
+            cursor: pointer;
+            opacity: 0.6;
+            border: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .thumb-img.active, .thumb-img:hover {
+            opacity: 1;
+            border-color: var(--album-badge);
+        }
+
+        .modal-details h2 {
+            margin: 10px 0 4px 0;
+            font-size: 1.5rem;
+            color: #1a1d20;
+        }
+
+        .modal-subtitle {
+            color: #6c757d;
+            margin: 0 0 20px 0;
+            font-size: 0.95rem;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            background: #f8f9fa;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            border: 1px solid #e9ecef;
+        }
+
+        .spec-item strong {
+            color: #6c757d;
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .modal-notes h3 {
+            font-size: 1rem;
+            margin: 0 0 8px 0;
+            color: var(--album-badge);
+        }
+
+        .modal-notes p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #333333;
+            margin: 0;
+        }
+    </style>
+</head>
+<body class="album-page">
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="logo-link">
+            <img src="Careful With That Floyd.png" alt="Careful With That Floyd" class="logo-img">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html" class="nav-btn">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header class="album-header">
+        <div class="album-header-content">
+            <span class="album-tag">Album Studio • 12 Septembre 1975</span>
+            <h1>Wish You Were Here</h1>
+            <p>Pressages et éditions présents dans la collection</p>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="album-collection-container">
+
+        <!-- Section 33 Tours -->
+        <section class="format-section">
+            <h2 class="format-title">33 Tours (LPs)</h2>
+            <div class="portfolio-grid">
+                
+                <div class="project-card" data-id="wywh-33t-uk-1st">
+                    <div class="project-image" style="background-image: url('pochettes/wywh-uk-1st-front.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag">LP • UK</span>
+                        <h3>Original UK Pressing (Black Shrink Wrap)</h3>
+                        <p>Harvest • SHVL 814 • 1975</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-id="wywh-33t-fr">
+                    <div class="project-image" style="background-image: url('pochettes/wywh-fr-front.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag">LP • FR</span>
+                        <h3>Original French Pressing</h3>
+                        <p>Harvest / Pathé Marconi • SHVL 814 • 1975</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 45 Tours -->
+        <section class="format-section">
+            <h2 class="format-title">45 Tours (Singles)</h2>
+            <div class="portfolio-grid">
+                
+                <div class="project-card" data-id="wywh-45t-single">
+                    <div class="project-image" style="background-image: url('pochettes/wywh-45t-single.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag tag-45t">45T • FR</span>
+                        <h3>Have A Cigar / Welcome To The Machine</h3>
+                        <p>Harvest • 2C 006-97352 • 1975</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section EPs -->
+        <section class="format-section">
+            <h2 class="format-title">EPs</h2>
+            <div class="portfolio-grid">
+                
+            </div>
+        </section>
+
+        <!-- Section Cassettes -->
+        <section class="format-section">
+            <h2 class="format-title">Cassettes (MC)</h2>
+            <div class="portfolio-grid">
+                
+                <div class="project-card" data-id="wywh-k7-uk">
+                    <div class="project-image" style="background-image: url('pochettes/wywh-k7-front.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag tag-k7">K7 • UK</span>
+                        <h3>UK Original Cassette</h3>
+                        <p>Harvest • TC-SHVL 814 • 1975</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section CDs -->
+        <section class="format-section">
+            <h2 class="format-title">CDs</h2>
+            <div class="portfolio-grid">
+                
+                <div class="project-card" data-id="wywh-cd-jp">
+                    <div class="project-image" style="background-image: url('pochettes/wywh-cd-jp.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag tag-cd">CD • JP</span>
+                        <h3>Japan 1st Pressing</h3>
+                        <p>CBS/Sony • 35DP 4 • 1982</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Back Button -->
+        <div style="text-align: center; margin: 50px 0;">
+            <a href="collection-albums.html" class="btn-back">← Retour aux albums</a>
+        </div>
+
+    </main>
+
+    <!-- Modal dynamique -->
+    <div id="itemModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            
+            <div class="modal-body">
+                <div class="modal-gallery">
+                    <div class="main-image-container">
+                        <button class="nav-btn prev-btn">&#10094;</button>
+                        <img id="modalMainImg" src="" alt="Pochette">
+                        <button class="nav-btn next-btn">&#10095;</button>
+                    </div>
+                    <div id="modalThumbnails" class="thumbnails-grid"></div>
+                </div>
+
+                <div class="modal-details">
+                    <span id="modalFormatBadge" class="project-tag"></span>
+                    <h2 id="modalTitle"></h2>
+                    <p id="modalSubtitle" class="modal-subtitle"></p>
+
+                    <div class="specs-grid">
+                        <div class="spec-item"><strong>Pays</strong> <span id="modalCountry"></span></div>
+                        <div class="spec-item"><strong>Année</strong> <span id="modalYear"></span></div>
+                        <div class="spec-item"><strong>Label</strong> <span id="modalLabel"></span></div>
+                        <div class="spec-item"><strong>Référence</strong> <span id="modalRef"></span></div>
+                        <div class="spec-item"><strong>Matrice</strong> <span id="modalMatrix"></span></div>
+                        <div class="spec-item"><strong>État</strong> <span id="modalCondition"></span></div>
+                    </div>
+
+                    <div class="modal-notes">
+                        <h3>Notes & Particularités</h3>
+                        <p id="modalNotes"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script de gestion de la collection -->
+    <script>
+        const collectionData = {
+            "wywh-33t-uk-1st": {
+                format: "LP • UK",
+                title: "Original UK Pressing (Black Shrink Wrap)",
+                subtitle: "Harvest / SHVL 814",
+                country: "Royaume-Uni",
+                year: "1975",
+                label: "Harvest",
+                ref: "SHVL 814",
+                matrix: "SHVL 814 A-1 / SHVL 814 B-3",
+                condition: "Pochette : EX | Vinyle : NM",
+                notes: "Première édition originale britannique scellée sous cellophane noir d'origine avec le sticker rond des quatre éléments dessiné par George Hardie.",
+                images: [
+                    'pochettes/wywh-uk-1st-front.jpg',
+                    'pochettes/wywh-uk-1st-back.jpg',
+                    'pochettes/wywh-uk-1st-label.jpg'
+                ]
+            },
+            "wywh-33t-fr": {
+                format: "LP • FR",
+                title: "Original French Pressing",
+                subtitle: "Harvest / Pathé Marconi / SHVL 814",
+                country: "France",
+                year: "1975",
+                label: "Harvest / Pathé Marconi",
+                ref: "SHVL 814",
+                matrix: "2C 068-96918 A / 2C 068-96918 B",
+                condition: "Pochette : VG+ | Vinyle : EX",
+                notes: "Pressage français d'époque distribué par Pathé Marconi, pochette sous carte postale incluse.",
+                images: [
+                    'pochettes/wywh-fr-front.jpg'
+                ]
+            },
+            "wywh-45t-single": {
+                format: "45T • FR",
+                title: "Have A Cigar / Welcome To The Machine",
+                subtitle: "Harvest / 2C 006-97352",
+                country: "France",
+                year: "1975",
+                label: "Harvest",
+                ref: "2C 006-97352",
+                matrix: "97352 A / 97352 B",
+                condition: "Pochette : EX | Vinyle : EX",
+                notes: "Unique 45 tours extrait de l'album édité en France sous pochette avec visuel dédié.",
+                images: [
+                    'pochettes/wywh-45t-single.jpg'
+                ]
+            },
+            "wywh-k7-uk": {
+                format: "K7 • UK",
+                title: "UK Original Cassette",
+                subtitle: "Harvest / TC-SHVL 814",
+                country: "Royaume-Uni",
+                year: "1975",
+                label: "Harvest",
+                ref: "TC-SHVL 814",
+                matrix: "N/A",
+                condition: "Boîtier : VG+ | Bande : EX",
+                notes: "Première édition cassette originale du Royaume-Uni.",
+                images: [
+                    'pochettes/wywh-k7-front.jpg'
+                ]
+            },
+            "wywh-cd-jp": {
+                format: "CD • JP",
+                title: "Japan 1st Pressing",
+                subtitle: "CBS/Sony / 35DP 4",
+                country: "Japon",
+                year: "1982",
+                label: "CBS/Sony",
+                ref: "35DP 4",
+                matrix: "35DP-4 11A1",
+                condition: "Livret : NM | Disque : NM",
+                notes: "Premier pressage CD japonais mondialement reconnu pour sa qualité sonore exceptionnelle (Gold Face).",
+                images: [
+                    'pochettes/wywh-cd-jp.jpg'
+                ]
+            }
+        };
+
+        let currentImages = [];
+        let currentImgIndex = 0;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('itemModal');
+            const closeBtn = document.querySelector('.close-modal');
+            const mainImg = document.getElementById('modalMainImg');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const id = card.getAttribute('data-id');
+                    const data = collectionData[id];
+
+                    if (!data) return;
+
+                    document.getElementById('modalFormatBadge').textContent = data.format;
+                    document.getElementById('modalTitle').textContent = data.title;
+                    document.getElementById('modalSubtitle').textContent = data.subtitle;
+                    document.getElementById('modalCountry').textContent = data.country;
+                    document.getElementById('modalYear').textContent = data.year;
+                    document.getElementById('modalLabel').textContent = data.label;
+                    document.getElementById('modalRef').textContent = data.ref;
+                    document.getElementById('modalMatrix').textContent = data.matrix;
+                    document.getElementById('modalCondition').textContent = data.condition;
+                    document.getElementById('modalNotes').textContent = data.notes;
+
+                    currentImages = data.images || [];
+                    currentImgIndex = 0;
+                    updateGallery();
+
+                    modal.style.display = 'block';
+                });
+            });
+
+            closeBtn.onclick = () => modal.style.display = 'none';
+            window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
+
+            prevBtn.onclick = () => {
+                currentImgIndex = (currentImgIndex - 1 + currentImages.length) % currentImages.length;
+                updateMainImage();
+            };
+
+            nextBtn.onclick = () => {
+                currentImgIndex = (currentImgIndex + 1) % currentImages.length;
+                updateMainImage();
+            };
+
+            function updateGallery() {
+                updateMainImage();
+                const thumbsContainer = document.getElementById('modalThumbnails');
+                thumbsContainer.innerHTML = '';
+
+                currentImages.forEach((imgSrc, index) => {
+                    const thumb = document.createElement('img');
+                    thumb.src = imgSrc;
+                    thumb.classList.add('thumb-img');
+                    if (index === currentImgIndex) thumb.classList.add('active');
+                    
+                    thumb.onclick = () => {
+                        currentImgIndex = index;
+                        updateMainImage();
+                    };
+                    thumbsContainer.appendChild(thumb);
+                });
+            }
+
+            function updateMainImage() {
+                if (currentImages.length > 0) {
+                    mainImg.src = currentImages[currentImgIndex];
+                }
+                document.querySelectorAll('.thumb-img').forEach((thumb, idx) => {
+                    thumb.classList.toggle('active', idx === currentImgIndex);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

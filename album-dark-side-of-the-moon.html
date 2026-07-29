@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Dark Side of the Moon - Collection - Careful With That Floyd</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=2">
+    
+    <style>
+        /* Palette & Thème Arc-en-Ciel sur Noir Profond pour Dark Side of the Moon */
+        :root {
+            --album-cover: url('pochettes/dark-side.webp');
+            --rainbow-gradient: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+            --rainbow-border: linear-gradient(135deg, #e60000, #ff8c00, #ffee00, #00d215, #0066ff, #9900ff);
+        }
+
+        /* En-tête & Fond Sombre */
+		body.album-page {
+			margin: 0;
+			padding: 0;
+			color: #ffffff;
+			background-color: #080808;
+			background-image: linear-gradient(
+				180deg, 
+				rgba(0, 0, 0, 0.45) 0%,    /* Un peu plus sombre en haut */
+				rgba(0, 0, 0, 0.70) 50%,   /* Transition plus marquée au milieu */
+				rgba(8, 8, 8, 1.5) 100%    /* Assombrissement progressif pour le texte en bas */
+			), var(--album-cover);
+			background-size: cover;
+			background-position: 50% 25%; /* La pochette est maintenant centrée */
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+        }
+
+        .album-header {
+            padding: 100px 20px 40px 20px;
+            text-align: center;
+        }
+
+        .album-header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Tag Arc-en-ciel principal */
+        .album-tag {
+            display: inline-block;
+            position: relative;
+            background: rgba(15, 15, 15, 0.85);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 16px;
+            border: 1px solid transparent;
+            background-clip: padding-box;
+        }
+
+        .album-tag::before {
+            content: '';
+            position: absolute;
+            top: -1px; right: -1px; bottom: -1px; left: -1px;
+            z-index: -1;
+            margin: -1px;
+            border-radius: inherit;
+            background: var(--rainbow-gradient);
+        }
+
+        .album-header h1 {
+            font-size: 3.2rem;
+            color: #ffffff;
+            margin: 0 0 10px 0;
+            font-weight: 700;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
+        }
+
+        .album-header p {
+            color: #cccccc;
+            font-size: 1.1rem;
+            margin: 0;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+        }
+
+        /* Sections & Titres avec sous-ligne arc-en-ciel */
+        .format-section {
+            max-width: 1200px;
+            margin: 0 auto 50px auto;
+            padding: 0 20px;
+        }
+
+        .format-title {
+            font-size: 1.6rem;
+            color: #ffffff;
+            position: relative;
+            padding-bottom: 12px;
+            margin-bottom: 24px;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .format-title::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 120px;
+            height: 2px;
+            background: var(--rainbow-gradient);
+        }
+
+        /* Cartes de collection avec contour arc-en-ciel au survol */
+        .project-card {
+            position: relative;
+            background: rgba(20, 20, 20, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: transparent;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Bordure dégradée au survol */
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 12px;
+            padding: 1.5px;
+            background: var(--rainbow-gradient);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-info h3 {
+            color: #ffffff;
+            margin: 8px 0 4px 0;
+            font-size: 1.1rem;
+        }
+
+        .project-info p {
+            color: rgba(255, 255, 255, 0.75);
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Badges de format stylisés Arc-en-ciel */
+        .project-tag {
+            display: inline-block;
+            background: var(--rainbow-gradient);
+            color: #000000;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+        }
+
+        .project-tag.tag-45t {
+            background: transparent;
+            border: 1px solid transparent;
+            background-image: linear-gradient(#121212, #121212), var(--rainbow-gradient);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            color: #ffffff;
+        }
+
+        .project-tag.tag-ep {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+        }
+
+        .project-tag.tag-k7 {
+            background: #222222;
+            color: #ffffff;
+            border: 1px solid #444444;
+        }
+
+        .project-tag.tag-8track {
+            background: #4a2810;
+            color: #ffffff;
+        }
+
+        .project-tag.tag-cd {
+            background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+            color: #ffffff;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: #141414;
+            border: 1px solid transparent;
+            background-image: linear-gradient(#141414, #141414), var(--rainbow-gradient);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            border-radius: 16px;
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 30px;
+            position: relative;
+            color: #ffffff;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.95);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #aaaaaa;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .close-modal:hover {
+            color: #ffffff;
+        }
+
+        .modal-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .modal-body {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .main-image-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1/1;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .main-image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            font-size: 1.2rem;
+            padding: 10px 14px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background 0.2s;
+        }
+
+        .nav-btn:hover {
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .prev-btn { left: 10px; }
+        .next-btn { right: 10px; }
+
+        .thumbnails-grid {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px;
+            overflow-x: auto;
+            padding-bottom: 5px;
+        }
+
+        .thumb-img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 6px;
+            cursor: pointer;
+            opacity: 0.5;
+            border: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .thumb-img.active, .thumb-img:hover {
+            opacity: 1;
+            border-color: #00ff00;
+        }
+
+        .modal-details h2 {
+            margin: 10px 0 4px 0;
+            font-size: 1.5rem;
+        }
+
+        .modal-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0 0 20px 0;
+            font-size: 0.95rem;
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .spec-item strong {
+            color: rgba(255, 255, 255, 0.5);
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .modal-notes h3 {
+            font-size: 1rem;
+            margin: 0 0 8px 0;
+            background: var(--rainbow-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        .modal-notes p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.85);
+            margin: 0;
+        }
+    </style>
+</head>
+<body class="album-page">
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="logo-link">
+            <img src="Careful With That Floyd.png" alt="Careful With That Floyd" class="logo-img">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html" class="nav-btn">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header class="album-header">
+        <div class="album-header-content">
+            <span class="album-tag">Album Studio • 1973</span>
+            <h1>The Dark Side of the Moon</h1>
+            <p>Pressages et éditions présents dans la collection</p>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="album-collection-container">
+
+        <!-- Section 33 Tours -->
+        <section class="format-section">
+            <h2 class="format-title">33 Tours (LPs)</h2>
+            <div class="portfolio-grid">
+                
+                <div class="project-card" data-id="dsotm-33t-fr-1975">
+                    <div class="project-image" style="background-image: url('pochettes/dsotm-uk-1st-front.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag">LP • FRANCE</span>
+                        <h3>Troisième pressage (Réédition, Rim text en Français, Gatefold)</h3>
+                        <p>Harvest • 2C 068-05249 • 1975</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-id="dsotm-33t-eu-2023">
+                    <div class="project-image" style="background-image: url('pochettes/dsotm-fr-front.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag">LP • EUROPE</span>
+                        <h3>Edition 50ème anniversaire (Remaster, 180g, Gatefold)</h3>
+                        <p>Pink Floyd Records • PFR50LP1 • 2023</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 45 Tours -->
+        <section class="format-section">
+            <h2 class="format-title">45 Tours (Singles)</h2>
+            <div class="portfolio-grid">
+                
+                <div class="project-card" data-id="money-single-fr">
+                    <div class="project-image" style="background-image: url('pochettes/money-us-front.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag tag-45t">45T • FRANCE</span>
+                        <h3>Money / Any Colour You Like</h3>
+                        <p>Harvest • 2C 006-05368 • 1973</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section EPs -->
+        <section class="format-section">
+            <h2 class="format-title">EPs</h2>
+            <div class="portfolio-grid">
+            
+            </div>
+        </section>
+
+        <!-- Section Cassettes -->
+        <section class="format-section">
+            <h2 class="format-title">Cassettes (MC)</h2>
+            <div class="portfolio-grid">
+                
+                <div class="project-card" data-id="dsotm-k7-uk">
+                    <div class="project-image" style="background-image: url('pochettes/dsotm-k7-front.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag tag-k7">CASSETTE • FRANCE</span>
+                        <h3>Deuxième édition (Cassette blanche, écritures noires, code prix Y)</h3>
+                        <p>Harvest • 2C 244-05249 • 1974</p>
+                    </div>
+                </div>
+				
+				<div class="project-card" data-id="dsotm-k7-uk">
+                    <div class="project-image" style="background-image: url('pochettes/dsotm-k7-front.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag tag-k7">CASSETTE • FRANCE</span>
+                        <h3>Edition Collection Espaces (Pochette noire, cassette blanche, label doré)</h3>
+                        <p>Harvest • 2C 266-53371 • 1979</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section Cartouches 8-Pistes -->
+        <section class="format-section">
+            <h2 class="format-title">Cartouches 8-Pistes</h2>
+            <div class="portfolio-grid">
+            
+            </div>
+        </section>
+
+        <!-- Section CDs -->
+        <section class="format-section">
+            <h2 class="format-title">CDs & SACDs</h2>
+            <div class="portfolio-grid">
+                
+                <div class="project-card" data-id="dsotm-cd-black-triangle">
+                    <div class="project-image" style="background-image: url('pochettes/dsotm-black-triangle.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag tag-cd">CD • JP Black Triangle</span>
+                        <h3>Japan 1st Pressing (CP35-3017)</h3>
+                        <p>Harvest / Toshiba • CP35-3017 • 1983</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-id="dsotm-sacd-30th">
+                    <div class="project-image" style="background-image: url('pochettes/dsotm-sacd-30th.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag tag-cd">SACD • 30th Anniv.</span>
+                        <h3>Hybrid Multichannel SACD</h3>
+                        <p>EMI • 7243 582136 2 1 • 2003</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+		
+		<section class="format-section">
+            <h2 class="format-title">Blu-rays audio</h2>
+            <div class="portfolio-grid">
+                
+                <div class="project-card" data-id="dsotm-cd-black-triangle">
+                    <div class="project-image" style="background-image: url('pochettes/dsotm-black-triangle.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag tag-cd">CD • JP Black Triangle</span>
+                        <h3>Japan 1st Pressing (CP35-3017)</h3>
+                        <p>Harvest / Toshiba • CP35-3017 • 1983</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+		
+		<section class="format-section">
+            <h2 class="format-title">Coffrets</h2>
+            <div class="portfolio-grid">
+            
+            </div>
+        </section>
+
+        <!-- Back Button -->
+        <div style="text-align: center; margin: 50px 0;">
+            <a href="collection-albums.html" class="btn-back">← Retour aux albums</a>
+        </div>
+
+    </main>
+
+    <!-- Modal dynamique -->
+    <div id="itemModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            
+            <div class="modal-body">
+                <div class="modal-gallery">
+                    <div class="main-image-container">
+                        <button class="nav-btn prev-btn">&#10094;</button>
+                        <img id="modalMainImg" src="" alt="Pochette">
+                        <button class="nav-btn next-btn">&#10095;</button>
+                    </div>
+                    <div id="modalThumbnails" class="thumbnails-grid"></div>
+                </div>
+
+                <div class="modal-details">
+                    <span id="modalFormatBadge" class="project-tag"></span>
+                    <h2 id="modalTitle"></h2>
+                    <p id="modalSubtitle" class="modal-subtitle"></p>
+
+                    <div class="specs-grid">
+                        <div class="spec-item"><strong>Pays</strong> <span id="modalCountry"></span></div>
+                        <div class="spec-item"><strong>Année</strong> <span id="modalYear"></span></div>
+                        <div class="spec-item"><strong>Label</strong> <span id="modalLabel"></span></div>
+                        <div class="spec-item"><strong>Référence</strong> <span id="modalRef"></span></div>
+                        <div class="spec-item"><strong>Matrice</strong> <span id="modalMatrix"></span></div>
+                        <div class="spec-item"><strong>État</strong> <span id="modalCondition"></span></div>
+                    </div>
+
+                    <div class="modal-notes">
+                        <h3>Notes & Particularités</h3>
+                        <p id="modalNotes"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script de gestion de la collection -->
+    <script>
+        const collectionData = {
+            "dsotm-33t-uk-1st": {
+                format: "LP • UK Solid Blue",
+                title: "Original UK Gatefold (1st Pressing)",
+                subtitle: "Harvest / SHVL 804",
+                country: "Royaume-Uni",
+                year: "1973",
+                label: "Harvest",
+                ref: "SHVL 804",
+                matrix: "SHVL 804 A-2 / SHVL 804 B-2",
+                condition: "Pochette : EX | Vinyle : EX",
+                notes: "Mythique premier pressage britannique reconnaissable à son prisme bleu plein ('Solid Blue Triangle') sur le label central du vinyle. Fourni avec ses deux posters originaux et deux autocollants.",
+                images: [
+                    'pochettes/dsotm-uk-1st-front.jpg',
+                    'pochettes/dsotm-uk-1st-gatefold.jpg',
+                    'pochettes/dsotm-uk-1st-label.jpg'
+                ]
+            },
+            "dsotm-33t-fr": {
+                format: "LP • FR",
+                title: "Original French Gatefold Pressing",
+                subtitle: "Harvest / Pathé Marconi / SHVL 804",
+                country: "France",
+                year: "1973",
+                label: "Harvest",
+                ref: "SHVL 804",
+                matrix: "YAX 4543 21 / YAX 4544 21",
+                condition: "Pochette : VG+ | Vinyle : EX",
+                notes: "Premier pressage français avec pochette ouvrante. Inclut les inserts d'époque originaux.",
+                images: [
+                    'pochettes/dsotm-fr-front.jpg'
+                ]
+            },
+            "dsotm-33t-mfsl": {
+                format: "LP • Audiophile",
+                title: "Mobile Fidelity Sound Lab (MFSL)",
+                subtitle: "MFSL / Harvest / MFSL 1-017",
+                country: "États-Unis",
+                year: "1979",
+                label: "Mobile Fidelity Sound Lab",
+                ref: "MFSL 1-017",
+                matrix: "MFSL 1-017 A1 / MFSL 1-017 B1",
+                condition: "Pochette : NM | Vinyle : NM",
+                notes: "Pressage audiophile Original Master Recording réputé pour sa précision dynamique et son absence de bruit de surface.",
+                images: [
+                    'pochettes/dsotm-mfsl-front.jpg'
+                ]
+            },
+            "money-single-us": {
+                format: "45T • US",
+                title: "Money / Any Colour You Like",
+                subtitle: "Harvest / 3609",
+                country: "États-Unis",
+                year: "1973",
+                label: "Harvest",
+                ref: "3609",
+                matrix: "S45-48139 / S45-48140",
+                condition: "Pochette : VG+ | Vinyle : EX",
+                notes: "Premier grand hit de Pink Floyd aux États-Unis, grimpant à la 13e place du Billboard Hot 100.",
+                images: [
+                    'pochettes/money-us-front.jpg'
+                ]
+            },
+            "us-and-them-single-us": {
+                format: "45T • US",
+                title: "Us and Them / Time",
+                subtitle: "Harvest / 3832",
+                country: "États-Unis",
+                year: "1974",
+                label: "Harvest",
+                ref: "3832",
+                matrix: "S45-48560 / S45-48561",
+                condition: "Pochette : VG+ | Vinyle : EX",
+                notes: "Second single tiré de l'album pour le marché américain.",
+                images: [
+                    'pochettes/us-and-them-us-front.jpg'
+                ]
+            },
+            "dsotm-ep-jp": {
+                format: "EP • JP",
+                title: "Money EP",
+                subtitle: "Harvest / Toshiba / EOR-10320",
+                country: "Japon",
+                year: "1973",
+                label: "Harvest / Toshiba",
+                ref: "EOR-10320",
+                matrix: "7XEA 20450",
+                condition: "Pochette : EX | Vinyle : NM",
+                notes: "Édition EP japonaise très soignée sous pochette feuillet illustrée.",
+                images: [
+                    'pochettes/dsotm-ep-jp.jpg'
+                ]
+            },
+            "dsotm-k7-uk": {
+                format: "K7 • UK",
+                title: "UK Original Cassette",
+                subtitle: "Harvest / TC-SHVL 804",
+                country: "Royaume-Uni",
+                year: "1973",
+                label: "Harvest",
+                ref: "TC-SHVL 804",
+                matrix: "N/A",
+                condition: "Boîtier : VG | Bande : VG+",
+                notes: "Édition cassette originale britannique.",
+                images: [
+                    'pochettes/dsotm-k7-front.jpg'
+                ]
+            },
+            "dsotm-8track-us": {
+                format: "8-TRACK • US",
+                title: "US 8-Track Tape",
+                subtitle: "Harvest / 8XH-11163",
+                country: "États-Unis",
+                year: "1973",
+                label: "Harvest",
+                ref: "8XH-11163",
+                matrix: "N/A",
+                condition: "Cartouche : VG",
+                notes: "Format cartouche 8-pistes original américain.",
+                images: [
+                    'pochettes/dsotm-8track-front.jpg'
+                ]
+            },
+            "dsotm-cd-black-triangle": {
+                format: "CD • JP Black Triangle",
+                title: "Japan 1st Pressing (CP35-3017)",
+                subtitle: "Harvest / Toshiba / CP35-3017",
+                country: "Japon",
+                year: "1983",
+                label: "Harvest / Toshiba-EMI",
+                ref: "CP35-3017",
+                matrix: "CP35-3017 10A1",
+                condition: "Livret : NM | Disque : NM",
+                notes: "Le tout premier pressage CD au monde de l'album. Édition japonaise légendaire 'Black Triangle' très recherchée par les collectionneurs audiophiles.",
+                images: [
+                    'pochettes/dsotm-black-triangle.jpg'
+                ]
+            },
+            "dsotm-sacd-30th": {
+                format: "SACD • 30th Anniv.",
+                title: "Hybrid Multichannel SACD",
+                subtitle: "EMI / 7243 582136 2 1",
+                country: "Europe",
+                year: "2003",
+                label: "EMI",
+                ref: "7243 582136 2 1",
+                matrix: "SACD-5821362",
+                condition: "Boîtier : NM | Disque : NM",
+                notes: "Édition 30e anniversaire hybride comprenant la couche CD Stéréo, SACD Stéréo et le mixage Surround 5.1 restauré par James Guthrie.",
+                images: [
+                    'pochettes/dsotm-sacd-30th.jpg'
+                ]
+            }
+        };
+
+        let currentImages = [];
+        let currentImgIndex = 0;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('itemModal');
+            const closeBtn = document.querySelector('.close-modal');
+            const mainImg = document.getElementById('modalMainImg');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const id = card.getAttribute('data-id');
+                    const data = collectionData[id];
+
+                    if (!data) return;
+
+                    document.getElementById('modalFormatBadge').textContent = data.format;
+                    document.getElementById('modalTitle').textContent = data.title;
+                    document.getElementById('modalSubtitle').textContent = data.subtitle;
+                    document.getElementById('modalCountry').textContent = data.country;
+                    document.getElementById('modalYear').textContent = data.year;
+                    document.getElementById('modalLabel').textContent = data.label;
+                    document.getElementById('modalRef').textContent = data.ref;
+                    document.getElementById('modalMatrix').textContent = data.matrix;
+                    document.getElementById('modalCondition').textContent = data.condition;
+                    document.getElementById('modalNotes').textContent = data.notes;
+
+                    currentImages = data.images || [];
+                    currentImgIndex = 0;
+                    updateGallery();
+
+                    modal.style.display = 'block';
+                });
+            });
+
+            closeBtn.onclick = () => modal.style.display = 'none';
+            window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
+
+            prevBtn.onclick = () => {
+                currentImgIndex = (currentImgIndex - 1 + currentImages.length) % currentImages.length;
+                updateMainImage();
+            };
+
+            nextBtn.onclick = () => {
+                currentImgIndex = (currentImgIndex + 1) % currentImages.length;
+                updateMainImage();
+            };
+
+            function updateGallery() {
+                updateMainImage();
+                const thumbsContainer = document.getElementById('modalThumbnails');
+                thumbsContainer.innerHTML = '';
+
+                currentImages.forEach((imgSrc, index) => {
+                    const thumb = document.createElement('img');
+                    thumb.src = imgSrc;
+                    thumb.classList.add('thumb-img');
+                    if (index === currentImgIndex) thumb.classList.add('active');
+                    
+                    thumb.onclick = () => {
+                        currentImgIndex = index;
+                        updateMainImage();
+                    };
+                    thumbsContainer.appendChild(thumb);
+                });
+            }
+
+            function updateMainImage() {
+                if (currentImages.length > 0) {
+                    mainImg.src = currentImages[currentImgIndex];
+                }
+                document.querySelectorAll('.thumb-img').forEach((thumb, idx) => {
+                    thumb.classList.toggle('active', idx === currentImgIndex);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
