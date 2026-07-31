@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Momentary Lapse of Reason - Collection - Careful With That Floyd</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=2">
+    
+    <style>
+        /* Palette personnalisée pour Animals */
+        :root {
+			--album-cover: url('pochettes/momentary.webp');
+			--album-color-top: rgba(10, 15, 30, 0.85);      /* Bleu nuit profond */
+			--album-color-mid: rgba(81, 21, 140, 0.6);      /* Cyan/Bleu aquatique */
+			--album-badge: #51158C;                         /* Bleu électrique pour les accents */
+			--album-badge-text: #000000;
+		}
+
+		body.album-page {
+			margin: 0;
+			padding: 0;
+			color: #ffffff;
+			background-color: #050505;
+			background-image: linear-gradient(
+				180deg, 
+				var(--album-color-top) 0%,   
+				var(--album-color-mid) 50%,  
+				#000000 100%
+			), var(--album-cover);
+			background-size: cover;
+			background-position: center top;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+		}
+
+        .album-header {
+            padding: 100px 20px 40px 20px;
+            text-align: center;
+        }
+
+        .album-header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .album-tag {
+            display: inline-block;
+            background: #51158C;
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            border: 1px solid var(--album-tag-border);
+        }
+
+        .album-header h1 {
+            font-size: 3rem;
+            color: #ffffff;
+            margin: 0 0 10px 0;
+            font-weight: 800;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
+        }
+
+        .album-header p {
+            color: #ffffff;
+            font-size: 1.1rem;
+            margin: 0;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+        }
+
+        /* Sections & Grille */
+        .format-section {
+            max-width: 1200px;
+            margin: 0 auto 50px auto;
+            padding: 0 20px;
+        }
+
+        .format-title {
+            font-size: 1.6rem;
+            color: #ffffff;
+            border-bottom: 2px solid var(--album-badge);
+            padding-bottom: 12px;
+            margin-bottom: 24px;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 182, 193, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--album-badge);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .project-info {
+            padding: 15px;
+        }
+
+        .project-info h3 {
+            color: #ffffff;
+            margin: 8px 0 4px 0;
+            font-size: 1.1rem;
+        }
+
+        .project-info p {
+            color: #ffffff;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Styles des badges par format */
+        .project-tag {
+            display: inline-block;
+            background-color: #51158C;
+            color: #ffffff;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .project-tag.tag-45t {
+            background-color: transparent;
+            border: 1px solid #ffffff;
+            color: #ffffff;
+        }
+
+        .project-tag.tag-ep {
+            background-color: rgba(255, 215, 0, 0.2);
+            border: 1px solid #ffd700;
+            color: #ffffff;
+        }
+
+        .project-tag.tag-k7 {
+            background-color: #a058e6;
+            color: #ffffff;
+            border: 1px solid #8b4513;
+        }
+
+        .project-tag.tag-8track {
+            background-color: #8b4513;
+            color: #ffffff;
+        }
+
+        .project-tag.tag-cd {
+            background-color: #ffd700;
+            color: #ffffff;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: #1a1a1a;
+            border: 1px solid var(--album-badge);
+            border-radius: 16px;
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 30px;
+            position: relative;
+            color: #ffffff;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #aaaaaa;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .close-modal:hover { color: #ffffff; }
+
+        .modal-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .modal-body { grid-template-columns: 1fr; }
+        }
+
+        .main-image-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1/1;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            font-size: 1.2rem;
+            padding: 10px 14px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background 0.2s;
+        }
+
+        .nav-btn:hover { background: rgba(0, 0, 0, 0.9); }
+        .prev-btn { left: 10px; }
+        .next-btn { right: 10px; }
+
+        .thumbnails-grid {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px;
+            overflow-x: auto;
+            padding-bottom: 5px;
+        }
+
+        .thumb-img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 6px;
+            cursor: pointer;
+            opacity: 0.6;
+            border: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .thumb-img.active, .thumb-img:hover {
+            opacity: 1;
+            border-color: var(--album-badge);
+        }
+
+        .modal-details h2 { margin: 10px 0 4px 0; font-size: 1.5rem; }
+        .modal-subtitle { color: rgba(255, 255, 255, 0.7); margin: 0 0 20px 0; font-size: 0.95rem; }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .spec-item strong {
+            color: rgba(255, 255, 255, 0.6);
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .modal-notes h3 { font-size: 1rem; margin: 0 0 8px 0; color: var(--album-badge); }
+        .modal-notes p { font-size: 0.9rem; line-height: 1.5; color: rgba(255, 255, 255, 0.85); margin: 0; }
+    </style>
+</head>
+<body class="album-page">
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="logo-link">
+            <img src="Careful With That Floyd.png" alt="Careful With That Floyd" class="logo-img">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html" class="nav-btn">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header class="album-header">
+        <div class="album-header-content">
+            <span class="album-tag">Album Studio • 8 septembre 1987</span>
+            <h1>A Momentary Lapse of Reason</h1>
+            <p>Pressages et éditions présents dans la collection</p>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="album-collection-container">
+
+        <!-- Section 33 Tours -->
+        <section class="format-section">
+            <h2 class="format-title">33 Tours (LPs)</h2>
+            <div class="portfolio-grid">
+                
+                <div class="project-card" data-id="momentary-33t-eu-og">
+                    <div class="project-image" style="background-image: url('pochettes/animals-uk-front.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag">LP • EUROPE</span>
+                        <h3>Pressage original</h3>
+                        <p>EMI • 7 48068 1 • 1987</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-id="momentary-33t-eu-2021">
+                    <div class="project-image" style="background-image: url('pochettes/animals-fr-front.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag">LP • EUROPE</span>
+                        <h3>Remixed & Updated (2xLP, 45 RPM, 180g)</h3>
+                        <p>Pink Floyd Records • PFRLP37 • 2021</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 45 Tours -->
+        <section class="format-section">
+            <h2 class="format-title">45 Tours (Singles)</h2>
+            <div class="portfolio-grid">
+            
+            </div>
+        </section>
+
+        <!-- Section EPs -->
+        <section class="format-section">
+            <h2 class="format-title">EPs</h2>
+            <div class="portfolio-grid">
+            
+            </div>
+        </section>
+
+        <!-- Section Cassettes -->
+        <section class="format-section">
+            <h2 class="format-title">Cassettes (MC)</h2>
+            <div class="portfolio-grid">
+            
+            </div>
+        </section>
+
+        <!-- Section Cartouches 8-Pistes -->
+        <section class="format-section">
+            <h2 class="format-title">Cartouches 8-Pistes</h2>
+            <div class="portfolio-grid">
+            
+            </div>
+        </section>
+
+        <!-- Section CDs -->
+        <section class="format-section">
+            <h2 class="format-title">CDs</h2>
+            <div class="portfolio-grid">
+            
+            </div>
+        </section>
+
+        <!-- Back Button -->
+        <div style="text-align: center; margin: 50px 0;">
+            <a href="collection-albums.html" style="color: #ffb6c1; text-decoration: none; font-weight: 600;">← Retour aux albums</a>
+        </div>
+
+    </main>
+
+    <!-- Modal dynamique -->
+    <div id="itemModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            
+            <div class="modal-body">
+                <div class="modal-gallery">
+                    <div class="main-image-container">
+                        <button class="nav-btn prev-btn">&#10094;</button>
+                        <img id="modalMainImg" src="" alt="Pochette">
+                        <button class="nav-btn next-btn">&#10095;</button>
+                    </div>
+                    <div id="modalThumbnails" class="thumbnails-grid"></div>
+                </div>
+
+                <div class="modal-details">
+                    <span id="modalFormatBadge" class="project-tag"></span>
+                    <h2 id="modalTitle"></h2>
+                    <p id="modalSubtitle" class="modal-subtitle"></p>
+
+                    <div class="specs-grid">
+                        <div class="spec-item"><strong>Pays</strong> <span id="modalCountry"></span></div>
+                        <div class="spec-item"><strong>Année</strong> <span id="modalYear"></span></div>
+                        <div class="spec-item"><strong>Label</strong> <span id="modalLabel"></span></div>
+                        <div class="spec-item"><strong>Référence</strong> <span id="modalRef"></span></div>
+                        <div class="spec-item"><strong>Matrice</strong> <span id="modalMatrix"></span></div>
+                        <div class="spec-item"><strong>État</strong> <span id="modalCondition"></span></div>
+                    </div>
+
+                    <div class="modal-notes">
+                        <h3>Notes & Particularités</h3>
+                        <p id="modalNotes"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script de gestion de la collection -->
+    <script>
+        const collectionData = {
+            "momentary-33t-eu-og": {
+                format: "LP • EUROPE",
+                title: "Pressage original",
+                subtitle: "EMI / 7 48068 1",
+                country: "Europe",
+                year: "1987",
+                label: "EMI",
+                ref: "7 48068 1",
+                matrix: "7480681-A4 Precision M6 356970 2 / 7480681-B4 Precision M6 356971 2",
+                condition: "Pochette : NM | Vinyle : NM",
+                notes: "Pressage original. Gatefold. Contient la sous-pochette d'origine..",
+                images: [
+                    'pochettes/animals-uk-front.jpg',
+                    'pochettes/animals-uk-gatefold.jpg',
+                    'pochettes/animals-uk-label.jpg'
+                ]
+            },
+            "momentary-33t-eu-2021": {
+                format: "LP • EUROPE",
+                title: "Original French Gatefold Pressing",
+                subtitle: "Pink Floyd Records / PFRLP37",
+                country: "Europe",
+                year: "2021",
+                label: "Pink Floyd Records",
+                ref: "PFRLP37",
+                matrix: "BK28540-01 A1 Stu. 0190295079208 1I / BK28540-01 B1 1- 0190295079208 / BK28540-02 C1 0190295079208 1II / BK28540-02 D1 0190295079208 2IT",
+                condition: "Pochette : M | Vinyles : M",
+                notes: "Edition Remixed & Updated. 2xLP, 45 RPM. Gatefold. Fourni avec des sous-pochettes noires.",
+                images: [
+                    'pochettes/animals-fr-front.jpg'
+                ]
+            }
+        };
+
+        let currentImages = [];
+        let currentImgIndex = 0;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('itemModal');
+            const closeBtn = document.querySelector('.close-modal');
+            const mainImg = document.getElementById('modalMainImg');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const id = card.getAttribute('data-id');
+                    const data = collectionData[id];
+
+                    if (!data) return;
+
+                    document.getElementById('modalFormatBadge').textContent = data.format;
+                    document.getElementById('modalTitle').textContent = data.title;
+                    document.getElementById('modalSubtitle').textContent = data.subtitle;
+                    document.getElementById('modalCountry').textContent = data.country;
+                    document.getElementById('modalYear').textContent = data.year;
+                    document.getElementById('modalLabel').textContent = data.label;
+                    document.getElementById('modalRef').textContent = data.ref;
+                    document.getElementById('modalMatrix').textContent = data.matrix;
+                    document.getElementById('modalCondition').textContent = data.condition;
+                    document.getElementById('modalNotes').textContent = data.notes;
+
+                    currentImages = data.images || [];
+                    currentImgIndex = 0;
+                    updateGallery();
+
+                    modal.style.display = 'block';
+                });
+            });
+
+            closeBtn.onclick = () => modal.style.display = 'none';
+            window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
+
+            prevBtn.onclick = () => {
+                currentImgIndex = (currentImgIndex - 1 + currentImages.length) % currentImages.length;
+                updateMainImage();
+            };
+
+            nextBtn.onclick = () => {
+                currentImgIndex = (currentImgIndex + 1) % currentImages.length;
+                updateMainImage();
+            };
+
+            function updateGallery() {
+                updateMainImage();
+                const thumbsContainer = document.getElementById('modalThumbnails');
+                thumbsContainer.innerHTML = '';
+
+                currentImages.forEach((imgSrc, index) => {
+                    const thumb = document.createElement('img');
+                    thumb.src = imgSrc;
+                    thumb.classList.add('thumb-img');
+                    if (index === currentImgIndex) thumb.classList.add('active');
+                    
+                    thumb.onclick = () => {
+                        currentImgIndex = index;
+                        updateMainImage();
+                    };
+                    thumbsContainer.appendChild(thumb);
+                });
+            }
+
+            function updateMainImage() {
+                if (currentImages.length > 0) {
+                    mainImg.src = currentImages[currentImgIndex];
+                }
+                document.querySelectorAll('.thumb-img').forEach((thumb, idx) => {
+                    thumb.classList.toggle('active', idx === currentImgIndex);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
