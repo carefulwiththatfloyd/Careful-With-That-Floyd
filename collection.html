@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <title>Collection - Careful With That Floyd</title>
+
+	<style>
+        /* Style pour l'en-tête de catégorie */
+        .category-header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('vlcsnap-2025-10-05-15h56m13s798.png'); /* Remplace par le nom de ton image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 60px 20px;
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 50px; /* Espace entre l'en-tête et les cartes */
+        }
+
+        .category-header h1,
+        .category-header p {
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barre de navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="logo-link">
+            <img src="Careful With That Floyd.png" alt="Careful With That Floyd" class="logo-img">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html" class="nav-btn">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- En-tête de la page Collection -->
+    <header class="category-header">
+        <h1>Ma Collection</h1>
+        <p>Explorez mes pièces Pink Floyd triées par catégorie</p>
+    </header>
+
+    <!-- Section principale des 3 grands filtres -->
+    <main class="categories-section">
+        <div class="categories-grid">
+            
+            <!-- Choix 1 : Par Pays -->
+            <a href="collection-pays.html" class="category-card" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('istockphoto-531475822-612x612-1.jpg');">
+                <div class="category-content">
+                    <h3>Par Pays</h3>
+                    <p>France, Royaume-Uni, Japon, USA...</p>
+                    <span class="category-link">Explorer par Pays →</span>
+                </div>
+            </a>
+
+            <!-- Choix 2 : Par Format -->
+            <a href="collection-formats.html" class="category-card" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Screen-Shot-2022-01-01-at-3.47.47-PM.png');">
+                <div class="category-content">
+                    <h3>Par Format</h3>
+                    <p>Vinyles, CD, Cassettes, Coffrets, Merch...</p>
+                    <span class="category-link">Explorer par Format →</span>
+                </div>
+            </a>
+
+            <!-- Choix 3 : Par Album -->
+            <a href="collection-albums.html" class="category-card" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('GxDknUYWMAAGtAm.jpg');">
+                <div class="category-content">
+                    <h3>Par Album</h3>
+                    <p>The Dark Side of the Moon, Wish You Were Here, Animals...</p>
+                    <span class="category-link">Explorer par Album →</span>
+                </div>
+            </a>
+
+        </div>
+    </main>
+	
+	<!-- Section Commentaires -->
+<section class="format-section" style="max-width: 900px; margin: 50px auto; padding: 20px;">
+    <h2 class="format-title" style="color: #000000; border-bottom: 2px solid #000000; margin-bottom: 20px;">Commentaires</h2>
+    <div class="giscus"></div>
+</section>
+	
+	<script src="https://giscus.app/client.js"
+        data-repo="carefulwiththatfloyd/Careful-With-That-Floyd"
+        data-repo-id="R_kgDOTkThMA"
+        data-category="General"
+        data-category-id="DIC_kwDOTkThMM4DCaQe"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="fr"
+        crossorigin="anonymous"
+        async>
+	</script>
+
+</body>
+</html>
