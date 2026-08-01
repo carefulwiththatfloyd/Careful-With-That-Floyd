@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wall - Collection - Careful With That Floyd</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=2">
+    
+    <style>
+        /* Palette personnalisée pour Animals */
+        :root {
+			--album-cover: url('pochettes/wall.webp');
+			--album-color-top: rgba(0, 0, 0, 0.9);
+			--album-color-mid: rgba(255, 255, 255, 0.1); 
+			--album-badge: #ffffff;
+			--album-badge-text: #000000;
+		}
+
+		body.album-page {
+			margin: 0;
+			padding: 0;
+			color: #ffffff;
+			background-color: #ffffff;
+			background-image: linear-gradient(
+				180deg, 
+				var(--album-color-top) 0%,   
+				var(--album-color-mid) 40%,  
+				rgba(0, 0, 0, 0.8) 100%
+			), var(--album-cover);
+			background-size: cover;
+			background-position: center top;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+		}
+
+        .album-header {
+            padding: 100px 20px 40px 20px;
+            text-align: center;
+        }
+
+        .album-header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .album-tag {
+            display: inline-block;
+            background: var(--album-tag-bg);
+            backdrop-filter: blur(8px);
+            color: #000000;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            border: 1px solid var(--album-tag-border);
+        }
+
+        .album-header h1 {
+            font-size: 3rem;
+            color: #000000;
+            margin: 0 0 10px 0;
+            font-weight: 800;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
+        }
+
+        .album-header p {
+            color: #000000;
+            font-size: 1.1rem;
+            margin: 0;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+        }
+
+        /* Sections & Grille */
+        .format-section {
+            max-width: 1200px;
+            margin: 0 auto 50px auto;
+            padding: 0 20px;
+        }
+
+        .format-title {
+            font-size: 1.6rem;
+            color: #000000;
+            border-bottom: 2px solid var(--album-badge);
+            padding-bottom: 12px;
+            margin-bottom: 24px;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 182, 193, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            color: #000000;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--album-badge);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .project-info {
+            padding: 15px;
+        }
+
+        .project-info h3 {
+            color: #000000;
+            margin: 8px 0 4px 0;
+            font-size: 1.1rem;
+        }
+
+        .project-info p {
+            color: #000000;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Styles des badges par format */
+        .project-tag {
+            display: inline-block;
+            background-color: var(--album-badge);
+            color: var(--album-badge-text);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .project-tag.tag-45t {
+            background-color: transparent;
+            border: 1px solid #000000;
+            color: #000000;
+        }
+
+        .project-tag.tag-ep {
+            background-color: rgba(255, 215, 0, 0.2);
+            border: 1px solid #ffd700;
+            color: #000000;
+        }
+
+        .project-tag.tag-k7 {
+            background-color: #999999;
+            color: #000000;
+            border: 1px solid #8b4513;
+        }
+
+        .project-tag.tag-8track {
+            background-color: #8b4513;
+            color: #000000;
+        }
+
+        .project-tag.tag-cd {
+            background-color: #ffd700;
+            color: #000000;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: #1a1a1a;
+            border: 1px solid var(--album-badge);
+            border-radius: 16px;
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 30px;
+            position: relative;
+            color: #ffffff;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #aaaaaa;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .close-modal:hover { color: #ffffff; }
+
+        .modal-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .modal-body { grid-template-columns: 1fr; }
+        }
+
+        .main-image-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1/1;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            font-size: 1.2rem;
+            padding: 10px 14px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background 0.2s;
+        }
+
+        .nav-btn:hover { background: rgba(0, 0, 0, 0.9); }
+        .prev-btn { left: 10px; }
+        .next-btn { right: 10px; }
+
+        .thumbnails-grid {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px;
+            overflow-x: auto;
+            padding-bottom: 5px;
+        }
+
+        .thumb-img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 6px;
+            cursor: pointer;
+            opacity: 0.6;
+            border: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .thumb-img.active, .thumb-img:hover {
+            opacity: 1;
+            border-color: var(--album-badge);
+        }
+
+        .modal-details h2 { margin: 10px 0 4px 0; font-size: 1.5rem; }
+        .modal-subtitle { color: rgba(255, 255, 255, 0.7); margin: 0 0 20px 0; font-size: 0.95rem; }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .spec-item strong {
+            color: rgba(255, 255, 255, 0.6);
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .modal-notes h3 { font-size: 1rem; margin: 0 0 8px 0; color: var(--album-badge); }
+        .modal-notes p { font-size: 0.9rem; line-height: 1.5; color: rgba(255, 255, 255, 0.85); margin: 0; }
+    </style>
+</head>
+<body class="album-page">
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="logo-link">
+            <img src="Careful With That Floyd.png" alt="Careful With That Floyd" class="logo-img">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html" class="nav-btn">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header class="album-header">
+        <div class="album-header-content">
+            <span class="album-tag">Album Studio • 30 Novembre 1979</span>
+            <h1>The Wall</h1>
+            <p>Pressages et éditions présents dans la collection</p>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="album-collection-container">
+
+        <!-- Section 33 Tours -->
+        <section class="format-section">
+            <h2 class="format-title">33 Tours (LPs)</h2>
+            <div class="portfolio-grid">
+            
+                <div class="project-card" data-id="wall-33t-fr-og">
+                    <div class="project-image" style="background-image: url('pochettes/animals-fr-front.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag">LP • FRANCE</span>
+                        <h3>Pressage original</h3>
+                        <p>Harvest • 2C 168-63410/11 • 1979</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 45 Tours -->
+        <section class="format-section">
+            <h2 class="format-title">45 Tours (Singles)</h2>
+            <div class="portfolio-grid">
+                
+                <div class="project-card" data-id="brick2-single-fr">
+                    <div class="project-image" style="background-image: url('pochettes/animals-45t-fr.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag tag-45t">45T • FRANCE</span>
+                        <h3>Another Brick in the Wall (Part II) / One of My Turns</h3>
+                        <p>Harvest • 2C 008-63494 • 1979</p>
+                    </div>
+                </div>
+
+                <div class="project-card" data-id="run-single-fr">
+                    <div class="project-image" style="background-image: url('pochettes/animals-45t-fr.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag tag-45t">45T • FRANCE</span>
+                        <h3>Run Like Hell / Don't Leave Me Now</h3>
+                        <p>Harvest • 2C 008-63833 • 1980</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section EPs -->
+        <section class="format-section">
+            <h2 class="format-title">EPs</h2>
+            <div class="portfolio-grid">
+            
+            </div>
+        </section>
+
+        <!-- Section Cassettes -->
+        <section class="format-section">
+            <h2 class="format-title">Cassettes (MC)</h2>
+            <div class="portfolio-grid">
+                
+                <div class="project-card" data-id="wall-k7-uk-og">
+                    <div class="project-image" style="background-image: url('pochettes/animals-k7-front.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag tag-k7">CASSETTE • ROYAUME-UNI</span>
+                        <h3>Edition originale (Double Play)</h3>
+                        <p>Harvest • TC2-SHDW 411 • 1979</p>
+                    </div>
+                </div>
+				
+				<div class="project-card" data-id="wall-k7-fr-1987">
+                    <div class="project-image" style="background-image: url('pochettes/animals-k7-front.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag tag-k7">CASSETTE • FRANCE</span>
+                        <h3>Réédition (Double Durée, Cassette transparente)</h3>
+                        <p>Harvest • 1634109 • 1987</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section Cartouches 8-Pistes -->
+        <section class="format-section">
+            <h2 class="format-title">Cartouches 8-Pistes</h2>
+            <div class="portfolio-grid">
+            
+            </div>
+        </section>
+
+        <!-- Section CDs -->
+        <section class="format-section">
+            <h2 class="format-title">CDs</h2>
+            <div class="portfolio-grid">
+            
+            </div>
+        </section>
+
+        <!-- Back Button -->
+        <div style="text-align: center; margin: 50px 0;">
+            <a href="collection-albums.html" style="color: #ffffff; text-decoration: none; font-weight: 600;">← Retour aux albums</a>
+        </div>
+
+    </main>
+
+    <!-- Modal dynamique -->
+    <div id="itemModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            
+            <div class="modal-body">
+                <div class="modal-gallery">
+                    <div class="main-image-container">
+                        <button class="nav-btn prev-btn">&#10094;</button>
+                        <img id="modalMainImg" src="" alt="Pochette">
+                        <button class="nav-btn next-btn">&#10095;</button>
+                    </div>
+                    <div id="modalThumbnails" class="thumbnails-grid"></div>
+                </div>
+
+                <div class="modal-details">
+                    <span id="modalFormatBadge" class="project-tag"></span>
+                    <h2 id="modalTitle"></h2>
+                    <p id="modalSubtitle" class="modal-subtitle"></p>
+
+                    <div class="specs-grid">
+                        <div class="spec-item"><strong>Pays</strong> <span id="modalCountry"></span></div>
+                        <div class="spec-item"><strong>Année</strong> <span id="modalYear"></span></div>
+                        <div class="spec-item"><strong>Label</strong> <span id="modalLabel"></span></div>
+                        <div class="spec-item"><strong>Référence</strong> <span id="modalRef"></span></div>
+                        <div class="spec-item"><strong>Matrice</strong> <span id="modalMatrix"></span></div>
+                        <div class="spec-item"><strong>État</strong> <span id="modalCondition"></span></div>
+                    </div>
+
+                    <div class="modal-notes">
+                        <h3>Notes & Particularités</h3>
+                        <p id="modalNotes"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script de gestion de la collection -->
+    <script>
+        const collectionData = {
+            "wall-33t-fr-og": {
+                format: "LP • FRANCE",
+                title: "Pressage original",
+                subtitle: "Harvest / 2C 168-63410/11",
+                country: "France",
+                year: "1979",
+                label: "Harvest",
+                ref: "2C 168-63410/11",
+                matrix: "63410 A 21 M6 330 551 1 JCP / 63410 B 2 M6 330 418 1 / 63411 A 21 M6 330 553 1 JCP / 63411 B 2 M6 330 422 1 1",
+                condition: "Pochette : NM | Vinyle : NM",
+                notes: "Pressage original. Gatefold. Sticker manquant. Contient les sous-pochettes originales.",
+                images: [
+                    'pochettes/animals-uk-front.jpg',
+                    'pochettes/animals-uk-gatefold.jpg',
+                    'pochettes/animals-uk-label.jpg'
+                ]
+            },
+            "brick2-single-fr": {
+                format: "45T • FRANCE",
+                title: "Another Brick in the Wall (Part II) / One of My Turns",
+                subtitle: "Harvest / 2C 008-63494",
+                country: "France",
+                year: "1979",
+                label: "Harvest",
+                ref: "2C 008-63494",
+                matrix: "63494 A 3 - M3 330606 I / 63467 B 3 I B 63494 B1 - M3 330469 I",
+                condition: "Pochette : NM | Vinyle : NM",
+                notes: "Pressage original. Label argenté.",
+                images: [
+                    'pochettes/animals-45t-fr.jpg'
+                ]
+            },
+			"run-single-fr": {
+                format: "45T • FRANCE",
+                title: "Run Like Hell / Don't Leave Me Now",
+                subtitle: "Harvest / 2C 008-63833",
+                country: "France",
+                year: "1980",
+                label: "Harvest",
+                ref: "2C 008-63833",
+                matrix: "M3 332 825 1 TML-S 63833 A 2 / M3 332709 1 TML-M 263833 B 1 B-RE-2",
+                condition: "Pochette : NM | Vinyle : NM",
+                notes: "Pressage original. Label argenté.",
+                images: [
+                    'pochettes/animals-45t-fr.jpg'
+                ]
+            },
+            "wall-k7-uk-og": {
+                format: "CASSETTE • ROYAUME-UNI",
+                title: "Edition originale (Double Play)",
+                subtitle: "Harvest / TC2-SHDW 411",
+                country: "Royaume-Uni",
+                year: "1979",
+                label: "Harvest",
+                ref: "TC2-SHDW 411",
+                matrix: "N/A",
+                condition: "Boîtier : NM | Bande : VG+",
+                notes: "Edition originale britannique. Double Play. Insert J-Card dépliant. Bande qui ralentit au fur et à mesure de l'écoute. Livrée dans un boîtier transparent.",
+                images: [
+                    'pochettes/animals-k7-front.jpg'
+                ]
+            },
+			"wall-k7-fr-1987": {
+                format: "CASSETTE • FRANCE",
+                title: "Réédition (Double Durée, Cassette transparente)",
+                subtitle: "Harvest / 1634109",
+                country: "France",
+                year: "1987",
+                label: "Harvest",
+                ref: "1634109",
+                matrix: "N/A",
+                condition: "Boîtier : NM | Bande : NM",
+                notes: "Réédition française de 1987. Double Durée. Insert J-Card dépliant mais l'ancien propriétaire l'a collée. Livrée dans son boîtier d'origine en plastique noir.",
+                images: [
+                    'pochettes/animals-k7-front.jpg'
+                ]
+            },
+        };
+
+        let currentImages = [];
+        let currentImgIndex = 0;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('itemModal');
+            const closeBtn = document.querySelector('.close-modal');
+            const mainImg = document.getElementById('modalMainImg');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const id = card.getAttribute('data-id');
+                    const data = collectionData[id];
+
+                    if (!data) return;
+
+                    document.getElementById('modalFormatBadge').textContent = data.format;
+                    document.getElementById('modalTitle').textContent = data.title;
+                    document.getElementById('modalSubtitle').textContent = data.subtitle;
+                    document.getElementById('modalCountry').textContent = data.country;
+                    document.getElementById('modalYear').textContent = data.year;
+                    document.getElementById('modalLabel').textContent = data.label;
+                    document.getElementById('modalRef').textContent = data.ref;
+                    document.getElementById('modalMatrix').textContent = data.matrix;
+                    document.getElementById('modalCondition').textContent = data.condition;
+                    document.getElementById('modalNotes').textContent = data.notes;
+
+                    currentImages = data.images || [];
+                    currentImgIndex = 0;
+                    updateGallery();
+
+                    modal.style.display = 'block';
+                });
+            });
+
+            closeBtn.onclick = () => modal.style.display = 'none';
+            window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
+
+            prevBtn.onclick = () => {
+                currentImgIndex = (currentImgIndex - 1 + currentImages.length) % currentImages.length;
+                updateMainImage();
+            };
+
+            nextBtn.onclick = () => {
+                currentImgIndex = (currentImgIndex + 1) % currentImages.length;
+                updateMainImage();
+            };
+
+            function updateGallery() {
+                updateMainImage();
+                const thumbsContainer = document.getElementById('modalThumbnails');
+                thumbsContainer.innerHTML = '';
+
+                currentImages.forEach((imgSrc, index) => {
+                    const thumb = document.createElement('img');
+                    thumb.src = imgSrc;
+                    thumb.classList.add('thumb-img');
+                    if (index === currentImgIndex) thumb.classList.add('active');
+                    
+                    thumb.onclick = () => {
+                        currentImgIndex = index;
+                        updateMainImage();
+                    };
+                    thumbsContainer.appendChild(thumb);
+                });
+            }
+
+            function updateMainImage() {
+                if (currentImages.length > 0) {
+                    mainImg.src = currentImages[currentImgIndex];
+                }
+                document.querySelectorAll('.thumb-img').forEach((thumb, idx) => {
+                    thumb.classList.toggle('active', idx === currentImgIndex);
+                });
+            }
+        });
+    </script>
+	
+	<section class="format-section" style="max-width: 900px; margin: 50px auto; padding: 20px;">
+    <h2 class="format-title" style="color: #000000; border-bottom: 2px solid #000000; margin-bottom: 20px;">Commentaires</h2>
+    <div class="giscus"></div>
+</section>
+	
+	<script src="https://giscus.app/client.js"
+        data-repo="carefulwiththatfloyd/Careful-With-That-Floyd"
+        data-repo-id="R_kgDOTkThMA"
+        data-category="General"
+        data-category-id="DIC_kwDOTkThMM4DCaQe"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="fr"
+        crossorigin="anonymous"
+        async>
+	</script>
+</body>
+</html>
