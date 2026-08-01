@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+	
+    <title>CD (Albums) - Careful With That Floyd</title>
+
+    <style>
+	
+	/* Style pour l'en-tête de catégorie */
+        .category-header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('CD en-tête.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 60px 20px;
+            text-align: center;
+            color: #ffffff; /* Force la couleur blanche pour les textes */
+        }
+
+        .category-header h1,
+        .category-header p {
+            color: #ffffff; /* Assure que le titre et le paragraphe restent blancs */
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8); /* Optionnel : ombre pour faire ressortir le texte */
+        }
+		
+        .portfolio-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .portfolio-grid .project-card {
+            width: 100%;
+            max-width: 360px;
+            box-sizing: border-box;
+        }
+
+        /* Style garanti pour les séparateurs de section */
+        .section-separator {
+            width: 100%;
+            text-align: center;
+            margin: 30px 0 20px 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .section-separator h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            display: inline-block;
+            padding: 0 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+
+        .section-separator::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 5%;
+            right: 5%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo-link">
+            <img src="Careful With That Floyd.png" alt="Careful With That Floyd" class="logo-img">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html" class="nav-btn">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="category-header">
+        <h1>CD (Albums)</h1>
+        <p>Cliquez sur un exemplaire pour afficher la galerie photos et les détails techniques</p>
+    </header>
+
+    <main class="portfolio-section">
+
+        <!-- Séparateur Studio placé avant la grille -->
+        <div class="section-separator">
+            <h2>Albums studio</h2>
+        </div>
+
+        <div class="portfolio-grid">
+            
+            <!-- Carte 1 : The Piper at the Gates of Dawn EU 2016 -->
+            <div class="project-card item-card" onclick="openModal('piper-cd-eu-2016')">
+                <div class="project-image" style="background-image: url('Piper CD 2016 Front.jpg');"></div>
+                <div class="project-info">
+                    <span class="project-tag">EUROPE • 2016</span>
+                    <h3>The Piper at the Gates of Dawn</h3>
+                    <p>Pink Floyd Records – PFR1 (Edition remasterisée)</p>
+                    <span class="category-link">Voir la fiche & photos →</span>
+                </div>
+            </div>
+
+            <!-- Carte 2 : A Saucerful of Secrets EU 2016 -->
+            <div class="project-card item-card" onclick="openModal('asos-cd-eu-2016')">
+                <div class="project-image" style="background-image: url('ASOS CD 2016 Front.jpg');"></div>
+                <div class="project-info">
+                    <span class="project-tag">EUROPE • 2016</span>
+                    <h3>A Saucerful of Secrets</h3>
+                    <p>Pink Floyd Records – PFR2 (Édition remasterisée)</p>
+                    <span class="category-link">Voir la fiche & photos →</span>
+                </div>
+            </div>
+			
+			<!-- Carte 3 : The Dark Side of the Moon EU 1994 -->
+            <div class="project-card item-card" onclick="openModal('dsotm-cd-eu-1994')">
+                <div class="project-image" style="background-image: url('Piper CD 2016 Front.jpg');"></div>
+                <div class="project-info">
+                    <span class="project-tag">EUROPE • 1994</span>
+                    <h3>The Dark Side of the Moon</h3>
+                    <p>EMI – 7243 8 29752 2 9 (Edition remasterisée)</p>
+                    <span class="category-link">Voir la fiche & photos →</span>
+                </div>
+            </div>
+
+            <!-- Carte 4 : The Dark Side of the Moon EU 2023 -->
+            <div class="project-card item-card" onclick="openModal('dsotm-cd-eu-2023')">
+                <div class="project-image" style="background-image: url('Piper 2016 Front.jpg');"></div>
+                <div class="project-info">
+                    <span class="project-tag">EUROPE • 2023</span>
+                    <h3>The Dark Side of the Moon</h3>
+                    <p>Pink Floyd Records – PFR50CD1 (Édition 50ème anniversaire)</p>
+                    <span class="category-link">Voir la fiche & photos →</span>
+                </div>
+            </div>
+			
+			<!-- Carte 5 : Animals EU 2011 -->
+            <div class="project-card item-card" onclick="openModal('animals-cd-eu-2011')">
+                <div class="project-image" style="background-image: url('Piper CD 2016 Front.jpg');"></div>
+                <div class="project-info">
+                    <span class="project-tag">EUROPE • 2011</span>
+                    <h3>Animals</h3>
+                    <p>EMI – 50999 028951 2 3 (Édition Discovery)</p>
+                    <span class="category-link">Voir la fiche & photos →</span>
+                </div>
+            </div>
+
+            <!-- Carte 6 : Animals 2018 Remix EU 2022 -->
+            <div class="project-card item-card" onclick="openModal('animals-remix-cd-eu-2022')">
+                <div class="project-image" style="background-image: url('ASOS CD 2016 Front.jpg');"></div>
+                <div class="project-info">
+                    <span class="project-tag">EUROPE • 2022</span>
+                    <h3>Animals</h3>
+                    <p>Pink Floyd Records – PFR28 (2018 Remix)</p>
+                    <span class="category-link">Voir la fiche & photos →</span>
+                </div>
+            </div>
+			
+			<!-- Carte 7 : The Division Bell EU 2016 -->
+            <div class="project-card item-card" onclick="openModal('division-cd-eu-2016')">
+                <div class="project-image" style="background-image: url('Piper CD 2016 Front.jpg');"></div>
+                <div class="project-info">
+                    <span class="project-tag">EUROPE • 2016</span>
+                    <h3>The Division Bell</h3>
+                    <p>Pink Floyd Records – PFR14 (Réédition)</p>
+                    <span class="category-link">Voir la fiche & photos →</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ================= SECTION LIVE ================= -->
+        <div class="section-separator">
+            <h2>Albums live</h2>
+        </div>
+
+        <div class="portfolio-grid">
+            
+            <!-- Carte 1 : Delicate Sound of Thunder AU 1988 -->
+            <div class="project-card item-card" onclick="openModal('delicate-cd-au')">
+                <div class="project-image" style="background-image: url('Piper 2016 Front.jpg');"></div>
+                <div class="project-info">
+                    <span class="project-tag">AUSTRALIE • 1988</span>
+                    <h3>Delicate Sound of Thunder</h3>
+                    <p>CBS – 463161 2 (Original, Re-packaged, 2xCD)</p>
+                    <span class="category-link">Voir la fiche & photos →</span>
+                </div>
+            </div>
+			
+			<!-- Carte 2 : Pulse EU 2006 -->
+            <div class="project-card item-card" onclick="openModal('pulse-cd-eu-2006')">
+                <div class="project-image" style="background-image: url('Piper 2016 Front.jpg');"></div>
+                <div class="project-info">
+                    <span class="project-tag">EUROPE • 2006</span>
+                    <h3>P.U.L.S.E</h3>
+                    <p>EMI – 7243 4 91436 2 3 (Slimcase, 2xCD)</p>
+                    <span class="category-link">Voir la fiche & photos →</span>
+                </div>
+            </div>
+			
+			<!-- Carte 3 : The Dark Side of the Moon (Live at Wembley 1974) EU 2023 -->
+            <div class="project-card item-card" onclick="openModal('dsotm-wembley-cd-eu')">
+                <div class="project-image" style="background-image: url('Piper 2016 Front.jpg');"></div>
+                <div class="project-info">
+                    <span class="project-tag">EUROPE • 2023</span>
+                    <h3>The Dark Side of the Moon (Live at Wembley 1974)</h3>
+                    <p>Pink Floyd Records – PFR50CD2 (Original)</p>
+                    <span class="category-link">Voir la fiche & photos →</span>
+                </div>
+            </div>
+			
+        </div>
+
+        <!-- ================= SECTION COMPILATIONS ================= -->
+        <div class="section-separator">
+            <h2>Compilations</h2>
+        </div>
+
+        <div class="portfolio-grid">
+           
+            <!-- Carte 1 : Echoes EU 2001 (Exemple) -->
+            <div class="project-card item-card" onclick="openModal('echoes-cd-eu')">
+                <div class="project-image" style="background-image: url('ASOS UK 1970 Front.jpg');"></div>
+                <div class="project-info">
+                    <span class="project-tag">EUROPE • 2001</span>
+                    <h3>Echoes - The Best of Pink Floyd</h3>
+                    <p>EMI – 7243 5 36111 2 5 (2xCD, version simple)</p>
+                    <span class="category-link">Voir la fiche & photos →</span>
+                </div>
+            </div>
+
+        </div>
+		
+        <!-- ================= SECTION SOLO ================= -->
+        <div class="section-separator">
+            <h2>Albums solo</h2>
+        </div>
+
+        <div class="portfolio-grid">
+    
+            <!-- Carte 1 : David Gilmour EU 2006 (Exemple) -->
+            <div class="project-card item-card" onclick="openModal('gilmour-dg-cd-eu-2014')">
+                <div class="project-image" style="background-image: url('Gilmour Front.jpg');"></div>
+                <div class="project-info">
+                    <span class="project-tag">EUROPE • 2014</span>
+                    <h3>David Gilmour</h3>
+                    <p>David Gilmour — Parlophone – 0946 3 70843 2 8 (Edition remasterisée)</p>
+                    <span class="category-link">Voir la fiche & photos →</span>
+                </div>
+            </div>
+			
+			<!-- Carte 2 : About Face EU 2014 (Exemple) -->
+            <div class="project-card item-card" onclick="openModal('face-dg-cd-eu-2014')">
+                <div class="project-image" style="background-image: url('Gilmour Front.jpg');"></div>
+                <div class="project-info">
+                    <span class="project-tag">EUROPE • 2014</span>
+                    <h3>About Face</h3>
+                    <p>David Gilmour — Parlophone – 0946 3 70842 2 9 (Edition remasterisée)</p>
+                    <span class="category-link">Voir la fiche & photos →</span>
+                </div>
+            </div>
+			
+			<!-- Carte 3 : Live in Gdańsk EU 2006 (Exemple) -->
+            <div class="project-card item-card" onclick="openModal('gdansk-dg-cd-eu-2cd-1dvd')">
+                <div class="project-image" style="background-image: url('Gilmour Front.jpg');"></div>
+                <div class="project-info">
+                    <span class="project-tag">EUROPE • 2006</span>
+                    <h3>Live in Gdańsk</h3>
+                    <p>David Gilmour — EMI – 50999 235489 2 3 (Edition 2CD/1DVD)</p>
+                    <span class="category-link">Voir la fiche & photos →</span>
+                </div>
+            </div>
+			
+			<!-- Carte 4 : Luck and Strange EU 2024 (Exemple) -->
+            <div class="project-card item-card" onclick="openModal('luck-dg-cd-eu')">
+                <div class="project-image" style="background-image: url('Gilmour Front.jpg');"></div>
+                <div class="project-info">
+                    <span class="project-tag">EUROPE • 2024</span>
+                    <h3>Luck and Strange</h3>
+                    <p>David Gilmour — Sony Music – 19802804602 (Original)</p>
+                    <span class="category-link">Voir la fiche & photos →</span>
+                </div>
+            </div>
+			
+			<!-- Carte 5 : The Luck and Strange Concerts EU 2025 (Exemple) -->
+            <div class="project-card item-card" onclick="openModal('luck-concerts-dg-cd-eu')">
+                <div class="project-image" style="background-image: url('Gilmour Front.jpg');"></div>
+                <div class="project-info">
+                    <span class="project-tag">EUROPE • 2025</span>
+                    <h3>The Luck and Strange Concerts</h3>
+                    <p>David Gilmour — Sony Music – 19802927022 (Original)</p>
+                    <span class="category-link">Voir la fiche & photos →</span>
+                </div>
+            </div>
+			
+			<!-- Carte 6 : Music from The Body EU 1989 (Exemple) -->
+            <div class="project-card item-card" onclick="openModal('body-rg-rw-cd-eu-1989')">
+                <div class="project-image" style="background-image: url('Gilmour Front.jpg');"></div>
+                <div class="project-info">
+                    <span class="project-tag">EUROPE • 1989</span>
+                    <h3>Music from the Body</h3>
+                    <p>Ron Geesin & Roger Waters — Harvest – CDP 7 92548 2 (Réédition)</p>
+                    <span class="category-link">Voir la fiche & photos →</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="collection-format-cd.html" class="btn-back">← Retour aux CD</a>
+        </div>
+    </main>
+
+    <!-- ==================== FENÊTRE MODALE DÉTAILS & GALERIE ==================== -->
+    <div id="itemModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            
+            <div class="modal-body">
+                <!-- Colonne Gauche : Galerie Photos -->
+                <div class="modal-gallery">
+                    <div class="main-photo-container">
+                        <img id="modalMainImg" src="" alt="Photo principale">
+                        <button class="nav-arrow prev-btn" onclick="changePhoto(-1)">&#10094;</button>
+                        <button class="nav-arrow next-btn" onclick="changePhoto(1)">&#10095;</button>
+                    </div>
+                    <div class="thumbnails-grid" id="modalThumbnails">
+                        <!-- Les vignettes s'affichent ici -->
+                    </div>
+                </div>
+
+                <!-- Colonne Droite : Fiche Technique & Détails -->
+                <div class="modal-details">
+                    <span id="modalTag" class="project-tag"></span>
+                    <h2 id="modalTitle"></h2>
+                    <h3 id="modalSub"></h3>
+
+                    <table class="details-table">
+                        <tr><th>Artiste :</th><td id="modalArtist"></td></tr>
+                        <tr><th>Album :</th><td id="modalAlbum"></td></tr>
+                        <tr><th>Pays :</th><td id="modalCountry"></td></tr>
+                        <tr><th>Année :</th><td id="modalYear"></td></tr>
+                        <tr><th>Label :</th><td id="modalLabel"></td></tr>
+                        <tr><th>N° Catalogue :</th><td id="modalRef"></td></tr>
+                        <tr><th>Matrice (Matrix / SID) :</th><td id="modalMatrix"></td></tr>
+                        <tr><th>État CD / Pochette :</th><td id="modalGrading"></td></tr>
+                    </table>
+
+                    <div class="modal-description">
+                        <h4>Notes & Particularités :</h4>
+                        <p id="modalNotes"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== BASE DE DONNÉES ET SCRIPTS ==================== -->
+    <script>
+        const collectionData = {
+            'piper-cd-eu-2016': {
+                title: "The Piper at the Gates of Dawn",
+                tag: "EUROPE • 2016",
+                artist: "Pink Floyd",
+                album: "The Piper at the Gates of Dawn",
+                country: "Europe",
+                year: "2016",
+                label: "Pink Floyd Records",
+                ref: "PFR1",
+                matrix: "www.takt.eu 2100003175007 0289352 IFPI LK97 [IFPI UU015]",
+                grading: "M / M",
+                notes: "Réédition de 2016 par Pink Floyd Records dans le cadre de la ressortie du catalogue. Digisleeve. Gatefold. Livré avec un livret de 12 pages.",
+                photos: [
+                    "Piper CD 2016 Front.jpg",
+					"Piper CD 2016 Back.jpg",
+					"Piper CD 2016 Gatefold.jpg",
+                    "Piper CD 2016 Disc.jpg"
+                ]
+            },
+            'asos-cd-eu-2016': {
+                title: "A Saucerful of Secrets",
+                tag: "EUROPE • 2016",
+                artist: "Pink Floyd",
+                album: "A Saucerful of Secrets",
+                country: "Europe",
+                year: "2016",
+                label: "Pink Floyd Records",
+                ref: "PFR2",
+                matrix: "www.takt.eu 2100003174659 0289362 IFPI LK97 [IFPI 9R78]",
+                grading: "M / M",
+                notes: "Réédition de 2016 par Pink Floyd Records dans le cadre de la ressortie du catalogue. Digisleeve. Gatefold. Livré avec un livret de 12 pages.",
+                photos: [
+                    "ASOS CD 2016 Front.jpg",
+					"ASOS CD 2016 Back.jpg",
+					"ASOS CD 2016 Gatefold.jpg",
+                    "ASOS CD 2016 Disc.jpg"
+                ]
+            },
+			'dsotm-cd-eu-1994': {
+                title: "The Dark Side of the Moon",
+                tag: "EUROPE • 1994",
+                artist: "Pink Floyd",
+                album: "The Dark Side of the Moon",
+                country: "Europe",
+                year: "1994",
+                label: "EMI",
+                ref: "7243 8 29752 2 9",
+                matrix: "829752 @ 1 . ifpi 2509",
+                grading: "NM / NM",
+                notes: "Remaster de 1994 par EMI dans le cadre des remasters de Doug Sax. Jewel case. Livré avec un livret de 24 pages.",
+                photos: [
+                    "Piper CD 2016 Front.jpg",
+					"Piper CD 2016 Back.jpg",
+					"Piper CD 2016 Gatefold.jpg",
+                    "Piper CD 2016 Disc.jpg"
+                ]
+            },
+            'dsotm-cd-eu-2023': {
+                title: "The Dark Side of the Moon",
+                tag: "EUROPE • 2023",
+                artist: "Pink Floyd",
+                album: "The Dark Side of the Moon",
+                country: "Europe",
+                year: "2023",
+                label: "Pink Floyd Records",
+                ref: "PFR50CD1",
+                matrix: "PF-9 5 IFPI L275 [IFPI 455J]",
+                grading: "M / M",
+                notes: "Réédition de 2023 par Pink Floyd Records dans le cadre du 50ème anniversaire de l'album. Digisleeve. Gatefold. Livré avec un livret de 12 pages.",
+                photos: [
+                    "ASOS CD 2016 Front.jpg",
+					"ASOS CD 2016 Back.jpg",
+					"ASOS CD 2016 Gatefold.jpg",
+                    "ASOS CD 2016 Disc.jpg"
+                ]
+            },
+			'animals-cd-eu-2011': {
+                title: "Animals",
+                tag: "EUROPE • 2011",
+                artist: "Pink Floyd",
+                album: "Animals",
+                country: "Europe",
+                year: "2011",
+                label: "EMI",
+                ref: "50999 028951 2 3",
+                matrix: "2100003156594 0289512 www.takt.eu IFPI LK97 [IFPI UU076]",
+                grading: "M / NM",
+                notes: "Edition Discovery. Digisleeve. Gatefold. Livré avec un livret de 12 pages.",
+                photos: [
+                    "Piper CD 2016 Front.jpg",
+					"Piper CD 2016 Back.jpg",
+					"Piper CD 2016 Gatefold.jpg",
+                    "Piper CD 2016 Disc.jpg"
+                ]
+            },
+            'animals-remix-cd-eu-2022': {
+                title: "Animals",
+                tag: "EUROPE • 2022",
+                artist: "Pink Floyd",
+                album: "Animals",
+                country: "Europe",
+                year: "2022",
+                label: "Pink Floyd Records",
+                ref: "PFR28",
+                matrix: "[Warner 'W' logo] 58143243/0190295600532-DDP2.0 29 IFPI LB47 [IFPI 0762]",
+                grading: "M / M",
+                notes: "Remix de 2018. Digisleeve. 4-panel. Livré avec un livret de 28 pages.",
+                photos: [
+                    "ASOS CD 2016 Front.jpg",
+					"ASOS CD 2016 Back.jpg",
+					"ASOS CD 2016 Gatefold.jpg",
+                    "ASOS CD 2016 Disc.jpg"
+                ]
+            },
+			'division-cd-eu-2016': {
+                title: "The Division Bell",
+                tag: "EUROPE • 2016",
+                artist: "Pink Floyd",
+                album: "The Division Bell",
+                country: "Europe",
+                year: "2016",
+                label: "Pink Floyd Records",
+                ref: "PFR14",
+                matrix: "www.takt.eu 2100003174291 0289612 IFPI LK97 [IFPI UU076]",
+                grading: "M / M",
+                notes: "Réédition de 2016 par Pink Floyd Records dans le cadre de la ressortie du catalogue. Digisleeve. Gatefold. Livré avec un livret de 16 pages.",
+                photos: [
+                    "Piper CD 2016 Front.jpg",
+					"Piper CD 2016 Back.jpg",
+					"Piper CD 2016 Gatefold.jpg",
+                    "Piper CD 2016 Disc.jpg"
+                ]
+            },
+            'delicate-cd-au': {
+                title: "Delicate Sound of Thunder",
+                tag: "AUSTRALIE • 1988",
+                artist: "Pink Floyd",
+                album: "Delicate Sound of Thunder",
+                country: "Australie",
+                year: "1988",
+                label: "CBS",
+                ref: "463161 2",
+                matrix: "MADE BY DISCTRONICS B **463161.2-1** #01 / MADE BY DISCTRONICS B **463161.2-2** #01",
+                grading: "NM / NM",
+                notes: "Édition originale. Le propriétaire précédent a remplacé la fat-box par un boîtier 2CD plus fin avec le livret comme pochette. Livré avec un livret de 28 pages.",
+                photos: [
+                    "Piper 2016 Front.jpg",
+                    "Piper 2016 Back.jpg"
+                ]
+            },
+			'pulse-cd-eu-2006': {
+                title: "P.U.L.S.E",
+                tag: "EUROPE • 2006",
+                artist: "Pink Floyd",
+                album: "P.U.L.S.E",
+                country: "Europe",
+                year: "2006",
+                label: "EMI",
+                ref: "7243 4 91436 2 3",
+                matrix: "IMS Manufacturing www.imsgroup.it 8327012 IFPI LV03 [IFPI 2525] / IMS Manufacturing www.imsgroup.it 8327022 IFPI LV04 [IFPI 2531]",
+                grading: "NM / NM",
+                notes: "Édition de 2006 avec une slimcase au lieu de la boîte avec la diode rouge clignotante. Livré avec un livret de 24 pages.",
+                photos: [
+                    "Piper 2016 Front.jpg",
+                    "Piper 2016 Back.jpg"
+                ]
+            },
+			'dsotm-wembley-cd-eu': {
+                title: "The Dark Side of the Moon (Live at Wembley 1974)",
+                tag: "EUROPE • 2023",
+                artist: "Pink Floyd",
+                album: "The Dark Side of the Moon (Live at Wembley 1974)",
+                country: "Europe",
+                year: "2023",
+                label: "Pink Floyd Records",
+                ref: "PFR50CD2",
+                matrix: "[Warner \"Big W\" logo] 58204534/0190296203657 21 IFPI LB47 IFPI 0735",
+                grading: "M / M",
+                notes: "Édition originale. Ce concert était uniquement disponible officiellement dans le coffret Immersion et l'édition Experience, tous deux sortis en 2011. Digisleeve. Gatefold. Livré avec un livret de 12 pages.",
+                photos: [
+                    "Piper 2016 Front.jpg",
+                    "Piper 2016 Back.jpg"
+                ]
+            },
+            'echoes-cd-eu': {
+                title: "Echoes - The Best of Pink Floyd",
+                tag: "EUROPE • 2001",
+                artist: "Pink Floyd",
+                album: "Echoes - The Best of Pink Floyd",
+                country: "Europe",
+                year: "2001",
+                label: "EMI",
+                ref: "7243 5 36111 2 5",
+                matrix: "EMI UDEN 5361122 @ 2 2-2-27-NL IFPI L047 [ifpi 15AA] / EMI UDEN 5361132 @ 5 [?-?-?-NL] IFPI L046",
+                grading: "NM / NM",
+                notes: "Édition 2xCD simple (cette édition n'inclut pas le fourreau). Livré avec un livret de 32 pages.",
+                photos: [
+                    "ASOS UK 1970 Front.jpg",
+                    "ASOS UK 1970 Back.jpg"
+                ]
+            },
+            'gilmour-dg-cd-eu-2014': {
+                title: "David Gilmour",
+                tag: "EUROPE • 2014",
+                artist: "David Gilmour",
+                album: "David Gilmour",
+                country: "Europe",
+                year: "2014",
+                label: "Parlophone",
+                ref: "0946 3 70843 2 8",
+                matrix: "[Warner 'Big W' logo] 55793599/0094637084328 21 IFPI LB46 [IFPI 0797]",
+                grading: "M / M",
+                notes: "Premier album solo de David Gilmour. Edition remasterisée sous le label Parlophone. Livré avec un livret de 8 pages.",
+                photos: [
+                    "Gilmour Front.jpg"
+                ]
+            },
+			'face-dg-cd-eu-2014': {
+                title: "About Face",
+                tag: "EUROPE • 2014",
+                artist: "David Gilmour",
+                album: "About Face",
+                country: "Europe",
+                year: "2014",
+                label: "Parlophone",
+                ref: "0946 3 70842 2 9",
+                matrix: "3708422 A965336-01 manufactured by optimal media production ifpi L572 [IFPI 9710]",
+                grading: "M / M",
+                notes: "Deuxième album solo de David Gilmour. Edition remasterisée sous le label Parlophone. Livré avec un livret de 8 pages.",
+                photos: [
+                    "Gilmour Front.jpg"
+                ]
+            },
+			'gdansk-dg-cd-eu-2cd-1dvd': {
+                title: "Live in Gdańsk",
+                tag: "EUROPE • 2008",
+                artist: "David Gilmour",
+                album: "Live in Gdańsk",
+                country: "Europe",
+                year: "2008",
+                label: "EMI",
+                ref: "50999 235489 2 3",
+                matrix: "manufactured by optimal media production A843061-01 IFPI L572 [IFPI 9710] / manufactured by optimal media production A843061-02 IFPI L572 [IFPI 9710] / manufactured by optimal media production D843535-01 ifpi L573 D843535-01 ifpi L573 [IFPI 9738]",
+                grading: "M / M",
+                notes: "Edition 2CD/1DVD. 6-panel digisleeve. Livré avec un livret de 12 pages.",
+                photos: [
+                    "Gilmour Front.jpg"
+                ]
+            },
+			'luck-dg-cd-eu': {
+                title: "Luck and Strange",
+                tag: "EUROPE • 2024",
+                artist: "David Gilmour",
+                album: "Luck and Strange",
+                country: "Europe",
+                year: "2024",
+                label: "Sony Music",
+                ref: "19802804602",
+                matrix: "[Sony Music logo] 58460635/19802804602 21 IFPI LP 73 [IFPI 0757]",
+                grading: "M / M",
+                notes: "Cinquième album solo de David Gilmour. Digisleeve. Gatefold. Livré avec un livret de 16 pages.",
+                photos: [
+                    "Gilmour Front.jpg"
+                ]
+            },
+			'luck-concerts-dg-cd-eu': {
+                title: "The Luck and Strange Concerts",
+                tag: "EUROPE • 2025",
+                artist: "David Gilmour",
+                album: "The Luck and Strange Concerts",
+                country: "Europe",
+                year: "2025",
+                label: "Sony Music",
+                ref: "19802927022",
+                matrix: "[Sonopress logo] 58612485/19802927022RD1 21 IFPI LB47 [IFPI 079Y] / [Sonopress logo] 58612518/19802927022RD2 22 IFPI LB 45 [IFPI 072Y]",
+                grading: "M / M",
+                notes: "Edition originale. 6-panel digisleeve. Gatefold. Livré avec un livret de 24 pages.",
+                photos: [
+                    "Gilmour Front.jpg"
+                ]
+            },
+			'body-rg-rw-cd-eu-1989': {
+                title: "Music from The Body",
+                tag: "EUROPE • 1989",
+                artist: "Ron Geesin & Roger Waters",
+                album: "Music from The Body",
+                country: "Europe",
+                year: "1989",
+                label: "Harvest",
+                ref: "CDP 7 92548 2",
+                matrix: "792548 2 .1 EMI SWINDON",
+                grading: "NM / NM",
+                notes: "Réédition. Jewel case. Livré avec un livret de 4 pages.",
+                photos: [
+                    "Gilmour Front.jpg"
+                ]
+            }
+        };
+
+        let currentPhotos = [];
+        let currentPhotoIndex = 0;
+
+        function openModal(itemId) {
+            const data = collectionData[itemId];
+            if (!data) return;
+
+            document.getElementById('modalTitle').innerText = data.title;
+            document.getElementById('modalTag').innerText = data.tag;
+            document.getElementById('modalArtist').innerText = data.artist || 'Pink Floyd';
+            document.getElementById('modalAlbum').innerText = data.album;
+            document.getElementById('modalCountry').innerText = data.country;
+            document.getElementById('modalYear').innerText = data.year;
+            document.getElementById('modalLabel').innerText = data.label;
+            document.getElementById('modalRef').innerText = data.ref;
+            document.getElementById('modalMatrix').innerText = data.matrix;
+            document.getElementById('modalGrading').innerText = data.grading;
+            document.getElementById('modalNotes').innerText = data.notes;
+
+            currentPhotos = data.photos;
+            currentPhotoIndex = 0;
+            updatePhotoDisplay();
+
+            const thumbContainer = document.getElementById('modalThumbnails');
+            thumbContainer.innerHTML = '';
+            currentPhotos.forEach((src, idx) => {
+                const img = document.createElement('img');
+                img.src = src;
+                img.className = 'thumb-img' + (idx === 0 ? ' active' : '');
+                img.onclick = () => setPhoto(idx);
+                thumbContainer.appendChild(img);
+            });
+
+            document.getElementById('itemModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('itemModal').style.display = 'none';
+        }
+
+        function updatePhotoDisplay() {
+            document.getElementById('modalMainImg').src = currentPhotos[currentPhotoIndex];
+            const thumbs = document.querySelectorAll('.thumb-img');
+            thumbs.forEach((t, i) => {
+                t.classList.toggle('active', i === currentPhotoIndex);
+            });
+        }
+
+        function setPhoto(index) {
+            currentPhotoIndex = index;
+            updatePhotoDisplay();
+        }
+
+        function changePhoto(direction) {
+            currentPhotoIndex += direction;
+            if (currentPhotoIndex < 0) currentPhotoIndex = currentPhotos.length - 1;
+            if (currentPhotoIndex >= currentPhotos.length) currentPhotoIndex = 0;
+            updatePhotoDisplay();
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('itemModal');
+            if (event.target == modal) closeModal();
+        }
+    </script>
+</body>
+</html>

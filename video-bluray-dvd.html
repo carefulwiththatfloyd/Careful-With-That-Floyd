@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+	
+    <title>Blu-ray & DVD - Careful With That Floyd</title>
+
+    <style>
+        .category-header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('DVD BluRay.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 60px 20px;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .category-header h1,
+        .category-header p {
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+        }
+		
+        .portfolio-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .portfolio-grid .project-card {
+            width: 100%;
+            max-width: 360px;
+            box-sizing: border-box;
+        }
+
+        .section-separator {
+            width: 100%;
+            text-align: center;
+            margin: 30px 0 20px 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .section-separator h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            display: inline-block;
+            padding: 0 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+
+        .section-separator::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 5%;
+            right: 5%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo-link">
+            <img src="Careful With That Floyd.png" alt="Careful With That Floyd" class="logo-img">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html" class="nav-btn">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="category-header">
+        <h1>Blu-ray & DVD</h1>
+        <p>Cliquez sur une édition pour afficher la galerie photos et la fiche détaillée</p>
+    </header>
+
+    <main class="portfolio-section">
+
+        <!-- SECTION CONCERTS & FILMS -->
+        <div class="section-separator">
+            <h2>Concerts & Films</h2>
+        </div>
+
+        <div class="portfolio-grid">
+            
+            <div class="project-card item-card" onclick="openModal('pompeii-dvd-eu-2003')">
+                <div class="project-image" style="background-image: url('Pompeii DVD Front.jpg');"></div>
+                <div class="project-info">
+                    <span class="project-tag">EUROPE • 2003</span>
+                    <h3>Live at Pompeii</h3>
+                    <p>Universal – DVD - 820 131-0 (Director's Cut, Stereo)</p>
+                    <span class="category-link">Voir la fiche & photos →</span>
+                </div>
+            </div>
+
+            <div class="project-card item-card" onclick="openModal('pompeii-bluray-eu-2025')">
+                <div class="project-image" style="background-image: url('Pulse DVD Front.jpg');"></div>
+                <div class="project-info">
+                    <span class="project-tag">EUROPE • 2025</span>
+                    <h3>Pink Floyd at Pompeii - MCMLXXII</h3>
+                    <p>Columbia / Sony Music – Blu-ray - 19802876259 (Stereo / Dolby TrueHD 5.1 / Dolby Atmos)</p>
+                    <span class="category-link">Voir la fiche & photos →</span>
+                </div>
+            </div>
+
+            <div class="project-card item-card" onclick="openModal('pompeii-4k-eu-2026')">
+                <div class="project-image" style="background-image: url('Delicate Bluray Front.jpg');"></div>
+                <div class="project-info">
+                    <span class="project-tag">EUROPE • 2026</span>
+                    <h3>Pink Floyd at Pompeii - MCMLXXII</h3>
+                    <p>Columbia / Sony Music – Blu-ray 4K Ultra HD - 19802937839 (Stereo / Dolby TrueHD 5.1 / Dolby Atmos)</p>
+                    <span class="category-link">Voir la fiche & photos →</span>
+                </div>
+            </div>
+			
+			<div class="project-card item-card" onclick="openModal('pulse-dvd-eu-2006')">
+                <div class="project-image" style="background-image: url('Delicate Bluray Front.jpg');"></div>
+                <div class="project-info">
+                    <span class="project-tag">EUROPE • 2006</span>
+                    <h3>P.U.L.S.E</h3>
+                    <p>EMI – 2xDVD - 0724 3 491436 9 2 (Original, Stereo / Dolby Digital 5.1)</p>
+                    <span class="category-link">Voir la fiche & photos →</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SECTION BLU-RAY AUDIO -->
+        <div class="section-separator">
+            <h2>Blu-ray Audio & Mixages 5.1 / Atmos</h2>
+        </div>
+
+        <div class="portfolio-grid">
+            
+            <!-- Carte 1 : Dark Side of the Moon Blu-ray Audio 50th -->
+            <div class="project-card item-card" onclick="openModal('dsotm-braudio-eu-2023')">
+                <div class="project-image" style="background-image: url('TDSOM BRAudio Front.jpg');"></div>
+                <div class="project-info">
+                    <span class="project-tag">EUROPE • 2023</span>
+                    <h3>The Dark Side of the Moon (50th Anniversary)</h3>
+                    <p>Pink Floyd Records – Blu-ray Audio - PFR50BD3 / 5054197631634 (Stereo / 5.1 / Dolby Atmos)</p>
+                    <span class="category-link">Voir la fiche & photos →</span>
+                </div>
+            </div>
+
+            <!-- Carte 2 : Animals 2018 Remix EU 2024 -->
+            <div class="project-card item-card" onclick="openModal('animals-remix-braudio-2024')">
+                <div class="project-image" style="background-image: url('WYWH BRAudio Front.jpg');"></div>
+                <div class="project-info">
+                    <span class="project-tag">EUROPE • 2024</span>
+                    <h3>Animals (2018 Remix)</h3>
+                    <p>Pink Floyd Records – Blu-ray Audio - PFR24BD / 5054197757303 (Stereo / 5.1 / Dolby Atmos)</p>
+                    <span class="category-link">Voir la fiche & photos →</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SECTION DOCUMENTAIRES & COMPILATIONS -->
+        <div class="section-separator">
+            <h2>Documentaires & Clips</h2>
+        </div>
+
+        <div class="portfolio-grid">
+            
+            <div class="project-card item-card" onclick="openModal('story-wywh-dvd-2012')">
+                <div class="project-image" style="background-image: url('Classic Albums DVD Front.jpg');"></div>
+                <div class="project-info">
+                    <span class="project-tag">EUROPE • 2012</span>
+                    <h3>The Story of Wish You Were Here</h3>
+                    <p>Eagle Vision – DVD Documentaire (Original)</p>
+                    <span class="category-link">Voir la fiche & photos →</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SECTION SOLO -->
+        <div class="section-separator">
+            <h2>Projets Solo</h2>
+        </div>
+
+        <div class="portfolio-grid">
+            
+            <div class="project-card item-card" onclick="openModal('gilmour-remember-dvd-2007')">
+                <div class="project-image" style="background-image: url('Gilmour Pompeii Bluray Front.jpg');"></div>
+                <div class="project-info">
+                    <span class="project-tag">EUROPE • 2007</span>
+                    <h3>Remember that Night (Live at the Royal Albert Hall)</h3>
+                    <p>David Gilmour — EMI – 504 3119 / 50999 504 311 9 9 / Édition Spéciale 2 DVD (Originale)</p>
+                    <span class="category-link">Voir la fiche & photos →</span>
+                </div>
+            </div>
+
+            <div class="project-card item-card" onclick="openModal('gilmour-circusmaximus-bluray-2025')">
+                <div class="project-image" style="background-image: url('Waters Wall Bluray Front.jpg');"></div>
+                <div class="project-info">
+                    <span class="project-tag">EUROPE • 2025</span>
+                    <h3>Live at the Circus Maximus</h3>
+                    <p>David Gilmour — Sony Music – 19802927039 / Blu-ray (Original, Stereo / dts-HD MA 5.1 / Dolby Atmos)</p>
+                    <span class="category-link">Voir la fiche & photos →</span>
+                </div>
+            </div>
+			
+			<div class="project-card item-card" onclick="openModal('waters-rockinrio-dvd-2010')">
+                <div class="project-image" style="background-image: url('Gilmour Pompeii Bluray Front.jpg');"></div>
+                <div class="project-info">
+                    <span class="project-tag">ETATS-UNIS • 2010</span>
+                    <h3>Live - Rock in Rio - Lisbon, Portugal 2006</h3>
+                    <p>Roger Waters — Woodstock Tapes - WT 7932 – DVD (Original, Non-officiel)</p>
+                    <span class="category-link">Voir la fiche & photos →</span>
+                </div>
+            </div>
+
+            </div>
+
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="collection-format-video.html" class="btn-back">← Retour aux supports vidéo</a>
+        </div>
+    </main>
+
+    <!-- FENÊTRE MODALE DÉTAILS & GALERIE -->
+    <div id="itemModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            
+            <div class="modal-body">
+                <div class="modal-gallery">
+                    <div class="main-photo-container">
+                        <img id="modalMainImg" src="" alt="Photo principale">
+                        <button class="nav-arrow prev-btn" onclick="changePhoto(-1)">&#10094;</button>
+                        <button class="nav-arrow next-btn" onclick="changePhoto(1)">&#10095;</button>
+                    </div>
+                    <div class="thumbnails-grid" id="modalThumbnails"></div>
+                </div>
+
+                <div class="modal-details">
+                    <span id="modalTag" class="project-tag"></span>
+                    <h2 id="modalTitle"></h2>
+                    <h3 id="modalSub"></h3>
+
+                    <table class="details-table">
+                        <tr><th>Artiste :</th><td id="modalArtist"></td></tr>
+                        <tr><th>Titre :</th><td id="modalAlbum"></td></tr>
+                        <tr><th>Pays :</th><td id="modalCountry"></td></tr>
+                        <tr><th>Année :</th><td id="modalYear"></td></tr>
+                        <tr><th>Éditeur / Label :</th><td id="modalLabel"></td></tr>
+                        <tr><th>N° Catalogue :</th><td id="modalRef"></td></tr>
+                        <tr><th>Format / Audio :</th><td id="modalFormat"></td></tr>
+                        <tr><th>État Disque / Boîtier :</th><td id="modalGrading"></td></tr>
+                    </table>
+
+                    <div class="modal-description">
+                        <h4>Notes & Particularités :</h4>
+                        <p id="modalNotes"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BASE DE DONNÉES ET SCRIPTS -->
+    <script>
+        const collectionData = {
+            'pompeii-dvd-eu-2003': {
+                title: "Live at Pompeii (Director's Cut)",
+                tag: "EUROPE • 2003",
+                artist: "Pink Floyd",
+                album: "Live at Pompeii",
+                country: "Europe",
+                year: "2003",
+                label: "Universal",
+                ref: "820 131-0",
+                format: "DVD / Stereo",
+                grading: "NM / NM",
+                notes: "Edition Director's Cut. Contient le Director's Cut de 2003 ainsi que le montage original du film de 1972. Livré dans son boitier en plastique noir.",
+                photos: [
+                    "Pompeii DVD Front.jpg",
+                    "Pompeii DVD Disc.jpg"
+                ]
+            },
+            'pompeii-bluray-eu-2025': {
+                title: "Pink Floyd at Pompeii - MCMLXXII",
+                tag: "EUROPE • 2025",
+                artist: "Pink Floyd",
+                album: "Live at Pompeii",
+                country: "Europe",
+                year: "2025",
+                label: "Columbia / Sony Music",
+                ref: "19802876259",
+                format: "Blu-ray / Stereo, Dolby TrueHD 5.1 & Dolby Atmos",
+                grading: "M / M",
+                notes: "Édition Blu-ray du remaster de 2025. Digisleeve. Gatefold. Contient le montage de 1974 ainsi que le montage original du film de 1972. Livré avec un livret de 12 pages et une pochette en carton pour le disque.",
+                photos: [
+                    "Pulse DVD Front.jpg"
+                ]
+            },
+            'pompeii-4k-eu-2026': {
+                title: "Pink Floyd at Pompeii - MCMLXXII",
+                tag: "EUROPE • 2026",
+                artist: "Pink Floyd",
+                album: "Live at Pompeii",
+                country: "Europe",
+                year: "2026",
+                label: "Columbia / Sony Music",
+                ref: "19802937839",
+                format: "Blu-ray 4K Ultra HD / Stereo, Dolby TrueHD 5.1 & Dolby Atmos",
+                grading: "M / M",
+                notes: "Édition Blu-ray 4K Ultra HD du remaster de 2025. Digisleeve. Gatefold. Contient le montage de 1974 ainsi que le montage original du film de 1972. Livré avec un livret de 12 pages et une pochette en carton pour le disque.",
+                photos: [
+                    "Pulse DVD Front.jpg"
+                ]
+            },
+			'pulse-dvd-eu-2006': {
+                title: "P.U.L.S.E",
+                tag: "EUROPE • 2006",
+                artist: "Pink Floyd",
+                album: "P.U.L.S.E",
+                country: "Europe",
+                year: "2006",
+                label: "EMI",
+                ref: "0724 3 491436 9 2",
+                format: "2 DVD / Stereo & Dolby Digital 5.1",
+                grading: "M / M",
+                notes: "Édition 2xDVD originale européenne. Digipack. Gatefold. Contient le concert complet ainsi que les Screen Films, le bonus 'Bootlegging the Bootleggers', des clips, le documentaire 'Say Goodbye to Life as We Know It', une performance de 'Wish You Were Here' avec Billy Corgan lors de l'intronisation au Rock & Roll Hall of Fame ainsi qu'une galerie photo. Livré avec un livret.",
+                photos: [
+                    "Pulse DVD Front.jpg"
+                ]
+            },
+            'dsotm-braudio-eu-2023': {
+                title: "The Dark Side of the Moon (50th Anniversary)",
+                tag: "EUROPE • 2023",
+                artist: "Pink Floyd",
+                album: "The Dark Side of the Moon",
+                country: "Europe",
+                year: "2023",
+                label: "Pink Floyd Records",
+                ref: "PFR50BD3 / 5054197631634",
+                format: "Blu-ray Audio / Stereo, 5.1 Surround & Dolby Atmos",
+                grading: "M / M",
+                notes: "Édition stand-alone du Blu-ray Audio. Digisleeve. Gatefold. Contient le mixage Dolby Atmos, le mixage 5.1 et le remaster stéréo 2023. Livré avec un livret de 24 pages, une carte postale reprenant le poster des pyramides, trois stickers et une pochette pour le disque.",
+                photos: [
+                    "TDSOM BRAudio Front.jpg"
+                ]
+            },
+            'animals-remix-braudio-2024': {
+                title: "Animals (2018 Remix)",
+                tag: "EUROPE • 2024",
+                artist: "Pink Floyd",
+                album: "Animals",
+                country: "Europe",
+                year: "2024",
+                label: "Pink Floyd Records",
+                ref: "PFR42BD / 5054197757303",
+                format: "Blu-ray Audio / Stereo, 5.1 Surround & Dolby Atmos",
+                grading: "M / M",
+                notes: "Édition stand-alone du Blu-ray Audio. Digisleeve. Gatefold. Contient le mixage Dolby Atmos de 2022, le mixage 5.1 et le remaster stéréo de 2018. Livré avec un livret de 8 pages, une carte postale de la Battersea Power Station, un sticker et une pochette pour le disque.",
+                photos: [
+                    "WYWH BRAudio Front.jpg"
+                ]
+            },
+            'story-wywh-dvd-2012': {
+                title: "The Story of Wish You Were Here",
+                tag: "EUROPE • 2012",
+                artist: "Pink Floyd",
+                album: "The Story of Wish You Were Here",
+                country: "Europe",
+                year: "2012",
+                label: "Eagle Vision",
+                ref: "EREDV932GV",
+                format: "DVD NTSC / Dolby Digital Stereo",
+                grading: "M / M",
+                notes: "Documentaire officiel décortiquant la création de l'album avec les membres du groupe. Livré dans son boîtier plastique d'origine.",
+                photos: [
+                    "Classic Albums DVD Front.jpg"
+                ]
+            },
+            'gilmour-remember-dvd-2007': {
+                title: "Remember that Night (Live at the Royal Albert Hall)",
+                tag: "EUROPE • 2007",
+                artist: "David Gilmour",
+                album: "Remember that Night (Live at the Royal Albert Hall)",
+                country: "Europe",
+                year: "2007",
+                label: "EMI",
+                ref: "504 3119 / 50999 504 311 9 9",
+                format: "2 DVD / Stereo & Dolby Digital 5.1",
+                grading: "M / M",
+                notes: "Édition spéciale 2 DVD européenne. Contient le concert complet de 2006 et des bonus exclusifs comme 13 morceaux supplémentaires, trois documentaires, 2 clips vidéos, le Island Jam de 2007 ainsi qu'une galerie photo. Digipack. Gatefold. Fourreau manquant. Livré avec un livret de 20 pages. ",
+                photos: [
+                    "Gilmour Pompeii Bluray Front.jpg"
+                ]
+            },
+            'gilmour-circusmaximus-bluray-2025': {
+                title: "Live at the Circus Maximus",
+                tag: "EUROPE • 2025",
+                artist: "David Gilmour",
+                album: "Live at the Circus Maximus",
+                country: "Europe",
+                year: "2025",
+                label: "Sony Music",
+                ref: "19802927039",
+                format: "2 Bluray / Stereo, dts-HD MA et Dolby Atmos",
+                grading: "M / M",
+                notes: "Edition 2 Blu-ray européenne. Contient le concert au Circus Maximus de Rome, l'album 'The Luck and Strange Concerts' en audio, 4 morceaux des répétitions de la tournée 'Luck and Strange', 4 documentaires et 9 clips vidéo. Gatefold. Digisleeve. Livré avec un livret de 24 pages, deux stickers et des pochettes pour les disques.",
+                photos: [
+                    "Waters Wall Bluray Front.jpg"
+                ]
+            },
+			'waters-rockinrio-dvd-2010': {
+                title: "Live - Rock in Rio - Lisbon, Portugal 2006",
+                tag: "ETATS-UNIS • 2010",
+                artist: "Roger Waters",
+                album: "Live - Rock in Rio - Lisbon, Portugal 2006",
+                country: "Europe",
+                year: "2010",
+                label: "Woodstock Tapes",
+                ref: "WT 7932",
+                format: "DVD / Dolby Digital",
+                grading: "M / M",
+                notes: "Edition originale américaine. Non-officiel. Livré dans son boîtier plastique noir d'origine.",
+                photos: [
+                    "Waters Wall Bluray Front.jpg"
+                ]
+            }
+        };
+
+        let currentPhotos = [];
+        let currentPhotoIndex = 0;
+
+        function openModal(itemId) {
+            const data = collectionData[itemId];
+            if (!data) return;
+
+            document.getElementById('modalTitle').innerText = data.title;
+            document.getElementById('modalTag').innerText = data.tag;
+            document.getElementById('modalArtist').innerText = data.artist || 'Pink Floyd';
+            document.getElementById('modalAlbum').innerText = data.album;
+            document.getElementById('modalCountry').innerText = data.country;
+            document.getElementById('modalYear').innerText = data.year;
+            document.getElementById('modalLabel').innerText = data.label;
+            document.getElementById('modalRef').innerText = data.ref;
+            document.getElementById('modalFormat').innerText = data.format;
+            document.getElementById('modalGrading').innerText = data.grading;
+            document.getElementById('modalNotes').innerText = data.notes;
+
+            currentPhotos = data.photos;
+            currentPhotoIndex = 0;
+            updatePhotoDisplay();
+
+            const thumbContainer = document.getElementById('modalThumbnails');
+            thumbContainer.innerHTML = '';
+            currentPhotos.forEach((src, idx) => {
+                const img = document.createElement('img');
+                img.src = src;
+                img.className = 'thumb-img' + (idx === 0 ? ' active' : '');
+                img.onclick = () => setPhoto(idx);
+                thumbContainer.appendChild(img);
+            });
+
+            document.getElementById('itemModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('itemModal').style.display = 'none';
+        }
+
+        function updatePhotoDisplay() {
+            document.getElementById('modalMainImg').src = currentPhotos[currentPhotoIndex];
+            const thumbs = document.querySelectorAll('.thumb-img');
+            thumbs.forEach((t, i) => {
+                t.classList.toggle('active', i === currentPhotoIndex);
+            });
+        }
+
+        function setPhoto(index) {
+            currentPhotoIndex = index;
+            updatePhotoDisplay();
+        }
+
+        function changePhoto(direction) {
+            currentPhotoIndex += direction;
+            if (currentPhotoIndex < 0) currentPhotoIndex = currentPhotos.length - 1;
+            if (currentPhotoIndex >= currentPhotos.length) currentPhotoIndex = 0;
+            updatePhotoDisplay();
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('itemModal');
+            if (event.target == modal) closeModal();
+        }
+    </script>
+	
+	<script src="https://giscus.app/client.js"
+        data-repo="carefulwiththatfloyd/Careful-With-That-Floyd"
+        data-repo-id="R_kgDOTkThMA"
+        data-category="General"
+        data-category-id="DIC_kwDOTkThMM4DCaQe"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="fr"
+        crossorigin="anonymous"
+        async>
+	</script>
+</body>
+</html>

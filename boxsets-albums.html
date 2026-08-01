@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Coffrets d'Albums & Immersion - Careful With That Floyd</title>
+
+    <style>
+        /* Style pour l'en-tête de catégorie */
+        .category-header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Coffrets.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 60px 20px;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .category-header h1,
+        .category-header p {
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+        }
+		
+        .portfolio-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .portfolio-grid .project-card {
+            width: 100%;
+            max-width: 360px;
+            box-sizing: border-box;
+        }
+
+        /* Style pour les séparateurs de section */
+        .section-separator {
+            width: 100%;
+            text-align: center;
+            margin: 30px 0 20px 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .section-separator h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            display: inline-block;
+            padding: 0 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+
+        .section-separator::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 5%;
+            right: 5%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo-link">
+            <img src="Careful With That Floyd.png" alt="Careful With That Floyd" class="logo-img">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html" class="nav-btn">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="category-header">
+        <h1>Coffrets d'Albums & Immersion</h1>
+        <p>Cliquez sur un coffret pour afficher le détail du contenu multi-formats, la galerie photos et les spécifications</p>
+    </header>
+
+    <main class="portfolio-section">
+
+        <!-- ================= SECTION ÉDITIONS IMMERSION ================= -->
+        <div class="section-separator">
+            <h2>Éditions Immersion</h2>
+        </div>
+
+                <!-- ================= SECTION DELUXE & EDITIONS DE LUXE ================= -->
+        <div class="section-separator">
+            <h2>Éditions Deluxe & Anniversaire</h2>
+        </div>
+
+        <div class="portfolio-grid">
+            
+            <!-- Carte 4 : Animals 2018 Remix Deluxe -->
+            <div class="project-card item-card" onclick="openModal('animals-deluxe-eu-2022')">
+                <div class="project-image" style="background-image: url('Animals Deluxe Front.jpg');"></div>
+                <div class="project-info">
+                    <span class="project-tag">EUROPE • 2022</span>
+                    <h3>Animals (2018 Remix)</h3>
+                    <p>Pink Floyd Records – PFR28BOX (LP + CD + DVD + BD + Livret)</p>
+                    <span class="category-link">Voir la fiche & photos →</span>
+                </div>
+            </div>
+
+            <!-- Carte 5 : WYWH 50th Anniversary Box Set -->
+            <div class="project-card item-card" onclick="openModal('wywh-50-box-eu')">
+                <div class="project-image" style="background-image: url('DSOTM 50th Front.jpg');"></div>
+                <div class="project-info">
+                    <span class="project-tag">EUROPE • 2025</span>
+                    <h3>Wish You Were Here 50</h3>
+                    <p>Columbia / Sony Music – 19802876741OS (Deluxe Box Set Multi-Formats)</p>
+                    <span class="category-link">Voir la fiche & photos →</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="collection-format-boxsets.html" class="btn-back">← Retour aux coffrets</a>
+        </div>
+    </main>
+
+    <!-- ==================== FENÊTRE MODALE DÉTAILS & GALERIE ==================== -->
+    <div id="itemModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            
+            <div class="modal-body">
+                <!-- Colonne Gauche : Galerie Photos -->
+                <div class="modal-gallery">
+                    <div class="main-photo-container">
+                        <img id="modalMainImg" src="" alt="Photo principale">
+                        <button class="nav-arrow prev-btn" onclick="changePhoto(-1)">&#10094;</button>
+                        <button class="nav-arrow next-btn" onclick="changePhoto(1)">&#10095;</button>
+                    </div>
+                    <div class="thumbnails-grid" id="modalThumbnails">
+                        <!-- Les vignettes s'affichent ici -->
+                    </div>
+                </div>
+
+                <!-- Colonne Droite : Fiche Technique & Contenu -->
+                <div class="modal-details">
+                    <span id="modalTag" class="project-tag"></span>
+                    <h2 id="modalTitle"></h2>
+                    <h3 id="modalSub"></h3>
+
+                    <table class="details-table">
+                        <tr><th>Artiste :</th><td id="modalArtist"></td></tr>
+                        <tr><th>Album :</th><td id="modalAlbum"></td></tr>
+                        <tr><th>Pays :</th><td id="modalCountry"></td></tr>
+                        <tr><th>Année :</th><td id="modalYear"></td></tr>
+                        <tr><th>Label :</th><td id="modalLabel"></td></tr>
+                        <tr><th>N° Catalogue :</th><td id="modalRef"></td></tr>
+                        <tr><th>Contenu Disques :</th><td id="modalDiscs"></td></tr>
+                        <tr><th>Memorabilia :</th><td id="modalMemorabilia"></td></tr>
+                        <tr><th>État Coffret / Contenu :</th><td id="modalGrading"></td></tr>
+                    </table>
+
+                    <div class="modal-description">
+                        <h4>Notes & Particularités :</h4>
+                        <p id="modalNotes"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== BASE DE DONNÉES ET SCRIPTS ==================== -->
+    <script>
+        const collectionData = {
+            'dsotm-immersion-eu': {
+                title: "The Dark Side of the Moon (Immersion Box Set)",
+                tag: "EUROPE • 2011",
+                artist: "Pink Floyd",
+                album: "The Dark Side of the Moon",
+                country: "Europe",
+                year: "2011",
+                label: "EMI",
+                ref: "50999 029431 2 1",
+                discs: "3x CD + 2x DVD + 1x Blu-ray",
+                memorabilia: "Livret 36p, livre de photos par Jill Furmanovsky, tirage d'art, 4 cartes collector, 9 sous-verres, écharpe, billes",
+                grading: "M / M",
+                notes: "Coffret de la série Immersion. Contient le remaster 2011, le concert de Wembley 1974, des démos inédites, ainsi que les mixages 5.1 Surround, Quadriphonique et Hi-Res Audio sur DVD et Blu-ray.",
+                photos: [
+                    "DSOTM Immersion Front.jpg",
+                    "DSOTM Immersion Inside.jpg",
+                    "DSOTM Immersion Contents.jpg"
+                ]
+            },
+            'wywh-immersion-eu': {
+                title: "Wish You Were Here (Immersion Box Set)",
+                tag: "EUROPE • 2011",
+                artist: "Pink Floyd",
+                album: "Wish You Were Here",
+                country: "Europe",
+                year: "2011",
+                label: "EMI",
+                ref: "50999 029435 2 7",
+                discs: "2x CD + 2x DVD + 1x Blu-ray",
+                memorabilia: "Livret 40p, livre photo par Storm Thorgerson, tirage d'art, 3 cartes postales, fac-similé de billet de tournée, écharpe, billes",
+                grading: "M / M",
+                notes: "Contient les inédits enregistrés à Wembley 1974 (Shine On, Raving and Drooling, Gotta Be Crazy) ainsi que la version de Wish You Were Here avec Stéphane Grappelli.",
+                photos: [
+                    "WYWH Immersion Front.jpg",
+                    "WYWH Immersion Contents.jpg"
+                ]
+            },
+            'wall-immersion-eu': {
+                title: "The Wall (Immersion Box Set)",
+                tag: "EUROPE • 2012",
+                artist: "Pink Floyd",
+                album: "The Wall",
+                country: "Europe",
+                year: "2012",
+                label: "EMI",
+                ref: "50999 029439 2 3",
+                discs: "6x CD + 1x DVD",
+                memorabilia: "Livret 44p, livre de photos, tirage d'art, cartes postales, fac-similé du programme de tournée, cartes plastifiées",
+                grading: "M / M",
+                notes: "Inclut l'album original remastérisé, l'album live 'Is There Anybody Out There?', ainsi que 2 CD complets de démos de travail de Roger Waters et du groupe.",
+                photos: [
+                    "The Wall Immersion Front.jpg",
+                    "The Wall Immersion Contents.jpg"
+                ]
+            },
+            'animals-deluxe-eu-2022': {
+                title: "Animals (2018 Remix Deluxe Limited Edition)",
+                tag: "EUROPE • 2022",
+                artist: "Pink Floyd",
+                album: "Animals",
+                country: "Europe",
+                year: "2022",
+                label: "Pink Floyd Records",
+                ref: "PFR28BOX / 0190295600532",
+                discs: "1x LP (180g) + 1x CD + 1x DVD + 1x Blu-ray",
+                memorabilia: "Livre relié de 32 pages avec photos rares du tournage de la pochette à Battersea",
+                grading: "M / M",
+                notes: "Édition coffret rigide contenant le nouveau mixage de l'album en vinyle, CD, ainsi qu'en audio 5.1 Surround HD et Stereo HD sur DVD/Blu-ray.",
+                photos: [
+                    "Animals Deluxe Front.jpg",
+                    "Animals Deluxe Contents.jpg"
+                ]
+            },
+            'wywh-50-box-eu': {
+                title: "Wish You Were Here 50",
+                tag: "EUROPE • 2025",
+                artist: "Pink Floyd",
+                album: "Wish You Were Here",
+                country: "Europe",
+                year: "2025",
+                label: "Columbia / Sony Music",
+                ref: "19802876741OS",
+                discs: "4x LP + 2x CD + 1x Blu-ray + 1x 7\" Single",
+                memorabilia: "Livre relié de ?? pages, réplique du programme de tournée, 1 fac-similé de 45T, réplique du poster du concert à Knebworth de 1975",
+                grading: "M / M",
+                notes: "Coffret célébrant le 50ème anniversaire. Inclut l'album original remastérisé, des démos et 'Shine On You Crazy Diamond' ainsi que 'You've Got to Be Crazy' en concert à Wembley* en LP et CD, le mix Dolby Atmos, 4.0, 5.1 et Stereo HD sur Blu-ray. *Le 'Live at Wembley' est exclusif au format vinyle.",
+                photos: [
+                    "DSOTM 50th Front.jpg",
+                    "DSOTM 50th Contents.jpg"
+                ]
+            }
+        };
+
+        let currentPhotos = [];
+        let currentPhotoIndex = 0;
+
+        function openModal(itemId) {
+            const data = collectionData[itemId];
+            if (!data) return;
+
+            document.getElementById('modalTitle').innerText = data.title;
+            document.getElementById('modalTag').innerText = data.tag;
+            document.getElementById('modalArtist').innerText = data.artist || 'Pink Floyd';
+            document.getElementById('modalAlbum').innerText = data.album;
+            document.getElementById('modalCountry').innerText = data.country;
+            document.getElementById('modalYear').innerText = data.year;
+            document.getElementById('modalLabel').innerText = data.label;
+            document.getElementById('modalRef').innerText = data.ref;
+            document.getElementById('modalDiscs').innerText = data.discs;
+            document.getElementById('modalMemorabilia').innerText = data.memorabilia;
+            document.getElementById('modalGrading').innerText = data.grading;
+            document.getElementById('modalNotes').innerText = data.notes;
+
+            currentPhotos = data.photos;
+            currentPhotoIndex = 0;
+            updatePhotoDisplay();
+
+            const thumbContainer = document.getElementById('modalThumbnails');
+            thumbContainer.innerHTML = '';
+            currentPhotos.forEach((src, idx) => {
+                const img = document.createElement('img');
+                img.src = src;
+                img.className = 'thumb-img' + (idx === 0 ? ' active' : '');
+                img.onclick = () => setPhoto(idx);
+                thumbContainer.appendChild(img);
+            });
+
+            document.getElementById('itemModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('itemModal').style.display = 'none';
+        }
+
+        function updatePhotoDisplay() {
+            document.getElementById('modalMainImg').src = currentPhotos[currentPhotoIndex];
+            const thumbs = document.querySelectorAll('.thumb-img');
+            thumbs.forEach((t, i) => {
+                t.classList.toggle('active', i === currentPhotoIndex);
+            });
+        }
+
+        function setPhoto(index) {
+            currentPhotoIndex = index;
+            updatePhotoDisplay();
+        }
+
+        function changePhoto(direction) {
+            currentPhotoIndex += direction;
+            if (currentPhotoIndex < 0) currentPhotoIndex = currentPhotos.length - 1;
+            if (currentPhotoIndex >= currentPhotos.length) currentPhotoIndex = 0;
+            updatePhotoDisplay();
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('itemModal');
+            if (event.target == modal) closeModal();
+        }
+    </script>
+	
+	<script src="https://giscus.app/client.js"
+        data-repo="carefulwiththatfloyd/Careful-With-That-Floyd"
+        data-repo-id="R_kgDOTkThMA"
+        data-category="General"
+        data-category-id="DIC_kwDOTkThMM4DCaQe"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="fr"
+        crossorigin="anonymous"
+        async>
+	</script>
+</body>
+</html>
