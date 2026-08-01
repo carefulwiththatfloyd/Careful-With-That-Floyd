@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css?v=2">
+    <title>Par Album - Collection - Careful With That Floyd</title>
+
+    <style>
+        /* Style pour l'en-tête de catégorie */
+        .category-header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('GxDknUYWMAAGtAm.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 60px 20px;
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 50px;
+        }
+
+        .category-header h1,
+        .category-header p {
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Cartes d'albums avec pochette HD en arrière-plan */
+        .albums-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto 60px auto;
+            padding: 0 20px;
+        }
+
+        .album-card {
+            position: relative;
+            height: 320px;
+            border-radius: 16px;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            text-decoration: none !important;
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            box-sizing: border-box;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .album-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7);
+        }
+
+        .album-content {
+            position: relative;
+            z-index: 2;
+            text-align: left;
+        }
+
+        .album-year {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 12px;
+            margin-bottom: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .album-content h3 {
+            color: #ffffff;
+            font-size: 1.3rem;
+            margin: 0 0 4px 0;
+            font-weight: 700;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+        }
+
+        .album-content p {
+            color: #dddddd;
+            font-size: 0.85rem;
+            margin: 0;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barre de navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="logo-link">
+            <img src="Careful With That Floyd.png" alt="Careful With That Floyd" class="logo-img">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html" class="nav-btn">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- En-tête de la page -->
+    <header class="category-header">
+        <h1>Collection par Album</h1>
+        <p>Sélectionnez un album pour explorer toutes ses déclinaisons et pressages</p>
+    </header>
+
+    <!-- Grille des albums studio -->
+    <main class="albums-grid">
+
+        <!-- 1967 - The Piper at the Gates of Dawn -->
+        <a href="album-piper-at-the-gates-of-dawn.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/piper.webp');">
+            <div class="album-content">
+                <span class="album-year">1967</span>
+                <h3>The Piper at the Gates of Dawn</h3>
+                <p>Découvrir les pressages →</p>
+            </div>
+        </a>
+
+        <!-- 1968 - A Saucerful of Secrets -->
+        <a href="album-a-saucerful-of-secrets.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/saucerful.webp');">
+            <div class="album-content">
+                <span class="album-year">1968</span>
+                <h3>A Saucerful of Secrets</h3>
+                <p>Découvrir les pressages →</p>
+            </div>
+        </a>
+
+        <!-- 1969 - More -->
+        <a href="album-more.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/more.webp');">
+            <div class="album-content">
+                <span class="album-year">1969</span>
+                <h3>More</h3>
+                <p>Découvrir les pressages →</p>
+            </div>
+        </a>
+
+        <!-- 1969 - Ummagumma -->
+        <a href="album-ummagumma.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/ummagumma.webp');">
+            <div class="album-content">
+                <span class="album-year">1969</span>
+                <h3>Ummagumma</h3>
+                <p>Découvrir les pressages →</p>
+            </div>
+        </a>
+
+        <!-- 1970 - Atom Heart Mother -->
+        <a href="album-atom-heart-mother.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/atom.webp');">
+            <div class="album-content">
+                <span class="album-year">1970</span>
+                <h3>Atom Heart Mother</h3>
+                <p>Découvrir les pressages →</p>
+            </div>
+        </a>
+
+        <!-- 1971 - Meddle -->
+        <a href="album-meddle.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/meddle.webp');">
+            <div class="album-content">
+                <span class="album-year">1971</span>
+                <h3>Meddle</h3>
+                <p>Découvrir les pressages →</p>
+            </div>
+        </a>
+
+        <!-- 1972 - Obscured by Clouds -->
+        <a href="album-obscured-by-clouds.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/obscured.webp');">
+            <div class="album-content">
+                <span class="album-year">1972</span>
+                <h3>Obscured by Clouds</h3>
+                <p>Découvrir les pressages →</p>
+            </div>
+        </a>
+
+        <!-- 1973 - The Dark Side of the Moon -->
+        <a href="album-dark-side-of-the-moon.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/dark-side.webp');">
+            <div class="album-content">
+                <span class="album-year">1973</span>
+                <h3>The Dark Side of the Moon</h3>
+                <p>Découvrir les pressages →</p>
+            </div>
+        </a>
+
+        <!-- 1975 - Wish You Were Here -->
+        <a href="album-wish-you-were-here.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/wywh.webp');">
+            <div class="album-content">
+                <span class="album-year">1975</span>
+                <h3>Wish You Were Here</h3>
+                <p>Découvrir les pressages →</p>
+            </div>
+        </a>
+
+        <!-- 1977 - Animals -->
+        <a href="album-animals.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/animals.webp');">
+            <div class="album-content">
+                <span class="album-year">1977</span>
+                <h3>Animals</h3>
+                <p>Découvrir les pressages →</p>
+            </div>
+        </a>
+
+        <!-- 1979 - The Wall -->
+        <a href="album-the-wall.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/wall.webp');">
+            <div class="album-content">
+                <span class="album-year">1979</span>
+                <h3>The Wall</h3>
+                <p>Découvrir les pressages →</p>
+            </div>
+        </a>
+
+        <!-- 1983 - The Final Cut -->
+        <a href="album-the-final-cut.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/the-final-cut.webp');">
+            <div class="album-content">
+                <span class="album-year">1983</span>
+                <h3>The Final Cut</h3>
+                <p>Découvrir les pressages →</p>
+            </div>
+        </a>
+
+        <!-- 1987 - A Momentary Lapse of Reason -->
+        <a href="album-a-momentary-lapse-of-reason.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/momentary.webp');">
+            <div class="album-content">
+                <span class="album-year">1987</span>
+                <h3>A Momentary Lapse of Reason</h3>
+                <p>Découvrir les pressages →</p>
+            </div>
+        </a>
+
+        <!-- 1994 - The Division Bell -->
+        <a href="album-the-division-bell.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/division.webp');">
+            <div class="album-content">
+                <span class="album-year">1994</span>
+                <h3>The Division Bell</h3>
+                <p>Découvrir les pressages →</p>
+            </div>
+        </a>
+
+        <!-- 2014 - The Endless River -->
+        <a href="album-the-endless-river.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/endless.webp');">
+            <div class="album-content">
+                <span class="album-year">2014</span>
+                <h3>The Endless River</h3>
+                <p>Découvrir les pressages →</p>
+            </div>
+        </a>
+
+    </main>
+	
+	<!-- Section Commentaires -->
+<section class="format-section" style="max-width: 900px; margin: 50px auto; padding: 20px;">
+    <h2 class="format-title" style="color: #000000; border-bottom: 2px solid #000000; margin-bottom: 20px;">Commentaires</h2>
+    <div class="giscus"></div>
+</section>
+	
+	<script src="https://giscus.app/client.js"
+        data-repo="carefulwiththatfloyd/Careful-With-That-Floyd"
+        data-repo-id="R_kgDOTkThMA"
+        data-category="General"
+        data-category-id="DIC_kwDOTkThMM4DCaQe"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="fr"
+        crossorigin="anonymous"
+        async>
+	</script>
+
+    <!-- Bouton retour -->
+    <div style="text-align: center; margin-bottom: 60px;">
+        <a href="collection.html" class="btn-back">← Retour à la collection</a>
+    </div>
+
+</body>
+</html>

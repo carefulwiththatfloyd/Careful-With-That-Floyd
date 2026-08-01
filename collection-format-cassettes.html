@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <title>Cassettes & Bandes - Careful With That Floyd</title>
+
+    <style>
+        /* Style pour l'en-tête de catégorie */
+        .category-header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Cassettes.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 60px 20px;
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 50px;
+        }
+
+        .category-header h1,
+        .category-header p {
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="logo-link">
+            <img src="Careful With That Floyd.png" alt="Careful With That Floyd" class="logo-img">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html" class="nav-btn">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- En-tête -->
+    <header class="category-header">
+        <h1>Cassettes & Bandes</h1>
+        <p>Explorez la collection de supports magnétiques analogiques</p>
+    </header>
+
+    <!-- Grille des types de cassettes et bandes -->
+    <main class="portfolio-section">
+        <div class="portfolio-grid">
+            
+            <!-- Carte 1 : Cassettes Audio (MC) -->
+            <a href="cassettes-mc.html" class="project-card-link">
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('Wall Cass.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag">Musicassette / MC</span>
+                        <h3>Cassettes Audio</h3>
+                        <p>Albums studio, tirages originaux, rééditions et éditions promo</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Carte 2 : Cartouches 8 Pistes -->
+            <a href="cassettes-8track.html" class="project-card-link">
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('8-T Front.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag">8-Track Cartridge</span>
+                        <h3>Cartouches 8-pistes</h3>
+                        <p>Éditions américaines et britanniques sous format cartouche 8 pistes</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Carte 3 : Bandes Magnétiques / Reel-to-Reel -->
+            <a href="cassettes-reel.html" class="project-card-link">
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('Brescia.webp');"></div>
+                    <div class="project-info">
+                        <span class="project-tag">Bande Lisse / 1/4"</span>
+                        <h3>Bandes Reel-to-Reel</h3>
+                        <p>Bandes magnétiques bobine à bobine et enregistrements d'époque</p>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+		
+		<!-- Section Commentaires -->
+<section class="format-section" style="max-width: 900px; margin: 50px auto; padding: 20px;">
+    <h2 class="format-title" style="color: #000000; border-bottom: 2px solid #000000; margin-bottom: 20px;">Commentaires</h2>
+    <div class="giscus"></div>
+</section>
+	
+	<script src="https://giscus.app/client.js"
+        data-repo="carefulwiththatfloyd/Careful-With-That-Floyd"
+        data-repo-id="R_kgDOTkThMA"
+        data-category="General"
+        data-category-id="DIC_kwDOTkThMM4DCaQe"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="fr"
+        crossorigin="anonymous"
+        async>
+	</script>
+
+        <!-- Bouton retour -->
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="collection-formats.html" class="btn-back">← Retour aux formats</a>
+        </div>
+    </main>
+
+</body>
+</html>

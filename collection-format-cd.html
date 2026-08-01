@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <title>Compact Discs & Audio HD - Careful With That Floyd</title>
+
+    <style>
+        /* Style pour l'en-tête de catégorie */
+        .category-header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('CD Page.png'); /* Remplace par l'image de ton choix */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 60px 20px;
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 50px; /* Ajoute un espace sous l'en-tête */
+        }
+
+        .category-header h1,
+        .category-header p {
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="logo-link">
+            <img src="Careful With That Floyd.png" alt="Careful With That Floyd" class="logo-img">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html" class="nav-btn">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- En-tête -->
+    <header class="category-header">
+        <h1>Compact Discs & Audio HD</h1>
+        <p>Explorez la collection de CD classée par type de support audio</p>
+    </header>
+
+    <!-- Grille des 3 types de CD -->
+    <main class="portfolio-section">
+        <div class="portfolio-grid">
+            
+            <!-- Carte 1 : Compact Discs -->
+            <a href="cd-albums.html" class="project-card-link">
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('CD en-tête.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag">Album / CD</span>
+                        <h3>Compact Discs</h3>
+                        <p>Albums studio, lives, rééditions, Mini-LP japonais et digipaks</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Carte 2 : SACD -->
+            <a href="cd-sacd.html" class="project-card-link">
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('SACD.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag">Audio HD / Multicanal</span>
+                        <h3>SACD (Super Audio CD)</h3>
+                        <p>Éditions hybrides, mixages 5.1 Surround et pressages audiophiles</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Carte 3 : CD Singles -->
+            <a href="cd-singles.html" class="project-card-link">
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('CD singles.jpg');"></div>
+                    <div class="project-info">
+                        <span class="project-tag">Single / Promo</span>
+                        <h3>CD Singles</h3>
+                        <p>CD 2 ou 4 titres, tirages promotionnels et boîtiers slim</p>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+		
+		<!-- Section Commentaires -->
+<section class="format-section" style="max-width: 900px; margin: 50px auto; padding: 20px;">
+    <h2 class="format-title" style="color: #000000; border-bottom: 2px solid #000000; margin-bottom: 20px;">Commentaires</h2>
+    <div class="giscus"></div>
+</section>
+	
+	<script src="https://giscus.app/client.js"
+        data-repo="carefulwiththatfloyd/Careful-With-That-Floyd"
+        data-repo-id="R_kgDOTkThMA"
+        data-category="General"
+        data-category-id="DIC_kwDOTkThMM4DCaQe"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="fr"
+        crossorigin="anonymous"
+        async>
+	</script>
+
+        <!-- Bouton retour -->
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="collection-formats.html" class="btn-back">← Retour aux formats</a>
+        </div>
+    </main>
+
+</body>
+</html>
