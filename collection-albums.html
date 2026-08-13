@@ -1,0 +1,1783 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css?v=2">
+    <title>Par Album - Collection - Careful With That Floyd</title>
+
+    <style>
+        /* Style pour l'en-tête de catégorie */
+        .category-header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('GxDknUYWMAAGtAm.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 60px 20px;
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 50px;
+        }
+
+        .category-header h1,
+        .category-header p {
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Style pour les séparateurs de section */
+        .section-divider {
+            max-width: 1200px;
+            margin: 60px auto 30px auto;
+            padding: 0 20px;
+        }
+
+        .section-divider h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #000000;
+            border-bottom: 2px solid #000000;
+            padding-bottom: 10px;
+            margin: 0;
+        }
+
+        /* Cartes d'albums avec pochette HD en arrière-plan */
+        .albums-grid {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 24px;
+			max-width: 1200px;
+			margin: 0 auto 40px auto;
+			padding: 0 20px;
+		}
+
+		.album-card {
+			position: relative;
+			width: 280px;
+			height: 320px;
+			border-radius: 16px;
+			overflow: hidden;
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			text-decoration: none !important;
+			display: flex;
+			align-items: flex-end;
+			padding: 20px;
+			box-sizing: border-box;
+			border: 1px solid rgba(255, 255, 255, 0.15);
+			box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+			transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+		}
+
+        .album-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7);
+        }
+
+        .album-content {
+            position: relative;
+            z-index: 2;
+            text-align: left;
+        }
+
+        .album-year {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 12px;
+            margin-bottom: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .album-content h3 {
+            color: #ffffff;
+            font-size: 1.3rem;
+            margin: 0 0 4px 0;
+            font-weight: 700;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+        }
+
+        .album-content p {
+            color: #dddddd;
+            font-size: 0.85rem;
+            margin: 0;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barre de navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="logo-link">
+            <img src="Careful With That Floyd.png" alt="Careful With That Floyd" class="logo-img">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html" class="nav-btn">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- En-tête de la page -->
+    <header class="category-header">
+        <h1>Collection par Album</h1>
+        <p>Sélectionnez un album pour explorer toutes ses déclinaisons et pressages</p>
+    </header>
+
+    <main>
+        <!-- 1. Albums studio -->
+        <div class="section-divider">
+            <h2>Albums studio</h2>
+        </div>
+        <section class="albums-grid">
+            <!-- 1967 - The Piper at the Gates of Dawn -->
+            <a href="album-piper-at-the-gates-of-dawn.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/piper.webp');">
+                <div class="album-content">
+                    <span class="album-year">1967</span>
+                    <h3>The Piper at the Gates of Dawn</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1968 - A Saucerful of Secrets -->
+            <a href="album-a-saucerful-of-secrets.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/saucerful.webp');">
+                <div class="album-content">
+                    <span class="album-year">1968</span>
+                    <h3>A Saucerful of Secrets</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1969 - More -->
+            <a href="album-more.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/more.webp');">
+                <div class="album-content">
+                    <span class="album-year">1969</span>
+                    <h3>More</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1969 - Ummagumma -->
+            <a href="album-ummagumma.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/ummagumma.webp');">
+                <div class="album-content">
+                    <span class="album-year">1969</span>
+                    <h3>Ummagumma</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1970 - Atom Heart Mother -->
+            <a href="album-atom-heart-mother.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/atom.webp');">
+                <div class="album-content">
+                    <span class="album-year">1970</span>
+                    <h3>Atom Heart Mother</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1971 - Meddle -->
+            <a href="album-meddle.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/meddle.webp');">
+                <div class="album-content">
+                    <span class="album-year">1971</span>
+                    <h3>Meddle</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1972 - Obscured by Clouds -->
+            <a href="album-obscured-by-clouds.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/obscured.webp');">
+                <div class="album-content">
+                    <span class="album-year">1972</span>
+                    <h3>Obscured by Clouds</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1973 - The Dark Side of the Moon -->
+            <a href="album-dark-side-of-the-moon.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/dark-side.webp');">
+                <div class="album-content">
+                    <span class="album-year">1973</span>
+                    <h3>The Dark Side of the Moon</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1975 - Wish You Were Here -->
+            <a href="album-wish-you-were-here.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/wywh.webp');">
+                <div class="album-content">
+                    <span class="album-year">1975</span>
+                    <h3>Wish You Were Here</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1977 - Animals -->
+            <a href="album-animals.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/animals.webp');">
+                <div class="album-content">
+                    <span class="album-year">1977</span>
+                    <h3>Animals</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1979 - The Wall -->
+            <a href="album-the-wall.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/wall.webp');">
+                <div class="album-content">
+                    <span class="album-year">1979</span>
+                    <h3>The Wall</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1983 - The Final Cut -->
+            <a href="album-the-final-cut.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/the-final-cut.webp');">
+                <div class="album-content">
+                    <span class="album-year">1983</span>
+                    <h3>The Final Cut</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1987 - A Momentary Lapse of Reason -->
+            <a href="album-a-momentary-lapse-of-reason.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/momentary.webp');">
+                <div class="album-content">
+                    <span class="album-year">1987</span>
+                    <h3>A Momentary Lapse of Reason</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1994 - The Division Bell -->
+            <a href="album-the-division-bell.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/division.webp');">
+                <div class="album-content">
+                    <span class="album-year">1994</span>
+                    <h3>The Division Bell</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2014 - The Endless River -->
+            <a href="album-the-endless-river.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/endless.webp');">
+                <div class="album-content">
+                    <span class="album-year">2014</span>
+                    <h3>The Endless River</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+        </section>
+
+        <!-- 2. Albums live -->
+        <div class="section-divider">
+            <h2>Albums live</h2>
+        </div>
+        <section class="albums-grid">
+            <!-- Insère tes albums live ici -->
+			
+			<!-- 1988 - Delicate Sound of Thunder -->
+            <a href="album-delicate-sound-of-thunder.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Live/Delicate.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1988</span>
+                    <h3>Delicate Sound of Thunder</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1995 - P·U·L·S·E -->
+            <a href="album-pulse.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Live/PULSE.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1995</span>
+                    <h3>P·U·L·S·E</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2000 - Is There Anybody Out There? The Wall Live 1980-81 -->
+            <a href="album-is-there-anybody-out-there.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Live/ITAOT.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2000</span>
+                    <h3>Is There Anybody Out There? The Wall Live 1980-81</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2021 - Live at Knebworth 1990 -->
+            <a href="album-live-at-knebworth-1990.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Live/Knebworth.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2021</span>
+                    <h3>Live at Knebworth 1990</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2023 - The Dark Side of the Moon (Live at Wembley 1974) -->
+            <a href="album-dark-side-of-the-moon-wembley.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Live/Wembley.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2023</span>
+                    <h3>The Dark Side of the Moon (Live at Wembley 1974)</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2025 - Pink Floyd at Pompeii - MCMLXXII -->
+            <a href="album-pompeii-mcmlxxii.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Live/Pompeii.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2025</span>
+                    <h3>Pink Floyd at Pompeii - MCMLXXII</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2026 - Live from the Los Angeles Sports Arena, April 26th, 1975 -->
+            <a href="album-live-from-the-los-angeles-sports-arena.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('LA Sports Arena Cover.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2026</span>
+                    <h3>Live from the Los Angeles Sports Arena, April 26th, 1975</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+        </section>
+
+        <!-- 3. Compilations -->
+        <div class="section-divider">
+            <h2>Compilations</h2>
+        </div>
+        <section class="albums-grid">
+            <!-- Insère tes compilations ici -->
+			
+			<!-- 1970 - The Best of Pink Floyd -->
+            <a href="album-the-best-of-pink-floyd.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Compilations/Best Of.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1970</span>
+                    <h3>The Best of Pink Floyd</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1971 - Relics -->
+            <a href="album-relics.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Compilations/Relics.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1971</span>
+                    <h3>Relics</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1974 - A Nice Pair -->
+            <a href="album-a-nice-pair.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Compilations/Nice Pair.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1974</span>
+                    <h3>A Nice Pair</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1981 - A Collection of Great Dance Songs -->
+            <a href="album-a-collection-of-great-dance-songs.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Compilations/Dance.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1981</span>
+                    <h3>A Collection of Great Dance Songs</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1983 - Works -->
+            <a href="album-works.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Compilations/Works.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1983</span>
+                    <h3>Works</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2001 - Echoes: The Best of Pink Floyd -->
+            <a href="album-echoes-the-best-of-pink-floyd.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Compilations/Echoes.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2001</span>
+                    <h3>Echoes: The Best of Pink Floyd</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2011 - A Foot in the Door: The Best of Pink Floyd -->
+            <a href="album-a-foot-in-the-door.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Compilations/Foot.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2011</span>
+                    <h3>A Foot in the Door: The Best of Pink Floyd</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2026 - 8-Tracks -->
+            <a href="album-8-tracks.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('8-Tracks Cover.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2026</span>
+                    <h3>8-Tracks</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+        </section>
+		
+		<!-- 4. Singles -->
+        <div class="section-divider">
+            <h2>Singles</h2>
+        </div>
+        <section class="albums-grid">
+            <!-- 1967 - Arnold Layne / Candy and a Currant Bun -->
+            <a href="single-arnold-layne.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Singles/Arnold.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1967</span>
+                    <h3>Arnold Layne / Candy and a Currant Bun</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1967 - See Emily Play / The Scarecrow -->
+            <a href="single-see-emily-play.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Singles/Emily.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1967</span>
+                    <h3>See Emily Play / The Scarecrow</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1967 - Flaming / The Gnome -->
+            <a href="single-flaming.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Singles/Flaming.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1967</span>
+                    <h3>Flaming / The Gnome</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1967 - Apples and Oranges / Paint Box -->
+            <a href="single-apples-and-oranges.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Singles/Apples.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1967</span>
+                    <h3>Apples and Oranges / Paint Box</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1968 - It Would Be So Nice / Julia Dream -->
+            <a href="single-it-would-be-so-nice.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Singles/IWBSN.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1968</span>
+                    <h3>It Would Be So Nice / Julia Dream</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1968 - Let There Be More Light / Remember a Day -->
+            <a href="single-let-there-be-more-light.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Singles/Light.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1968</span>
+                    <h3>Let There Be More Light / Remember a Day</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1968 - Point Me at the Sky / Careful with that Axe, Eugene -->
+            <a href="single-point-me-at-the-sky.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Singles/Sky.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1968</span>
+                    <h3>Point Me at the Sky / Careful with that Axe, Eugene</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1969 - The Nile Song / Ibiza Bar -->
+            <a href="single-the-nile-song.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Singles/Nile.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1969</span>
+                    <h3>The Nile Song / Ibiza Bar</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1971 - One of These Days / Fearless -->
+            <a href="single-one-of-these-days.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Singles/OOTD.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1971</span>
+                    <h3>One of These Days / Fearless</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1972 - Free Four / The Gold It's in the... -->
+            <a href="single-free-four.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Singles/Free Four.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1972</span>
+                    <h3>Free Four / The Gold It's in the...</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1973 - Money / Any Colour You Like -->
+            <a href="single-money.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Singles/Money.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1973</span>
+                    <h3>Money / Any Colour You Like</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1974 - Us and Them / Time -->
+            <a href="single-us-and-them.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Singles/Us.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1974</span>
+                    <h3>Us and Them / Time</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1975 - Have a Cigar / Welcome to the Machine -->
+            <a href="single-have-a-cigar.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Singles/Cigar.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1975</span>
+                    <h3>Have a Cigar / Welcome to the Machine</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1979 - Another Brick in the Wall (Part II) / One of My Turns -->
+            <a href="single-another-brick-in-the-wall-part-2.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Singles/Brick.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1979</span>
+                    <h3>Another Brick in the Wall (Part II) / One of My Turns</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1980 - Run Like Hell / Don't Leave Me Now -->
+            <a href="single-run-like-hell.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Singles/Run.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1980</span>
+                    <h3>Run Like Hell / Don't Leave Me Now</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+			
+			<!-- 1980 - Comfortably Numb / Hey You -->
+            <a href="single-comfortably-numb.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Singles/Numb.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1980</span>
+                    <h3>Comfortably Numb / Hey You</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1982 - When the Tigers Broke Free / Bring the Boys Back Home -->
+            <a href="single-when-the-tigers-broke-free.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Singles/Tigers.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1982</span>
+                    <h3>When the Tigers Broke Free / Bring the Boys Back Home</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1983 - Not Now John / The Hero's Return (Parts 1 and 2) -->
+            <a href="single-not-now-john.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Singles/John.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1983</span>
+                    <h3>Not Now John / The Hero's Return (Parts 1 and 2)</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1987 - Learning to Fly / Terminal Frost -->
+            <a href="single-learning-to-fly.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Singles/Fly.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1987</span>
+                    <h3>Learning to Fly / Terminal Frost</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1987 - On the Turning Away / Run Like Hell (Live Version) -->
+            <a href="single-on-the-turning-away.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Singles/Turning.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1987</span>
+                    <h3>On the Turning Away / Run Like Hell (Live Version)</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1987 - One Slip / Terminal Frost / The Dogs of War (Live Version) -->
+            <a href="single-one-slip.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Singles/Slip.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1987</span>
+                    <h3>One Slip / Terminal Frost / The Dogs of War (Live Version)</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1994 - Take it Back / Astronomy Domine (Live Version) -->
+            <a href="single-take-it-back.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Singles/Take.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1994</span>
+                    <h3>Take it Back / Astronomy Domine (Live Version)</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1994 - High Hopes / Keep Talking -->
+            <a href="single-high-hopes.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Singles/Hopes.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1994</span>
+                    <h3>High Hopes / Keep Talking</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1994 - Lost for Words -->
+            <a href="single-lost-for-words.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Singles/Lost.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1994</span>
+                    <h3>Lost For Words</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1995 - Wish You Were Here (Live) -->
+            <a href="single-wish-you-were-here-live.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Singles/WYWH Live.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1995</span>
+                    <h3>Wish You Were Here (Live)</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1995 - What Do You Want from Me (Live) -->
+            <a href="single-what-do-you-want-from-me.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Singles/WDYWFM.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1995</span>
+                    <h3>What Do You Want from Me (Live)</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2014 - Louder than Words -->
+            <a href="single-louder-than-words.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Singles/Louder.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2014</span>
+                    <h3>Louder than Words</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2022 - Hey Hey Rise Up -->
+            <a href="single-hey-hey-rise-up.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Singles/Rise.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2022</span>
+                    <h3>Hey Hey Rise Up</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>			
+        </section>
+		
+		<!-- 5. Coffrets -->
+        <div class="section-divider">
+            <h2>Coffrets</h2>
+        </div>
+        <section class="albums-grid">
+            <!-- Insère tes coffrets ici -->
+			
+			<!-- 1992 - Shine On -->
+            <a href="boxset-shine-on.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Coffrets/Shine.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1992</span>
+                    <h3>Shine On</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2007 - Oh, By the Way -->
+            <a href="boxset-oh-by-the-way.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Coffrets/Way.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2007</span>
+                    <h3>Oh, By the Way</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2011 - Discovery -->
+            <a href="boxset-discovery.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Coffrets/Discovery.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2011</span>
+                    <h3>Discovery</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2016 - The Early Years 1965-1972 -->
+            <a href="boxset-the-early-years-1965-1972.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Coffrets/TEY.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2016</span>
+                    <h3>The Early Years 1965-1972</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2019 - The Later Years 1987-2019 -->
+            <a href="boxset-the-later-years-1987-2019.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Coffrets/TLY.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2019</span>
+                    <h3>The Later Years 1987-2019</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+        </section>
+
+        <!-- 6. Films -->
+        <div class="section-divider">
+            <h2>Films</h2>
+        </div>
+        <section class="albums-grid">
+            <!-- Insère tes films ici -->
+			
+			<!-- 1972 - Live at Pompeii -->
+            <a href="film-live-at-pompeii.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Films/Pompeii.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1972</span>
+                    <h3>Live at Pompeii</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1982 - Pink Floyd - The Wall -->
+            <a href="film-pink-floyd-the-wall.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Films/Wall.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1982</span>
+                    <h3>Pink Floyd - The Wall</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1983 - The Final Cut -->
+            <a href="film-the-final-cut.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Films/Final.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1983</span>
+                    <h3>The Final Cut</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1989 - Delicate Sound of Thunder -->
+            <a href="film-delicate-sound-of-thunder.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Films/Delicate.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1989</span>
+                    <h3>Delicate Sound of Thunder</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1992 - La Carrera Panamericana -->
+            <a href="film-la-carrera-panamericana.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Films/Carrera.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1992</span>
+                    <h3>La Carrera Panamericana</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1995 - P•U•L•S•E -->
+            <a href="film-pulse.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Films/PULSE.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1995</span>
+                    <h3>P•U•L•S•E</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2003 - The Pink Floyd and Syd Barrett Story -->
+            <a href="film-the-pink-floyd-and-syd-barrett-story.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Films/PF Syd.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2003</span>
+                    <h3>The Pink Floyd and Syd Barrett Story</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2003 - Classic Albums: Pink Floyd – The Making of The Dark Side of the Moon -->
+            <a href="film-classic-albums-the-making-of-the-dark-side-of-the-moon.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Films/Classic.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2003</span>
+                    <h3>Classic Albums: Pink Floyd – The Making of The Dark Side of the Moon</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2005 - London '66-'67 -->
+            <a href="film-london-66-67.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Films/London.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2005</span>
+                    <h3>London '66-'67</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2012 - The Story of Wish You Were Here -->
+            <a href="film-the-story-of-wish-you-were-here.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Films/Story.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2012</span>
+                    <h3>The Story of Wish You Were Here</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+        </section>
+
+        <!-- 7. DAVID GILMOUR -->
+        <div class="section-divider">
+            <h2>David Gilmour</h2>
+        </div>
+        <div class="subsection-divider">
+            <h3>Albums studio</h3>
+        </div>
+        <section class="albums-grid">
+            <!-- Albums studio solo -->
+			
+			<!-- 1978 - David Gilmour -->
+            <a href="album-david-gilmour.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/David Gilmour/gilmour.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1978</span>
+                    <h3>David Gilmour</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1984 - About Face -->
+            <a href="album-about-face.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/David Gilmour/face.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1984</span>
+                    <h3>About Face</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2006 - On an Island -->
+            <a href="album-on-an-island.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/David Gilmour/island.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2006</span>
+                    <h3>On an Island</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2015 - Rattle That Lock -->
+            <a href="album-rattle-that-lock.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/David Gilmour/rattle.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2015</span>
+                    <h3>Rattle That Lock</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2024 - Luck and Strange -->
+            <a href="album-luck-and-strange.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/David Gilmour/luck.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2024</span>
+                    <h3>Luck and Strange</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+        </section>
+        <div class="subsection-divider">
+            <h3>Albums live</h3>
+        </div>
+        <section class="albums-grid">
+            <!-- Albums live solo -->
+			
+			<!-- 2008 - Live in Gdańsk -->
+            <a href="album-live-in-gdansk.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/David Gilmour/gdansk.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2008</span>
+                    <h3>Live in Gdańsk</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2017 - Live at Pompeii -->
+            <a href="album-live-at-pompeii.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/David Gilmour/pompeii.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2017</span>
+                    <h3>Live at Pompeii</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2025 - The Luck and Strange Concerts -->
+            <a href="album-the-luck-and-strange-concerts.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/David Gilmour/ls concerts.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2025</span>
+                    <h3>The Luck and Strange Concerts</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+        </section>        
+        <div class="subsection-divider">
+            <h3>Singles</h3>
+        </div>
+        <section class="albums-grid">
+            <!-- Singles solo -->
+			
+			<!-- 1978 - There's No Way Out of Here / Deafinitely -->
+            <a href="single-theres-no-way-out-of-here.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/David Gilmour/no way out.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1978</span>
+                    <h3>There's No Way Out of Here / Deafinitely</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1984 - Blue Light / Cruise -->
+            <a href="single-blue-light.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/David Gilmour/blue.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1984</span>
+                    <h3>Blue Light / Cruise</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1984 - Love on the Air / Let's Get Metaphysical -->
+            <a href="single-love-on-the-air.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/David Gilmour/love.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1984</span>
+                    <h3>Love on the Air / Let's Get Metaphysical</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2006 - On an Island -->
+            <a href="single-on-an-island.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/David Gilmour/island single.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2006</span>
+                    <h3>On an Island</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2006 - Smile / Island Jam -->
+            <a href="single-smile.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/David Gilmour/smile.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2006</span>
+                    <h3>Smile / Island Jam</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+			
+			<!-- 2006 - Arnold Layne -->
+            <a href="single-arnold-layne-live.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/David Gilmour/arnold.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2006</span>
+                    <h3>Arnold Layne</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2015 - Rattle That Lock -->
+            <a href="single-rattle-that-lock.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/David Gilmour/rattle single.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2015</span>
+                    <h3>Rattle That Lock</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2015 - Today -->
+            <a href="single-today.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/David Gilmour/today.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2015</span>
+                    <h3>Today</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2020 - Yes, I Have Ghosts -->
+            <a href="single-yes-i-have-ghosts.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/David Gilmour/ghosts.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2020</span>
+                    <h3>Yes, I Have Ghosts</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2024 - Luck and Strange (Live from the Luck and Strange Concerts) -->
+            <a href="single-luck-and-strange-live.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/David Gilmour/luck live.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2025</span>
+                    <h3>Luck and Strange (Live from the Luck and Strange Concerts)</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+        </section>
+		<div class="subsection-divider">
+            <h3>EPs</h3>
+        </div>
+        <section class="albums-grid">
+            <!-- EPs -->
+			
+			<!-- 2024 - Between Two Points -->
+            <a href="ep-between-two-points.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/David Gilmour/between.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2024</span>
+                    <h3>Between Two Points</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+			</section>
+        <div class="subsection-divider">
+            <h3>Films</h3>
+        </div>
+        <section class="albums-grid">
+            <!-- Films solo -->
+			
+			<!-- 1984 - Pink Floyd's David Gilmour -->
+            <a href="film-pink-floyds-david-gilmour.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/David Gilmour/live 1984.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1984</span>
+                    <h3>Pink Floyd's David Gilmour</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2002 - David Gilmour in Concert -->
+            <a href="film-david-gilmour-in-concert.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/David Gilmour/in concert.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2002</span>
+                    <h3>David Gilmour in Concert</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2006 - Remember that Night -->
+            <a href="film-remember-that-night.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/David Gilmour/remember.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2006</span>
+                    <h3>Remember that Night</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2017 - Live at Pompeii -->
+            <a href="film-live-at-pompeii.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/David Gilmour/pompeii film.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2017</span>
+                    <h3>Live at Pompeii</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2025 - Live at the Circus Maximus -->
+            <a href="film-live-at-the-circus-maximus.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/David Gilmour/circus maximus.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2025</span>
+                    <h3>Live at the Circus Maximus</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+        </section>
+
+        <!-- 8. ROGER WATERS -->
+        <div class="section-divider">
+            <h2>Roger Waters</h2>
+        </div>
+        <div class="subsection-divider">
+            <h3>Albums studio</h3>
+        </div>
+        <section class="albums-grid">
+            <!-- Albums studio solo -->
+			
+			<!-- 1984 - The Pros and Cons of Hitch Hiking -->
+            <a href="album-the-pros-and-cons-of-hitch-hiking.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Roger Waters/pros.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1984</span>
+                    <h3>The Pros and Cons of Hitch Hiking</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1987 - Radio K.A.O.S. -->
+            <a href="album-radio-kaos.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Roger Waters/kaos.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1987</span>
+                    <h3>Radio K.A.O.S.</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1992 - Amused to Death -->
+            <a href="album-amused-do-death.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Roger Waters/amused.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1992</span>
+                    <h3>Amused to Death</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2017 - Is This the Life We Really Want? -->
+            <a href="album-is-this-the-life-we-really-want.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Roger Waters/ITTLWRW.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2017</span>
+                    <h3>Is This the Life We Really Want?</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2018 - Igor Stravinsky's The Soldier's Tale -->
+            <a href="album-igor-stravinskys-the-soldiers-tale.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Roger Waters/soldier.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2018</span>
+                    <h3>Igor Stravinsky's The Soldier's Tale</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2022 - The Lockdown Sessions -->
+            <a href="album-the-lockdown-sessions.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Roger Waters/lockdown.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2022</span>
+                    <h3>The Lockdown Sessions</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2023 - The Dark Side of the Moon Redux -->
+            <a href="album-the-dark-side-of-the-moon-redux.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Roger Waters/redux.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2023</span>
+                    <h3>The Dark Side of the Moon Redux</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+        </section>
+        <div class="subsection-divider">
+            <h3>Albums live</h3>
+        </div>
+        <section class="albums-grid">
+            <!-- Albums live solo -->
+			
+			<!-- 1990 - The Wall - Live in Berlin -->
+            <a href="album-the-wall-live-in-berlin.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Roger Waters/berlin.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1990</span>
+                    <h3>The Wall - Live in Berlin</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2000 - In the Flesh - Live -->
+            <a href="album-in-the-flesh-live.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Roger Waters/flesh.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2000</span>
+                    <h3>In the Flesh - Live</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2015 - Roger Waters: The Wall -->
+            <a href="album-roger-waters-the-wall.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Roger Waters/wall live.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2015</span>
+                    <h3>Roger Waters: The Wall</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2020 - Roger Waters: Us + Them -->
+            <a href="album-roger-waters-us-them.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Roger Waters/u+t.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2020</span>
+                    <h3>Roger Waters: Us + Them</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2025 - The Dark Side of the Moon Redux Live -->
+            <a href="album-the-dark-side-of-the-moon-redux-live.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Roger Waters/redux live.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2025</span>
+                    <h3>Roger Waters: This is Not a Drill - Live from Prague</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+			
+			<!-- 2025 - Roger Waters: This is Not a Drill - Live from Prague -->
+            <a href="album-roger-waters-this-is-not-a-drill-live-from-prague.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Roger Waters/drill.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2025</span>
+                    <h3>Roger Waters: This is Not a Drill - Live from Prague</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+        </section>
+        <div class="subsection-divider">
+            <h3>Compilations</h3>
+        </div>
+        <section class="albums-grid">
+            <!-- Compilations solo -->
+			
+			<!-- 2002 - Flickering Flame: The Solo Years Volume 1 -->
+            <a href="album-flickering-flame-the-solo-years-volume-1.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Roger Waters/flickering.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2002</span>
+                    <h3>Flickering Flame: The Solo Years Volume 1</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+        </section>
+		<div class="subsection-divider">
+            <h3>Bandes originales</h3>
+        </div>
+        <section class="albums-grid">
+            <!-- Bandes originales -->
+			
+			<!-- 1970 - Music from The Body -->
+            <a href="album-music-from-the-body.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Roger Waters/body.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1970</span>
+                    <h3>Music from The Body</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1986 - When the Wind Blows: Original Motion Picture Soundtrack -->
+            <a href="album-when-the-wind-blows.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Roger Waters/wind.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1986</span>
+                    <h3>When the Wind Blows: Original Motion Picture Soundtrack</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+        </section>
+        <div class="subsection-divider">
+            <h3>Singles</h3>
+        </div>
+        <section class="albums-grid">
+            <!-- Singles solo -->
+			
+			<!-- 1984 - The Pros and Cons of Hitch Hiking / Apparently They Were Travelling Abroad -->
+            <a href="single-the-pros-and-cons-of-hitch-hiking.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Roger Waters/pros single.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1984</span>
+                    <h3>The Pros and Cons of Hitch Hiking / Apparently They Were Travelling Abroad</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1984 - Every Strangers Eyes / For the First Time Today -->
+            <a href="single-every-strangers-eyes.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Roger Waters/every.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1984</span>
+                    <h3>Every Strangers Eyes / For the First Time Today</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1987 - Radio Waves / Going to Live in L.A. -->
+            <a href="single-radio-waves.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Roger Waters/radio.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1987</span>
+                    <h3>Radio Waves / Going to Live in L.A.</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1987 - Sunset Strip / Money (Live) -->
+            <a href="single-sunset-strip.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Roger Waters/sunset.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1987</span>
+                    <h3>Sunset Strip / Money (Live)</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1987 - The Tide is Turning (After Live Aid) / Money (Live) -->
+            <a href="single-the-tide-is-turning.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Roger Waters/tide.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1987</span>
+                    <h3>The Tide is Turning (After Live Aid) / Money (Live)</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1987 - Who Needs Information / Molly's Song -->
+            <a href="single-who-needs-information.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Roger Waters/information.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1987</span>
+                    <h3>Who Needs Information / Molly's Song</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1990 - Another Brick In The Wall (Part Two) (Full Version) / Run Like Hell (Potsdamer Mix) -->
+            <a href="single-another-brick-in-the-wall-part-2-live.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Roger Waters/another.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1990</span>
+                    <h3>Another Brick In The Wall (Part Two) (Full Version) / Run Like Hell (Potsdamer Mix)</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1990 - The Tide is Turning / Nobody Home -->
+            <a href="single-the-tide-is-turning-live.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Roger Waters/tide live.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1990</span>
+                    <h3>The Tide is Turning / Nobody Home</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1992 - What God Wants, Part I (Video Edit) / What God Wants, Part I (Album Version) -->
+            <a href="single-what-god-wants-part-1.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Roger Waters/god.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1992</span>
+                    <h3>What God Wants, Part I (Video Edit) / What God Wants, Part I (Album Version)</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1992 - The Bravery of Being Out of Range / What God Wants, Part I / Perfect Sense, Part I -->
+            <a href="single-the-bravery-of-being-out-of-range.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Roger Waters/bravery.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1992</span>
+                    <h3>The Bravery of Being Out of Range / What God Wants, Part I / Perfect Sense, Part I</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1992 - Three Wishes / What God Wants, Part I / The Bravery of Being Out of Range -->
+            <a href="single-three-wishes.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Roger Waters/wishes.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1992</span>
+                    <h3>Three Wishes / What God Wants, Part I / The Bravery of Being Out of Range</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2004 - To Kill the Child / Leaving Beirut -->
+            <a href="single-to-kill-the-child.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Roger Waters/kill.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2004</span>
+                    <h3>To Kill the Child / Leaving Beirut</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2007 - Hello (I Love You) -->
+            <a href="single-hello-i-love-you.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Roger Waters/hello.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2007</span>
+                    <h3>Hello (I Love You)</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2017 - Smell the Roses -->
+            <a href="single-smell-the-roses.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Roger Waters/roses.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2017</span>
+                    <h3>Smell the Roses</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+		</section>
+        <div class="subsection-divider">
+            <h3>Films</h3>
+        </div>
+        <section class="albums-grid">
+            <!-- Films solo -->
+			
+			<!-- 1988 - Radio K.A.O.S. -->
+            <a href="film-radio-kaos.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Roger Waters/kaos film.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1988</span>
+                    <h3>Radio K.A.O.S.</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+			
+			<!-- 1990 - The Wall - Live in Berlin -->
+            <a href="film-the-wall-live-in-berlin.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Roger Waters/berlin film.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1990</span>
+                    <h3>The Wall - Live in Berlin</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2000 - In the Flesh - Live -->
+            <a href="film-in-the-flesh-live.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Roger Waters/flesh film.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2000</span>
+                    <h3>In the Flesh - Live</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2015 - Roger Waters: The Wall -->
+            <a href="film-roger-waters-the-wall.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Roger Waters/wall live film.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2015</span>
+                    <h3>Roger Waters: The Wall</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2020 - Roger Waters: Us + Them -->
+            <a href="film-roger-waters-us-them.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Roger Waters/u+t film.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2020</span>
+                    <h3>Roger Waters: Us + Them</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2025 - Roger Waters: This is Not a Drill - Live from Prague -->
+            <a href="film-roger-waters-this-is-not-a-drill-live-from-prague.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Roger Waters/prague film.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2025</span>
+                    <h3>Roger Waters: This is Not a Drill - Live from Prague</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+        </section>
+
+        <!-- 9. NICK MASON -->
+        <div class="section-divider">
+            <h2>Nick Mason</h2>
+		</div>
+        <div class="subsection-divider">
+            <h3>Albums studio</h3>
+        </div>
+        <section class="albums-grid">
+            <!-- Albums studio solo / projets -->
+			
+			<!-- 1981 - Nick Mason's Fictitious Sports -->
+            <a href="album-nick-masons-fictitious-sports.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Nick Mason/sports.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1981</span>
+                    <h3>Nick Mason's Fictitious Sports</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1985 - Profiles -->
+            <a href="album-profiles.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Nick Mason/profiles.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1985</span>
+                    <h3>Profiles</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2018 - White of the Eye -->
+            <a href="album-white-of-the-eye.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Nick Mason/eye.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2018</span>
+                    <h3>White of the Eye</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+        </section>
+        <div class="subsection-divider">
+            <h3>Albums live</h3>
+        </div>
+        <section class="albums-grid">
+            <!-- Albums live / Saucerful of Secrets -->
+			
+			<!-- 2020 - Live at the Roundhouse -->
+            <a href="album-live-at-the-roundhouse.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Nick Mason/roundhouse.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2020</span>
+                    <h3>Live at the Roundhouse</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+        </section>
+        <div class="subsection-divider">
+            <h3>Compilations</h3>
+        </div>
+        <section class="albums-grid">
+            <!-- Compilations solo -->
+			
+			<!-- 2018 - Unattended Luggage -->
+            <a href="album-unattended-luggagz.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Nick Mason/luggage.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2018</span>
+                    <h3>Unattended Luggage</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+        </section>
+        <div class="subsection-divider">
+            <h3>Singles</h3>
+        </div>
+        <section class="albums-grid">
+            <!-- Singles solo -->
+			
+			<!-- 1981 - Hot River / Can't Get My Motor to Start -->
+            <a href="single-hot-river.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Nick Mason/river.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1981</span>
+                    <h3>Hot River / Can't Get My Motor to Start</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1985 - Lie for a Lie / And the Address -->
+            <a href="single-lie-for-a-lie.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Nick Mason/lie.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1985</span>
+                    <h3>Lie for a Lie / And the Address</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+			
+			<!-- 2020 - See Emily Play / Vegetable Man (Live At The Roundhouse) -->
+            <a href="single-see-emily-play-live.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Nick Mason/emily live.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2020</span>
+                    <h3>See Emily Play / Vegetable Man (Live At The Roundhouse)</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2025 - Echoes (Live) -->
+            <a href="single-echoes-live.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Nick Mason/echoes.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2025</span>
+                    <h3>Echoes (Live)</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+        </section>
+        <div class="subsection-divider">
+            <h3>Films</h3>
+        </div>
+        <section class="albums-grid">
+            <!-- Films / vidéos live -->
+			
+			<!-- 2020 - Live at the Roundhouse -->
+            <a href="film-live-at-the-roundhouse.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Nick Mason/roundhouse film.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2020</span>
+                    <h3>Live at the Roundhouse</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+        </section>
+
+        <!-- 10. RICHARD WRIGHT -->
+        <div class="section-divider">
+            <h2>Richard Wright</h2>
+        </div>
+        <div class="subsection-divider">
+            <h3>Albums studio</h3>
+        </div>
+        <section class="albums-grid">
+            <!-- Albums studio solo -->
+			
+			<!-- 1978 - Wet Dream -->
+            <a href="album-wet-dream.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Richard Wright/dream.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1978</span>
+                    <h3>Wet Dream</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1996 - Broken China -->
+            <a href="album-broken-china.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Richard Wright/broken.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1996</span>
+                    <h3>Broken China</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+        </section>
+       <div class="subsection-divider">
+            <h3>Singles</h3>
+        </div>
+        <section class="albums-grid">
+            <!-- Singles solo -->
+			
+			<!-- 1996 - Runaway (R. Wright's Lemonade Mix) / Runaway (Leggit Dub) / Night Of A Thousand Furry Toys (Inverted Gravy Mix) -->
+            <a href="single-runaway.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Richard Wright/runaway.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1996</span>
+                    <h3>Runaway (R. Wright's Lemonade Mix) / Runaway (Leggit Dub) / Night Of A Thousand Furry Toys (Inverted Gravy Mix)</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+				</a>
+        </section>
+       
+        <!-- 11. SYD BARRETT -->
+        <div class="section-divider">
+            <h2>Syd Barrett</h2>
+        </div>
+        <div class="subsection-divider">
+            <h3>Albums studio</h3>
+        </div>
+        <section class="albums-grid">
+            <!-- Albums studio solo -->
+			 <!-- 1970 - The Madcap Laughs -->
+            <a href="album-the-madcap-laughs.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Syd Barrett/madcap.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1970</span>
+                    <h3>The Madcap Laughs</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1970 - Barrett -->
+            <a href="album-barrett.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Syd Barrett/barrett.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1970</span>
+                    <h3>Barrett</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+        </section>
+        <div class="subsection-divider">
+            <h3>Albums live</h3>
+        </div>
+        <section class="albums-grid">
+            <!-- Albums live solo -->
+			
+			 <!-- 1987 - The Peel Session -->
+            <a href="album-the-peel-session.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Syd Barrett/peel.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1987</span>
+                    <h3>The Peel Session</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2004 - The Radio One Sessions -->
+            <a href="album-the-radio-one-sessions.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Syd Barrett/radio one.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2004</span>
+                    <h3>The Radio One Sessions</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+        </section>
+        <div class="subsection-divider">
+            <h3>Compilations</h3>
+        </div>
+        <section class="albums-grid">
+            <!-- Compilations solo -->
+			
+			 <!-- 1974 - Syd Barrett -->
+            <a href="album-syd-barrett.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Syd Barrett/barrett 2.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1974</span>
+                    <h3>Syd Barrett</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1988 - Opel -->
+            <a href="album-opel.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Syd Barrett/opel.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1988</span>
+                    <h3>Opel</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+			
+			 <!-- 1992 - Octopus: The Best of Syd Barrett -->
+            <a href="album-octopus-the-best-of-syd-barrett.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Syd Barrett/octopus.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1992</span>
+                    <h3>Octopus: The Best of Syd Barrett</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 1993 - Crazy Diamond -->
+            <a href="album-cray-diamond.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Syd Barrett/diamond.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1993</span>
+                    <h3>Crazy Diamond</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+			
+			 <!-- 2001 - The Best of Syd Barrett: Wouldn't You Miss Me? -->
+            <a href="album-the-best-of-syd-barrett-wouldnt-you-miss-me.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Syd Barrett/miss me.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2001</span>
+                    <h3>The Best of Syd Barrett: Wouldn't You Miss Me?</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+
+            <!-- 2010 - An Introduction to Syd Barrett -->
+            <a href="album-an-introduction-to-syd-barrett.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Syd Barrett/introduction.jpg');">
+                <div class="album-content">
+                    <span class="album-year">2010</span>
+                    <h3>An Introduction to Syd Barrett</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+        </section>
+        <div class="subsection-divider">
+            <h3>Singles</h3>
+        </div>
+        <section class="albums-grid">
+            <!-- Singles solo -->
+			
+			 <!-- 1969 - Octopus / Golden Hair -->
+            <a href="single-octopus.html" class="album-card" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.85) 100%), url('pochettes/Solo/Syd Barrett/octopus single.jpg');">
+                <div class="album-content">
+                    <span class="album-year">1969</span>
+                    <h3>Octopus / Golden Hair</h3>
+                    <p>Découvrir les pressages →</p>
+                </div>
+            </a>
+        </section>
+    </main>
+	
+	<!-- Section Commentaires -->
+    <section class="format-section" style="max-width: 900px; margin: 50px auto; padding: 20px;">
+        <h2 class="format-title" style="color: #000000; border-bottom: 2px solid #000000; margin-bottom: 20px;">Commentaires</h2>
+        <div class="giscus"></div>
+    </section>
+	
+	<script src="https://giscus.app/client.js"
+        data-repo="carefulwiththatfloyd/Careful-With-That-Floyd"
+        data-repo-id="R_kgDOTkThMA"
+        data-category="General"
+        data-category-id="DIC_kwDOTkThMM4DCaQe"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="fr"
+        crossorigin="anonymous"
+        async>
+	</script>
+
+    <!-- Bouton retour -->
+    <div style="text-align: center; margin-bottom: 60px;">
+        <a href="collection.html" class="btn-back">← Retour à la collection</a>
+    </div>
+
+</body>
+</html>
