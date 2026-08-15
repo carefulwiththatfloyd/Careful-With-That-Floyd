@@ -1,0 +1,650 @@
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #333333;
+    margin: 0;
+    padding: 40px;
+    text-align: center;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 10px 50px;                       
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 45px;
+    width: auto;
+    display: block;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #cbd5e1;
+    font-weight: 500;
+    font-size: 1em;
+    position: relative;
+    padding: 8px 0;
+    transition: color 0.25s ease;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #3b82f6;
+    transition: width 0.25s ease;
+}
+
+.nav-links a:hover::after, 
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-links a:hover, 
+.nav-links a.active {
+    color: #ffffff;
+}
+
+.nav-links .nav-btn {
+    background-color: #ffffff;
+    color: #0f172a;
+    padding: 8px 18px;
+    border-radius: 20px;
+    transition: all 0.25s ease;
+}
+
+.nav-links .nav-btn::after {
+    display: none;
+}
+
+.nav-links .nav-btn:hover {
+    background-color: #3b82f6;
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.hero-content h1 {
+    font-size: 3.2em;
+    font-weight: 700;
+    color: #ffffff;
+    
+    padding: 100px 100px;                 
+    
+    max-width: 3000px;                    
+    margin: 0 auto 0px auto;            
+    
+    border-radius: 8px;
+    text-align: center;
+    
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('GPoster.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3); 
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); 
+}
+
+/* Section globale des catégories */
+.categories-section {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2em;
+    color: #1e293b;
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+/* La grille magique : s'adapte automatiquement à l'écran */
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; /* Espace entre les cartes */
+}
+
+/* Style de chaque carte (qui est un lien complet) */
+.category-card {
+    display: flex;
+    align-items: flex-end; /* Aligne le texte en bas de la carte */
+    height: 350px;
+    border-radius: 16px;
+    background-size: cover;
+    background-position: center;
+    text-decoration: none;
+    color: #ffffff;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Contenu à l'intérieur de la carte */
+.category-content {
+    padding: 30px;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%); /* Fondu noir en bas */
+}
+
+.category-content h3 {
+    font-size: 1.6em;
+    margin: 0 0 8px 0;
+    font-weight: 600;
+}
+
+.category-content p {
+    font-size: 1em;
+    margin: 0 0 15px 0;
+    color: #e2e8f0;
+}
+
+.category-link {
+    font-weight: 500;
+    font-size: 0.9em;
+    color: #3b82f6; /* Couleur du lien interne */
+    transition: color 0.3s;
+}
+
+/* --- EFFETS AU SURVOL (INTUITIF & DYNAMIQUE) --- */
+.category-card:hover {
+    transform: translateY(-8px); /* La carte se soulève légèrement */
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15); /* L'ombre devient plus forte */
+}
+
+.category-card:hover .category-link {
+    color: #ffffff; /* Le texte "Découvrir" passe au blanc au survol */
+}
+
+/* --- PAGE CATÉGORIE --- */
+
+/* En-tête de la page de catégorie */
+.category-header {
+    margin-top: 100px; /* Évite la barre de navigation fixe */
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #ffffff;
+}
+
+.category-header h1 {
+    font-size: 2.8em;
+    color: #0f172a;
+    margin-bottom: 10px;
+}
+
+.category-header p {
+    font-size: 1.1em;
+    color: #64748b;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Grille des réalisations */
+.portfolio-section {
+    max-width: 1200px;
+    margin: 0 auto 80px auto;
+    padding: 0 20px;
+}
+
+.portfolio-grid {
+    display: grid;
+    /* Force exactement 3 colonnes de taille égale */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 40px;
+}
+
+/* Optionnel mais recommandé : adapte l'affichage sur mobile et tablette */
+@media (max-width: 1024px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 par ligne sur tablette */
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr; /* 1 par ligne sur téléphone */
+    }
+}
+
+/* Fiche Projet */
+.project-card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Zone Image du projet */
+.project-image {
+    height: 240px;
+    background-size: cover;
+    background-position: center;
+    background-color: #e2e8f0; /* Fond de secours si l'image charge mal */
+}
+
+/* Contenu textuel du projet */
+.project-info {
+    padding: 25px;
+}
+
+.project-tag {
+    display: inline-block;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #3b82f6; /* Bleu moderne */
+    background-color: #eff6ff;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.project-info h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.3em;
+    color: #0f172a;
+}
+
+.project-info p {
+    margin: 0;
+    font-size: 0.95em;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+.project-card-link {
+    text-decoration: none; /* Enlève le soulignement */
+    color: inherit;         /* Conserve les couleurs d'origine du texte */
+    display: block;        /* Permet au lien de prendre toute la largeur/hauteur de la carte */
+}
+
+/* Bannière en-tête de l'article */
+.article-hero {
+    position: relative;
+    height: 400px; /* Ajuste la hauteur selon ton souhait */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end; /* Place le texte en bas du bloc */
+}
+
+/* Dégradé/Overlay sombre sur l'image */
+.article-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.2) 70%);
+    z-index: 1;
+}
+
+/* Texte superposé sur la bannière */
+.article-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    width: 100%;
+    color: #ffffff;
+}
+
+.article-hero-content h1 {
+    font-size: 2.2rem;
+    margin: 10px 0;
+    color: #ffffff;
+}
+
+.article-hero-content .article-meta {
+    font-size: 0.95rem;
+    opacity: 0.85;
+    margin: 0;
+}
+
+/* Centrage global du contenu principal */
+.article-container {
+    max-width: 800px;
+    margin: 40px auto; /* Centre tout le bloc (vidéo + texte) */
+    padding: 0 20px;
+    text-align: center; /* Centre les éléments enfants */
+}
+
+/* Bloc contenant la miniature de la vidéo */
+.video-preview {
+    max-width: 700px; /* Taille maximale souhaitée pour l'image */
+    margin: 0 auto 30px auto; /* Centre la vidéo horizontalement */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Lien englobant la miniature */
+.video-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Image miniature YouTube */
+.video-preview img {
+    width: 100%;
+    height: 100%; /* Assurez-vous d'avoir une hauteur fixe si nécessaire */
+    object-fit: cover; /* C'est cette ligne qui va rogner les côtés pour remplir tout le cadre */
+    display: block;
+}
+
+/* Bouton / Texte sous ou sur la miniature */
+.play-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #e50914; /* Rouge YouTube / Flix */
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+/* Centrer le titre principal de l'article */
+.article-content h2 {
+    text-align: center;
+    margin-bottom: 20px; /* Espace sous le titre */
+}
+
+.article-content {
+    max-width: 700px; /* Même largeur maximale que la vidéo */
+    margin: 0 auto;   /* Centrage horizontal du bloc */
+    text-align: left; /* Conserve le texte du paragraphe aligné à gauche */
+}
+
+.btn-back {
+    display: inline-block;
+    margin-top: 40px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Style des cartes cliquables */
+.item-card {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Modale (Fond sombre) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    overflow-y: auto;
+}
+
+/* Conteneur principal de la modale */
+.modal-content {
+    background-color: #181818;
+    color: #ffffff;
+    margin: 4% auto;
+    width: 90%;
+    max-width: 950px;
+    border-radius: 12px;
+    position: relative;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 32px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+}
+.close-modal:hover { color: #fff; }
+
+/* Disposition en 2 colonnes */
+.modal-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .modal-body { grid-template-columns: 1fr; }
+}
+
+/* Galerie Photos */
+.main-photo-container {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    background-color: #000;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-photo-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.6);
+    color: white;
+    border: none;
+    padding: 12px 16px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 4px;
+}
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
+.nav-arrow:hover { background: rgba(229, 9, 20, 0.8); }
+
+.thumbnails-grid {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    overflow-x: auto;
+}
+
+.thumb-img {
+    width: 65px;
+    height: 65px;
+    object-fit: cover;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0.5;
+    border: 2px solid transparent;
+}
+
+.thumb-img.active, .thumb-img:hover {
+    opacity: 1;
+    border-color: #e50914;
+}
+
+/* Fiche Technique */
+.modal-details h2 { margin: 10px 0 20px 0; font-size: 1.8rem; }
+
+.details-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.details-table th, .details-table td {
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 1px solid #333;
+    font-size: 0.95rem;
+}
+
+.details-table th {
+    color: #aaa;
+    width: 40%;
+}
+
+.modal-description h4 { margin-bottom: 8px; color: #e50914; }
+.modal-description p { line-height: 1.5; font-size: 0.95rem; color: #ddd; }
+
+.section-separator h2 {
+    color: #111111 !important; /* Testez avec du noir */
+}
+
+/* Header dédié aux pages d'albums */
+.album-hero {
+    position: relative;
+    width: 100%;
+    min-height: 400px; /* Hauteur idéale pour admirer la pochette */
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 60px 20px;
+    box-sizing: border-box;
+    
+    /* Gestion Haute Qualité de l'arrière-plan */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    
+    text-align: center;
+}
+
+.album-hero-content {
+    max-width: 800px;
+    z-index: 2;
+}
+
+.album-hero-content h1 {
+    font-size: 2.8rem;
+    color: #ffffff;
+    margin: 10px 0;
+    font-weight: 700;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.9);
+}
+
+.album-hero-content p {
+    color: #cccccc;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+/* Conteneur du menu déroulant de langues */
+.lang-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Le bouton principal du menu */
+.lang-btn {
+    background: #222;
+    color: #fff;
+    border: 1px solid #444;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* La liste des langues cachée par défaut */
+.lang-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #222;
+    min-width: 140px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.4);
+    border: 1px solid #444;
+    border-radius: 6px;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+/* Les liens dans le menu déroulant */
+.lang-content a {
+    color: #fff;
+    padding: 8px 12px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+}
+
+.lang-content a:hover {
+    background-color: #333;
+}
+
+/* Afficher le menu au survol (ou tu pourrais utiliser un petit script JS au clic) */
+.lang-dropdown:hover .lang-content {
+    display: block;
+}
+
+/* Style des mini images de drapeaux */
+.flag-icon {
+    width: 20px;
+    height: auto;
+    border-radius: 2px;
+}
