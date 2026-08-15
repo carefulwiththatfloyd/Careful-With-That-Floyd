@@ -589,62 +589,78 @@ body {
 }
 
 /* Conteneur du menu déroulant de langues */
+/* --- MENU DÉROULANT DES LANGUES --- */
+
 .lang-dropdown {
     position: relative;
     display: inline-block;
 }
 
-/* Le bouton principal du menu */
 .lang-btn {
-    background: #222;
-    color: #fff;
-    border: 1px solid #444;
-    padding: 6px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.95rem;
     display: flex;
     align-items: center;
     gap: 8px;
+    padding: 8px 12px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1em;
+    color: #cbd5e1;
+    font-weight: 500;
 }
 
-/* La liste des langues cachée par défaut */
+.lang-btn:hover {
+    color: #ffffff;
+}
+
 .lang-content {
     display: none;
     position: absolute;
     right: 0;
-    background-color: #222;
-    min-width: 140px;
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.4);
-    border: 1px solid #444;
+    top: 100%;
+    background-color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
     border-radius: 6px;
-    z-index: 1000;
+    z-index: 9999;
+    padding: 6px 0;
     overflow: hidden;
 }
 
-/* Les liens dans le menu déroulant */
-.lang-content a {
-    color: #fff;
-    padding: 8px 12px;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.9rem;
-}
-
-.lang-content a:hover {
-    background-color: #333;
-}
-
-/* Afficher le menu au survol (ou tu pourrais utiliser un petit script JS au clic) */
+/* Affichage au survol pour PC */
 .lang-dropdown:hover .lang-content {
     display: block;
 }
 
-/* Style des mini images de drapeaux */
+/* Affichage par classe active (géré au clic par JavaScript) */
+.lang-dropdown.active .lang-content {
+    display: block;
+}
+
+.lang-content a {
+    color: #333333;
+    padding: 8px 16px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9em;
+    transition: background 0.2s;
+}
+
+.lang-content a::after {
+    display: none !important; /* Empêche l'apparition d'une barre bleue sous les liens du menu */
+}
+
+.lang-content a:hover {
+    background-color: #f1f1f1;
+    color: #0f172a;
+}
+
 .flag-icon {
     width: 20px;
     height: auto;
+    object-fit: contain;
     border-radius: 2px;
 }
