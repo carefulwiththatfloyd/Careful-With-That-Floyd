@@ -591,6 +591,7 @@ body {
 /* Conteneur du menu déroulant de langues */
 /* --- MENU DÉROULANT DES LANGUES --- */
 
+/* --- MENU DÉROULANT DES LANGUES --- */
 .lang-dropdown {
     position: relative;
     display: inline-block;
@@ -621,19 +622,15 @@ body {
     top: 100%;
     background-color: #ffffff;
     min-width: 160px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     border-radius: 6px;
-    z-index: 9999;
+    z-index: 99999; /* Z-index très élevé pour passer au-dessus de tout */
     padding: 6px 0;
-    overflow: hidden;
+    text-align: left;
 }
 
-/* Affichage au survol pour PC */
-.lang-dropdown:hover .lang-content {
-    display: block;
-}
-
-/* Affichage par classe active (géré au clic par JavaScript) */
+/* Affichage au survol ET via la classe active */
+.lang-dropdown:hover .lang-content,
 .lang-dropdown.active .lang-content {
     display: block;
 }
@@ -646,11 +643,10 @@ body {
     align-items: center;
     gap: 10px;
     font-size: 0.9em;
-    transition: background 0.2s;
 }
 
 .lang-content a::after {
-    display: none !important; /* Empêche l'apparition d'une barre bleue sous les liens du menu */
+    display: none !important; /* Désactive la barre de soulignement animée du menu principal */
 }
 
 .lang-content a:hover {
