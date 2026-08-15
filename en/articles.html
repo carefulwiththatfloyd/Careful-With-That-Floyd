@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../style.css">
+    <title>Articles - Careful With That Floyd</title>
+
+    <style>
+        /* Style pour l'en-tête de catégorie */
+        .category-header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../tumblr_mw34j3L2L81rkuqo0o1_1280.jpg'); /* Remplace par le nom de ton image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 60px 20px;
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 50px; /* Espace entre l'en-tête et les cartes */
+        }
+
+        .category-header h1,
+        .category-header p {
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barre de navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="logo-link">
+            <img src="../Careful With That Floyd.png" alt="Careful With That Floyd" class="logo-img">
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="a-propos.html">About us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html" class="nav-btn">Contact</a></li>
+		<li class="lang-dropdown">
+    <div class="lang-btn">
+        <img src="../Drapeaux/Flag_of_United_Kingdom-512x256.png" alt="EN" class="flag-icon"> English ▼
+    </div>
+    <div class="lang-content">
+        <a href="../articles.html"><img src="../Drapeaux/Flag_of_France-512x341.png" alt="FR" class="flag-icon"> Français</a>
+        <a href="en/articles.html"><img src="../Drapeaux/Flag_of_United_Kingdom-512x256.png" alt="EN" class="flag-icon"> English</a>
+        <a href="../de/articles.html"><img src="../Drapeaux/Flag_of_Germany-512x307.png" alt="DE" class="flag-icon"> Deutsch</a>
+        <a href="../es/articles.html"><img src="../Drapeaux/Flag_of_Spain-512x341.png" alt="ES" class="flag-icon"> Español</a>
+        <a href="../it/articles.html"><img src="../Drapeaux/Flag_of_Italy-512x341.png" alt="IT" class="flag-icon"> Italiano</a>
+        <a href="../pt/articles.html"><img src="../Drapeaux/Flag_of_Portugal-512x341.png" alt="PT" class="flag-icon"> Português</a>
+		<a href="../nl/articles.html"><img src="../Drapeaux/Flag_of_Netherlands-512x341.png" alt="NL" class="flag-icon"> Nederlands</a>
+		<a href="../pl/articles.html"><img src="../Drapeaux/Flag_of_Poland-512x320.png" alt="PL" class="flag-icon"> Polski</a>
+		<a href="../jp/articles.html"><img src="../Drapeaux/Flag_of_Japan-512x341.png" alt="JP" class="flag-icon"> 日本語</a>
+    </div>
+</li>
+        </ul>
+    </nav>
+
+    <!-- En-tête de la page Actualités -->
+    <header class="category-header">
+        <h1>Articles</h1>
+        <p>Some articles complementing my videos</p>
+    </header>
+
+    <!-- Grille des projets de la catégorie -->
+    <main class="portfolio-section">
+        <div class="portfolio-grid">
+            
+            <!-- Projet 1 -->
+            <a href="pink-floyd-8mm-festival.html" class="project-card-link">
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('../PFffjune.png');"></div>
+                    <div class="project-info">
+                        <span class="project-tag">Projects</span>
+                        <h3>The 'Pink Floyd 8mm Film Festival'</h3>
+                        <p>Published on July 31, 2026</p>
+                    </div>
+                </div>
+            </a>
+            
+        </div>
+    </main>
+	
+	<!-- Section Commentaires -->
+<section class="format-section" style="max-width: 900px; margin: 50px auto; padding: 20px;">
+    <h2 class="format-title" style="color: #000000; border-bottom: 2px solid #000000; margin-bottom: 20px;">Comments</h2>
+    <div class="giscus"></div>
+</section>
+	
+	<script src="https://giscus.app/client.js"
+        data-repo="carefulwiththatfloyd/Careful-With-That-Floyd"
+        data-repo-id="R_kgDOTkThMA"
+        data-category="General"
+        data-category-id="DIC_kwDOTkThMM4DCaQe"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="fr"
+        crossorigin="anonymous"
+        async>
+	</script>
+
+</body>
+</html>
